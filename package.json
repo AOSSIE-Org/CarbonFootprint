@@ -5,6 +5,11 @@
   "scripts": {
     "test": "gulp test"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/aossie/CarbonFootprint.git"
+  },
+  "license": "CC-BY-NC-SA-4.0",
   "devDependencies": {
     "chrome-to-firefox-translation": "^1.0.1",
     "delete-empty": "^0.1.3",
