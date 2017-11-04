@@ -12,6 +12,12 @@ To download and install the extension to your favorite browser, visit Carbon Foo
 *	Safari (Coming soon... In the meanwhile, you can download a pre-built beta version from the "Dist" folder, or follow the instructions below to build it yourself.)
 *	[Firefox Add-On Gallery](https://addons.mozilla.org/en-US/firefox/addon/carbon-footprint/)
 
+Minimum Node Requirements
+-------------------------
+
+* ```Node >= 6.0.0```
+* ```npm >= 5.3.0```
+
 Building and Using Beta Versions
 --------------------------------
 
