@@ -11,7 +11,9 @@
     <title>Learn More about Carbon Footprint</title>
 
     <!-- Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+     <link href="css/bootstrap.min.css" rel="stylesheet">>
+
+
 
     <!-- Font-Awesome Stylesheet -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet prefetch">
@@ -156,6 +158,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
@@ -163,14 +166,16 @@
                             <h2>Live Air Quality Index</h2>
                             <div id="map-container"></div>
                             <p>
-                              <ul id="airQualityScale">
-                                <li style="color: inherit; padding-left:0px">Scale: </li>
-                                <li style="background-color: #019866">Good</li>
-                                <li style="background-color: #ffdd34">Moderate</li>
-                                <li style="background-color: #ff9934">Unhealthy for sensitive groups</li>
-                                <li style="background-color: #cf0033">Unhealthy</li>
-                                <li style="background-color: #670099">Very unhealthy</li>
-                                <li style="background-color: #820126">Hazardous</li>
+                              <ul id="airQualityScale" class="row container-fluid ">
+                                  <div class="row" id="airQualityScale" >
+                                    <div class="col-sm-0.9" style= "color: grey" "padding-left:0px">Scale</div>
+                                    <div class="col-sm-1" style="background-color: #019866">Good</div>
+                                    <div class="col-sm-2" style="background-color: #ffdd34">Moderate</div>
+                                    <div class="col-sm-3" style="background-color: #ff9934">Unhealthy for sensitive groups</div>
+                                    <div class="col-sm-2" style="background-color: #cf0033">Unhealthy</div>
+                                    <div class="col-sm-2" style="background-color: #670099">Very unhealthy</div>
+                                    <div class="col-sm-1.1" style="background-color: #820126">Hazardous</div>
+                                  </div>
                               </ul>
                               <form class="form-inline pull-left">
                                   <div class="form-group">
