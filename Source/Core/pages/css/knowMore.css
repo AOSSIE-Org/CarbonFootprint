@@ -676,12 +676,12 @@ input[type="radio"][name="unit"]:checked + span {
     }
 }
 
-ul#airQualityScale li{
-  display: inline;
-  padding: 8px;
+ul#airQualityScale div{
+  padding: 5px;
   color: white;
+  font-size: 12.5px;
   margin: 0px;
-  margin-right: -4px;
+  margin-right: -2px;
 }
 
 ul#airQualityScale {
