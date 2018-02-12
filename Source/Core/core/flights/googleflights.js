@@ -12,7 +12,7 @@ var googleFlightsManager = function(footprintCore, settingsProvider){
 
 googleFlightsManager.prototype.getList = function(){
     console.log("Hey Google Flights!");
-    var rawList = document.getElementsByClassName('EIGTDNC-d-W EIGTDNC-d-Lb EIGTDNC-d-S');
+    var rawList = document.getElementsByClassName('LJV2HGB-d-W LJV2HGB-d-Lb LJV2HGB-d-S');
     console.log(rawList);
     console.log("--raw list--");
     //console.log(rawList);
@@ -24,12 +24,12 @@ googleFlightsManager.prototype.getList = function(){
     depart = airports[0].slice(2,5);
     arrive = airports[1].slice(2,5);
     for(var x=1; x< rawList.length-1; x++){
-        detail = rawList[x].getElementsByClassName('EIGTDNC-d-Qb')[0].innerText;
+        detail = rawList[x].getElementsByClassName('LJV2HGB-d-Qb')[0].innerText;
         detail = detail.split(" ");
         console.log(detail);
         if(detail.length>0){
             if(!isNaN(parseInt(detail[0]))){
-                stops = rawList[x].getElementsByClassName('EIGTDNC-d-Z')[0].innerText.split(" ");
+                stops = rawList[x].getElementsByClassName('LJV2HGB-d-Z')[0].innerText.split(" ");
                 if(stops[0] === 'Change'){
                     stops = [];
                 }
@@ -51,7 +51,7 @@ googleFlightsManager.prototype.getList = function(){
         }
         //In the case of city having more than one airport
         // we try to find exact airport by not considering URL
-        var airportElement = rawList[x].getElementsByClassName('EIGTDNC-d-Ib');
+        var airportElement = rawList[x].getElementsByClassName('LJV2HGB-d-Ib');
         console.log(airportElement,airportElement.length);
         if(airportElement.length>0 && airportElement[0].innerText.length >0){
             airportElement = airportElement[0].innerText.split("-");
@@ -78,7 +78,7 @@ googleFlightsManager.prototype.getList = function(){
  */
 
 googleFlightsManager.prototype.insertInDom = function(processedList){
-    var checkOption = document.getElementsByClassName('EIGTDNC-d-W EIGTDNC-d-Lb EIGTDNC-d-S');
+    var checkOption = document.getElementsByClassName('LJV2HGB-d-W LJV2HGB-d-Lb LJV2HGB-d-S');
     var alter = [];
     for(var x=1;x<checkOption.length-1;x++){
         alter.push(checkOption[x]);
@@ -89,7 +89,7 @@ googleFlightsManager.prototype.insertInDom = function(processedList){
     console.log(processedList);
     for(x =0;x<checkOption.length;x++){
         console.log(checkOption[x].getElementsByClassName('carbon'));
-        insertIn = checkOption[x].getElementsByClassName('EIGTDNC-d-X')[0];
+        insertIn = checkOption[x].getElementsByClassName('LJV2HGB-d-X')[0];
         console.log(x);
         if(checkOption[x].getElementsByClassName('carbon').length < 1)
         {
