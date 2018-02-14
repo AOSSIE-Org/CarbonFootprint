@@ -12,7 +12,8 @@ var googleFlightsManager = function(footprintCore, settingsProvider){
 
 googleFlightsManager.prototype.getList = function(){
     console.log("Hey Google Flights!");
-    var rawList = document.getElementsByClassName('LJV2HGB-d-W LJV2HGB-d-Lb LJV2HGB-d-S');
+    var prefix = document.querySelector("#root").classList[0].split("-")[0]; //check for the prefix of the className in google maps Body tag.
+    var rawList = document.getElementsByClassName(prefix+'-d-W '+prefix+'-d-Lb '+prefix+'-d-S');
     console.log(rawList);
     console.log("--raw list--");
     //console.log(rawList);
@@ -24,12 +25,12 @@ googleFlightsManager.prototype.getList = function(){
     depart = airports[0].slice(2,5);
     arrive = airports[1].slice(2,5);
     for(var x=1; x< rawList.length-1; x++){
-        detail = rawList[x].getElementsByClassName('LJV2HGB-d-Qb')[0].innerText;
+        detail = rawList[x].getElementsByClassName(prefix+'-d-Qb')[0].innerText;
         detail = detail.split(" ");
         console.log(detail);
         if(detail.length>0){
             if(!isNaN(parseInt(detail[0]))){
-                stops = rawList[x].getElementsByClassName('LJV2HGB-d-Z')[0].innerText.split(" ");
+                stops = rawList[x].getElementsByClassName(prefix+'-d-Z')[0].innerText.split(" ");
                 if(stops[0] === 'Change'){
                     stops = [];
                 }
@@ -51,7 +52,7 @@ googleFlightsManager.prototype.getList = function(){
         }
         //In the case of city having more than one airport
         // we try to find exact airport by not considering URL
-        var airportElement = rawList[x].getElementsByClassName('LJV2HGB-d-Ib');
+        var airportElement = rawList[x].getElementsByClassName(prefix+'-d-Ib');
         console.log(airportElement,airportElement.length);
         if(airportElement.length>0 && airportElement[0].innerText.length >0){
             airportElement = airportElement[0].innerText.split("-");
