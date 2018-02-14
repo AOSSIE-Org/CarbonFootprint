@@ -18,7 +18,7 @@ pricelineManager.prototype.getList = function(){
     var processedList = [];
     var stops,depart,arrive,airport;
     for(var x=0; x< rawList.length; x++){
-        stops = this.validator.getByClass('stopsLocations', rawList[x]);
+        stops = this.validator.getByClass('stops-locations', rawList[x]);
         airport = this.validator.getByClass('airport-code', rawList[x]);
         depart = airport[0].innerText;
         arrive = airport[1].innerText;
