@@ -10,6 +10,7 @@ var cmd = require('jpm/lib/cmd');
 var argv = require('yargs').argv;
 var gulpif = require('gulp-if');
 var gulpFilter = require('gulp-filter');
+var deleteLines = require('gulp-delete-lines');
 var stripDebug = require('gulp-strip-debug');
 var uglify = require('gulp-uglify');
 var shell = require('gulp-shell');
@@ -50,11 +51,21 @@ gulp.task('localesFF', function() {
 gulp.task('coreFirefox', function() {
   var jsFilter = gulpFilter('**/*.js',{restore:true});
 	var linkFilter = gulpFilter('**/knowMore.html', {restore:true});
+	var validatorFilter = gulpFilter('**/validatorServer.js', {restore:true});
+
 	return gulp.src('Source/Core/**')
     .pipe(jsFilter)
     .pipe(gulpif(doMinify,stripDebug()))
     .pipe(gulpif(doMinify,uglify()))
-    .pipe(jsFilter.restore)
+		.pipe(jsFilter.restore)
+		.pipe(validatorFilter)
+		.pipe(gulpif(!doMinify, deleteLines({
+      'filters': [
+      /Raven(.|\s)+?;/g
+      ]
+    })))
+		.pipe(validatorFilter.restore)
+	.pipe(linkFilter)
 	.pipe(linkFilter)
 	.pipe(cheerio(function($, file){
 		$('#rating-link')
@@ -72,21 +83,40 @@ gulp.task('coreFirefox', function() {
 });
 
 gulp.task('foldersFirefox', function() {
-  var jsFilter = gulpFilter('**/*.js',{restore:true});
+	var jsFilter = gulpFilter('**/*.js',{restore:true});
+	var validatorFilter = gulpFilter('**/validatorServer.js', {restore:true});
+
 	return gulp.src('Source/Firefox/*/**')
     .pipe(jsFilter)
     .pipe(gulpif(doMinify,stripDebug()))
-    .pipe(gulpif(doMinify,uglify()))
+		.pipe(gulpif(doMinify,uglify()))
+		.pipe(validatorFilter)
+		.pipe(gulpif(!doMinify, deleteLines({
+      'filters': [
+			/Raven(.|\s)+?;/g,
+      ]
+    })))
+		.pipe(validatorFilter.restore)
+	.pipe(linkFilter)
     .pipe(jsFilter.restore)
 	  .pipe(gulp.dest(firefoxBuildpath + 'data'));
 });
 
 gulp.task('filesFirefox', function() {
-  var jsFilter = gulpFilter('*.js',{restore:true});
+	var jsFilter = gulpFilter('*.js',{restore:true});
+	var validatorFilter = gulpFilter('**/validatorServer.js', {restore:true});
+
 	return gulp.src('Source/Firefox/*.*')
     .pipe(jsFilter)
     .pipe(gulpif(doMinify,stripDebug()))
-    .pipe(gulpif(doMinify,uglify()))
+		.pipe(gulpif(doMinify,uglify()))
+		.pipe(validatorFilter)
+		.pipe(gulpif(!doMinify, deleteLines({
+      'filters': [
+			/Raven(.|\s)+?;/g,
+      ]
+    })))
+		.pipe(validatorFilter.restore)
     .pipe(jsFilter.restore)
 	  .pipe(gulp.dest(firefoxBuildpath));
 });
@@ -101,11 +131,19 @@ gulp.task('localesChrome', function() {
 gulp.task('coreChrome', function() {
   var jsFilter = gulpFilter('**/*.js',{restore:true});
 	var linkFilter = gulpFilter('**/knowMore.html', {restore:true});
+	var validatorFilter = gulpFilter('**/validatorServer.js', {restore:true});
   return gulp.src('Source/Core/**')
     .pipe(jsFilter)
     .pipe(gulpif(doMinify,stripDebug()))
     .pipe(gulpif(doMinify,uglify()))
-    .pipe(jsFilter.restore)
+		.pipe(jsFilter.restore)
+		.pipe(validatorFilter)
+		.pipe(gulpif(!doMinify, deleteLines({
+      'filters': [
+      /Raven(.|\s)+?;/g
+      ]
+    })))
+		.pipe(validatorFilter.restore)
 	.pipe(linkFilter)
 	.pipe(cheerio(function($, file){
 		$('#rating-link')
@@ -123,23 +161,39 @@ gulp.task('coreChrome', function() {
 });
 
 gulp.task('specificChrome', function() {
-  var jsFilter = gulpFilter('**/*.js',{restore:true});
+	var jsFilter = gulpFilter('**/*.js',{restore:true});
+	var validatorFilter = gulpFilter('**/validatorServer.js', {restore:true});
   return gulp.src('Source/Chrome/**')
     .pipe(jsFilter)
     .pipe(gulpif(doMinify,stripDebug()))
     .pipe(gulpif(doMinify,uglify()))
-    .pipe(jsFilter.restore)
+		.pipe(jsFilter.restore)
+		.pipe(validatorFilter)
+		.pipe(gulpif(!doMinify, deleteLines({
+      'filters': [
+      /Raven(.|\s)+;/g
+      ]
+    })))
+		.pipe(validatorFilter.restore)
 	  .pipe(gulp.dest(chromeBuildpath));
 });
 
 gulp.task('coreSafari', function() {
   var jsFilter = gulpFilter('**/*.js',{restore:true});
 	var linkFilter = gulpFilter('**/knowMore.html', {restore:true});
+	var validatorFilter = gulpFilter('**/validatorServer.js', {restore:true});
 	return gulp.src('Source/Core/**')
     .pipe(jsFilter)
     .pipe(gulpif(doMinify,stripDebug()))
     .pipe(gulpif(doMinify,uglify()))
-    .pipe(jsFilter.restore)
+		.pipe(jsFilter.restore)
+				.pipe(validatorFilter)
+		.pipe(gulpif(!doMinify, deleteLines({
+      'filters': [
+      /Raven(.|\s)+?;/g
+      ]
+    })))
+		.pipe(validatorFilter.restore)
 	.pipe(linkFilter)
 	.pipe(cheerio(function($, file){
 		/*
@@ -161,22 +215,38 @@ gulp.task('coreSafari', function() {
 });
 
 gulp.task('chromeShared', function() {
-  var jsFilter = gulpFilter('**/*.js',{restore:true});
+	var jsFilter = gulpFilter('**/*.js',{restore:true});
+	var validatorFilter = gulpFilter('**/validatorServer.js', {restore:true});
 	return gulp.src('Source/Chrome/background/**')
     .pipe(jsFilter)
     .pipe(gulpif(doMinify,stripDebug()))
     .pipe(gulpif(doMinify,uglify()))
-    .pipe(jsFilter.restore)
+		.pipe(jsFilter.restore)
+				.pipe(validatorFilter)
+		.pipe(gulpif(!doMinify, deleteLines({
+      'filters': [
+      /Raven(.|\s)+?;/g
+      ]
+    })))
+		.pipe(validatorFilter.restore)
 	  .pipe(gulp.dest(safariBuildpath + 'background/'));
 });
 
 gulp.task('specificSafari', function() {
-  var jsFilter = gulpFilter('**/*.js',{restore:true});
+	var jsFilter = gulpFilter('**/*.js',{restore:true});
+	var validatorFilter = gulpFilter('**/validatorServer.js', {restore:true});
 	return gulp.src('Source/Safari/**')
     .pipe(jsFilter)
     .pipe(gulpif(doMinify,stripDebug()))
     .pipe(gulpif(doMinify,uglify()))
-    .pipe(jsFilter.restore)
+		.pipe(jsFilter.restore)
+				.pipe(validatorFilter)
+		.pipe(gulpif(!doMinify, deleteLines({
+      'filters': [
+      /Raven(.|\s)+?;/g
+      ]
+    })))
+		.pipe(validatorFilter.restore)
 	  .pipe(gulp.dest(safariBuildpath));
 });
 
@@ -194,11 +264,19 @@ gulp.task('localesWebext', function() {
 gulp.task('coreWebExt', function() {
   	var jsFilter = gulpFilter('**/*.js',{restore:true});
 	var linkFilter = gulpFilter('**/knowMore.html', {restore:true});
+	var validatorFilter = gulpFilter('**/validatorServer.js', {restore:true});
 	return gulp.src('Source/Core/**')
 	.pipe(jsFilter)
 	.pipe(gulpif(doMinify,stripDebug()))
 	.pipe(gulpif(doMinify,uglify()))
 	.pipe(jsFilter.restore)
+			.pipe(validatorFilter)
+		.pipe(gulpif(!doMinify, deleteLines({
+      'filters': [
+      /Raven(.|\s)+?;/g
+      ]
+    })))
+		.pipe(validatorFilter.restore)
 	.pipe(linkFilter)
 	.pipe(cheerio(function($, file){
 		$('#rating-link')
@@ -217,12 +295,20 @@ gulp.task('coreWebExt', function() {
 
 gulp.task('specificWebExt', function() {
   var jsFilter = gulpFilter('**/*.js',{restore:true});
-  var manifestFilter = gulpFilter('**/manifest.json', {restore: true});
+	var manifestFilter = gulpFilter('**/manifest.json', {restore: true});
+	var validatorFilter = gulpFilter('**/validatorServer.js', {restore:true});
   return gulp.src('Source/Chrome/**')
     .pipe(jsFilter)
     .pipe(gulpif(doMinify,stripDebug()))
     .pipe(gulpif(doMinify,uglify()))
-    .pipe(jsFilter.restore)
+		.pipe(jsFilter.restore)
+		.pipe(validatorFilter)
+		.pipe(gulpif(!doMinify, deleteLines({
+      'filters': [
+      /Raven(.|\s)+?;/g
+      ]
+    })))
+		.pipe(validatorFilter.restore)
     .pipe(manifestFilter)
     .pipe(jeditor({
     	"applications": {
