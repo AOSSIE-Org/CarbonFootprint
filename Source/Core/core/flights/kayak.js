@@ -57,7 +57,7 @@ kayakManager.prototype.insertInDom = function(processedList){
     console.log(checkOption);
     console.log(processedList);
     for(var x=0;x<checkOption.length;x++){
-        insertIn = this.validator.getByClass('extraInfo', checkOption[x]);
+        insertIn = this.validator.getByClass('col-info', checkOption[x]);
         insertIn = insertIn[insertIn.length-1];
         if(checkOption[x].getElementsByClassName('carbon').length<1){
             insertIn.appendChild(this.core.createMark(processedList[2*x].co2Emission,processedList[(2*x)+1].co2Emission));
