@@ -92,7 +92,7 @@ YandexMapsManager.prototype.getDistanceString = function(route) {
 
 YandexMapsManager.prototype.getTimeString = function(route) {
   var timeString = this.validator
-        .getByClass('driving-route-view__route-title-primary', route)[0]
+        .getByClass('masstransit-route-view__route-title-primary', route)[0]
         .innerHTML;
   timeString = ' ' + timeString;
   console.log('timeString:' + timeString);
@@ -122,6 +122,7 @@ YandexMapsManager.prototype.convertDistance = function(distanceStr) {
 
 YandexMapsManager.prototype.convertTime = function(timeStr) {
   if (timeStr) {
+    timeStr = timeStr.replace(/&nbsp;/gi,' ');
     var days = (/ (\w*) d/).exec(timeStr);
     var hrs = (/ (\w*) h/).exec(timeStr);
     var mins = (/ (\w*) m/).exec(timeStr);
@@ -151,8 +152,13 @@ YandexMapsManager.prototype.convertTime = function(timeStr) {
  */
 
 YandexMapsManager.prototype.insertFootprintElement = function(route, e) {
+  if (this.isDriving()) {
+    className = 'driving-route-view';
+  }else if(this.isTransit()){
+    className = 'masstransit-route-view';
+  }
   if (route.getElementsByClassName('carbon').length === 0) {
-    this.validator.getByClass('driving-route-view', route)[0].appendChild(e);
+    this.validator.getByClass(className, route)[0].appendChild(e);
   }
 };
 
