@@ -36,7 +36,7 @@ FlightsValidator.prototype.verifyAirports = function(airport){
  */
 
 FlightsValidator.prototype.verifyStops = function(stops){
-  if(!Array.isArray(stops) || stops.length == 0){
+  if(!Array.isArray(stops)){
     this.counterMeasure("invalid stop");
     return false;
   }

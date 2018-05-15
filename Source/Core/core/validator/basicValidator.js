@@ -156,6 +156,39 @@ BasicValidator.prototype.isNumber = function(i){
 };
 
 /**
+ * Used to sync the stored data with sentry.io
+ * @param {function} cb Callback function which is supplied with the list of non-working websites
+ */
+
+function syncWithSentry(cb){
+	var xhttp = new XMLHttpRequest(), finalObj = {};
+	if ("withCredentials" in xhttp) {
+		// Check if the XMLHttpRequest object has a "withCredentials" property.
+		// "withCredentials" only exists on XMLHTTPRequest2 objects.
+		xhttp.withCredentials = true;
+	  } else if (typeof XDomainRequest != "undefined") {
+		// Otherwise, check if XDomainRequest.
+		// XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+		xhttp = new XDomainRequest();
+		xhttp.withCredentials = true;
+	  } else {
+		// Otherwise, CORS is not supported by the browser.
+	  }
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var errorArray = JSON.parse(this.responseText);
+			cb( errorArray.map(function(element) {
+				return element.culprit;
+			}));
+		}
+	};
+	xhttp.open("GET", "https://sentry.io/api/0/projects/aossie/carbon-footprint/issues/", true);
+	xhttp.setRequestHeader("Cache-Control", "no-cache");
+	xhttp.setRequestHeader("Authorization", "Bearer d401709f63d148d6af9bede4201f1364b25432e3853d48929a887bd4bc4cedff");
+	xhttp.send();
+}
+
+/**
  * Function to update the working status of website
  * @param {bool} isWorking
  */
@@ -166,11 +199,31 @@ BasicValidator.prototype.updateCheck = function(isWorking){
   console.log(this.storageManager);
   this.storageManager.getStorage('data',function(data){
     console.log(data);
+    if(!(data['data']['syncTimeStamp'] && (((Date.now() - data['data']['syncTimeStamp'])/(1000))/60)/60<=24)){
+      syncWithSentry(function(errorArray){
+        errorArray.forEach(function(element) {
+          for(var id in data["data"]){
+            for(var key in data["data"][id]){
+              var regex = new RegExp(data["data"][id][key]["regex"]);
+              if(regex.test(element)){
+                if(data['data'][id][key].working){
+                  data['data'][id][key].working = false;
+                }
+                return;
+              }
+            }}
+        });
+        data['data']['syncTimeStamp']= Date.now();
+        self.storageManager.insertStorage('data',data,function(){
+          console.log("changed Data",data);
+        });
+      });
+    }
     if(data['data'][self.type][self.website].working != isWorking){
       data['data'][self.type][self.website].working = isWorking;
       self.storageManager.insertStorage('data',data,function(){
-      console.log("changed Data",data);
-    });
+        console.log("changed Data",data);
+      });
     }
     else{
       console.log("data is stored already"); //because there is a limit on number of changes per min in chrome API

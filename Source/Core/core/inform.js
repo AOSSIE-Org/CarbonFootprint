@@ -59,7 +59,7 @@ var cb = function(result,serviceManager){
             console.log(regex,check);
             console.log(regex.test(question));
             console.log(data[id][key]['active']);
-            if(regex.test(question) && !data[id][key]['active']){
+            if(regex.test(question) && (!data[id][key]['active'] || !data[id][key]['working'])){
                 flag = false;
                 console.log('this site is disabled');
                 return false;
