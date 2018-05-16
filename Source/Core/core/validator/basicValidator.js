@@ -200,6 +200,14 @@ BasicValidator.prototype.updateCheck = function(isWorking){
   this.storageManager.getStorage('data',function(data){
     console.log(data);
     if(!(data['data']['syncTimeStamp'] && (((Date.now() - data['data']['syncTimeStamp'])/(1000))/60)/60<=24)){
+      for (var id in data["data"]) {
+        for (var key in data["data"][id]) {
+          // initially all websites are assumed to
+          // be working, except those who are passed to us
+          // assuming every website will be fixed every 24 hours
+          data['data'][id][key].working = true;
+        }
+      }
       syncWithSentry(function(errorArray){
         errorArray.forEach(function(element) {
           for(var id in data["data"]){
