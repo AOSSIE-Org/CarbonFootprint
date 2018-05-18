@@ -25,7 +25,7 @@ var chromeBuildpath = 'Build/Chrome/';
 var firefoxBuildpath = 'Build/Firefox/';
 var safariBuildpath = 'Build/Safari/CarbonFootprint.safariextension/';
 var webExtensionBuildpath = 'Build/WebExtension-Firefox/';
-var doMinify = (argv.debug === undefined) ? true : false;
+var doMinify = (argv.debugApp === undefined) ? true : false;
 
 gulp.task('karma', function (done) {
 	new Server({
