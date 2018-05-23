@@ -165,12 +165,42 @@ BasicValidator.prototype.updateCheck = function(isWorking){
   var self = this;
   console.log(this.storageManager);
   this.storageManager.getStorage('data',function(data){
+    debugger;
     console.log(data);
+    if(!data['data'])return;
+    if(!(data['data']['syncTimeStamp'] && ((Date.now() - data['data']['syncTimeStamp'])/(1000*60*60))<=24)){
+      for (var id in data["data"]) {
+        for (var key in data["data"][id]) {
+          // initially all websites are assumed to
+          // be working, except those who are passed to us
+          // assuming every website will be fixed every 24 hours
+          data['data'][id][key].working = true;
+        }
+      }
+      Server.syncWithSentry(function(errorArray){
+        errorArray.forEach(function(element) {
+          for(var id in data["data"]){
+            for(var key in data["data"][id]){
+              var regex = new RegExp(data["data"][id][key]["regex"]);
+              if(regex.test(element)){
+                if(data['data'][id][key].working){
+                  data['data'][id][key].working = false;
+                }
+                return;
+              }
+            }}
+        });
+        data['data']['syncTimeStamp']= Date.now();
+        self.storageManager.insertStorage('data',data,function(){
+          console.log("changed Data",data);
+        });
+      });
+    }
     if(data['data'][self.type][self.website].working != isWorking){
       data['data'][self.type][self.website].working = isWorking;
       self.storageManager.insertStorage('data',data,function(){
-      console.log("changed Data",data);
-    });
+        console.log("changed Data",data);
+      });
     }
     else{
       console.log("data is stored already"); //because there is a limit on number of changes per min in chrome API
