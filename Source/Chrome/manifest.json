@@ -13,7 +13,7 @@
         ]
     },
     "options_page": "pages/options.html",
-    "web_accessible_resources": ["pages/options.html", "pages/knowMore.html", "images/quest_mark.jpg", "core/resources/airports.json", "core/resources/airplanes.json", "core/resources/trainEmissions.json"],
+    "web_accessible_resources": ["pages/options.html", "pages/knowMore.html", "images/quest_mark.jpg", "core/resources/airports.json", "core/resources/airplanes.json", "core/resources/trainEmissions.json", "core/resources/trains.json"],
     "browser_action": {
         "default_icon": "images/globe-64.png",
         "default_title": "Google Maps Carbon Footprint",
@@ -1341,6 +1341,71 @@
         },
         {
             "matches": [
+                "https://www.irctc.co.in/eticketing/mainpage.jsf/*",
+                "https://www.irctc.co.in/eticketing/trainbetweenstns.jsf"
+            ],
+            "css": ["core/css/main.css"],
+            "js": [
+                "core/TrainsCarbonFootprintCore.js",
+                "core/SettingsProviderCore.js",
+                "core/settings/ChromeSettingsProvider.js",
+                "core/helpers/ChromeHelper.js",
+                "core/validator/raven.min.js",
+                "core/validator/basicValidator.js",
+                "core/validator/trainsValidator.js",
+                "core/validator/validatorServer.js",
+                "core/trains/irctc.js",
+                "core/init.js"
+            ],
+            "run_at": "document_end",
+            "all_frames": true
+        },
+        {
+        "matches": [
+            "https://rail.yatra.com/trains/*/search*"
+        ],
+        "css": [
+            "core/css/main.css"
+        ],
+        "js": [
+            "core/TrainsCarbonFootprintCore.js",
+            "core/SettingsProviderCore.js",
+            "core/settings/ChromeSettingsProvider.js",
+            "core/helpers/ChromeHelper.js",
+            "core/validator/raven.min.js",
+            "core/validator/basicValidator.js",
+            "core/validator/trainsValidator.js",
+            "core/validator/validatorServer.js",
+            "core/trains/yatra.js",
+            "core/init.js"
+        ],
+        "run_at": "document_end",
+        "all_frames": true
+         },
+        {
+        "matches": [
+            "https://www.goibibo.com/trains/results*"
+        ],
+        "css": [
+            "core/css/main.css"
+        ],
+        "js": [
+            "core/TrainsCarbonFootprintCore.js",
+            "core/SettingsProviderCore.js",
+            "core/settings/ChromeSettingsProvider.js",
+            "core/helpers/ChromeHelper.js",
+            "core/validator/raven.min.js",
+            "core/validator/basicValidator.js",
+            "core/validator/trainsValidator.js",
+            "core/validator/validatorServer.js",
+            "core/trains/goibibo.js",
+            "core/init.js"
+        ],
+        "run_at": "document_end",
+        "all_frames": true
+         },
+        {
+        "matches": [
                 "https://ventes.ouigo.com/Schedule/Select*"
             ],
             "css": ["core/css/main.css"],

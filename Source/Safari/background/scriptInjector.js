@@ -1046,6 +1046,19 @@ injector.thalys = [
     'https://thalys.vsct.fr/billet-train/resultats*'
 ];
 
+injector.irctc = [
+    'https://www.irctc.co.in/eticketing/mainpage.jsf/*',
+    'https://www.irctc.co.in/eticketing/trainbetweenstns.jsf'
+];
+
+injector.yatra = [
+    'https://rail.yatra.com/trains/*/search*'
+];
+
+injector.goibio = [
+    'https://www.goibibo.com/trains/results*'
+]
+
 injector.lufthansa = [
   'https://book.lufthansa.com/lh/dyn/air-lh/revenue/viewFlights*'
 ];
@@ -1166,7 +1179,10 @@ injector.allTrains = injector.allTrains.concat(injector.eurostar,
                                                injector.ouigo,
                                                injector.tgvlyria,
                                                injector.voyages,
-                                               injector.thalys
+                                               injector.thalys,
+                                               injector.irctc,
+                                               injector.yatra,
+                                               injector.goibio
 );
 
 injector.allURLs = [].concat(injector.allMaps,
@@ -1214,7 +1230,7 @@ safari
 
 /**
  * Script injection for all the URLs
- */ 
+ */
 
 injector.informjs = injector.URL + 'core/inform.js';
 injector.storageManager = injector.URL + 'core/storageManager.js';
@@ -1282,7 +1298,10 @@ injector.allTrainManagers = [
     injector.URL + 'core/trains/ouigo.js',
     injector.URL + 'core/trains/tgv-lyria.js',
     injector.URL + 'core/trains/voyages-sncf.js',
-    injector.URL + 'core/trains/thalys.js'
+    injector.URL + 'core/trains/thalys.js',
+    injector.URL + 'core/trains/irctc.js',
+    injector.URL + 'core/trains/yatra.js',
+    injector.URL + 'core/trains/goibibo.js',
 ];
 
 /**
@@ -1323,7 +1342,10 @@ injector.allTrainURLs = [
     injector.ouigo,
     injector.tgvlyria,
     injector.voyages,
-    injector.thalys
+    injector.thalys,
+    injector.irctc,
+    injector.yatra,
+    injector.goibio
 ];
 
 /**

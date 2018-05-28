@@ -20,6 +20,28 @@ var TrainsFootprintCore = function(settingsProvider, helper){
   var self = this;
 };
 
+
+TrainsFootprintCore.prototype.fuzzySearch = function fuzzysearch (needle, haystack) {
+  var hlen = haystack.length;
+  var nlen = needle.length;
+  if (nlen > hlen) {
+    return false;
+  }
+  if (nlen === hlen) {
+    return needle === haystack;
+  }
+  outer: for (var i = 0, j = 0; i < nlen; i++) {
+    var nch = needle.charCodeAt(i);
+    while (j < hlen) {
+      if (haystack.charCodeAt(j++) === nch) {
+        continue outer;
+      }
+    }
+    return false;
+  }
+  return true;
+};
+
 /**
  * Function for getting the appropriate data according to the website.
  * @param String
@@ -28,6 +50,17 @@ TrainsFootprintCore.prototype.storeDataSource = function(dataSource){
   this.getData(this.helper.getFilePath("core/resources/trainEmissions.json"), function(data){
     trainData = data.trainData[dataSource];
     console.log(trainData);
+  });
+};
+
+/**
+ *  Function for getting average speed of train according to website
+ *  @param String
+ */
+TrainsFootprintCore.prototype.storeTrainSpeed = function(dataSource){
+  this.getData(this.helper.getFilePath("core/resources/trains.json"), function(data){
+    trainSpeedData = data[dataSource];
+    console.log(trainSpeedData);
   });
 };
 
@@ -49,7 +82,7 @@ TrainsFootprintCore.prototype.geocode = function(toGeocode){
   });
 };
 
-/*This formula was generated in skitlearn using the data at 
+/*This formula was generated in skitlearn using the data at
 * https://drive.google.com/file/d/0B4tFHTfBrq9wN2RCd2VxQ1Q0eG8/view?usp=sharing
 * It is used to convert straight line distance between 2 train stations into distance travelled
 * by a train between these 2 stations, for graph check trainDistance.png in Relevant Docs folder.
@@ -132,5 +165,5 @@ TrainsFootprintCore.prototype.footprintToString = function(footprint) {
   return '' + footprint + unit + ' CO<sub>2</sub> per person';
 };
 
-  var trainData, distanceBetween;
+  var trainData, distanceBetween, trainSpeedData;
   var CarbonFootprintCore = TrainsFootprintCore;

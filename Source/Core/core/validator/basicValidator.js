@@ -165,7 +165,6 @@ BasicValidator.prototype.updateCheck = function(isWorking){
   var self = this;
   console.log(this.storageManager);
   this.storageManager.getStorage('data',function(data){
-    debugger;
     console.log(data);
     if(!data['data'])return;
     if(!(data['data']['syncTimeStamp'] && ((Date.now() - data['data']['syncTimeStamp'])/(1000*60*60))<=24)){
