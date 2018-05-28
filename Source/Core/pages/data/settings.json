@@ -145,6 +145,21 @@
                 "active": true,
                 "working": true,
                 "regex": "sncf\\.(.*)\\/"
+            },
+            "irctc":{
+                "active": true,
+                "working": true,
+                "regex": "irctc\\.co\\.in\\/eticketing\\/"
+            },
+            "yatra":{
+                "active": true,
+                "working": true,
+                "regex": "rail\\.yatra\\.com\\/(.*)\\/search/"
+            },
+            "goibibo":{
+                "active": true,
+                "working": true,
+                "regex": "goibibo\\.com/trains/results"
             }
         }
     }
