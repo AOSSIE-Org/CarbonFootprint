@@ -1,21 +1,25 @@
 {
-    "_comment": "this is the list of trains services with their average speed",
-    "india":{
-        "rajdhani":73.24,
-        "duronto":71.42307692307692,
-        "jan shatabdi":57.91304347826087,
-        "shatabdi":67.44444444444444,
-        "garib rath":58.18518518518518,
-        "sampark kranti":58.145833333333336,
-        "humsafar":57.54054054054054,
-        "tejas": 65.5,
-        "antyodya":56.76923076923077,
-        "suvidha":55.5,
-        "ac superfast":60.642857142857146,
-        "superfast": 57.06535947712418,
-        "ac":48.416666666666664,
-        "mail express":46.16574585635359,
-        "passenger":33.62056074766355,
-        "average":57.83816963764914
-    }
+  "_comment":
+    "this is the list of trains services with their average speed, source for India:https://indiarailinfo.com/trains, for thalys: time through wikipedia and distance using google maps",
+  "india": {
+    "rajdhani": 73.24,
+    "duronto": 71.42307692307692,
+    "jan shatabdi": 57.91304347826087,
+    "shatabdi": 67.44444444444444,
+    "garib rath": 58.18518518518518,
+    "sampark kranti": 58.145833333333336,
+    "humsafar": 57.54054054054054,
+    "tejas": 65.5,
+    "antyodya": 56.76923076923077,
+    "suvidha": 55.5,
+    "ac superfast": 60.642857142857146,
+    "superfast": 57.06535947712418,
+    "ac": 48.416666666666664,
+    "mail express": 46.16574585635359,
+    "passenger": 33.62056074766355,
+    "average": 57.83816963764914
+  },
+  "europe": {
+    "thalys": 120.10262422200103
+  }
 }
