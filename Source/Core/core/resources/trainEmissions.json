@@ -17,11 +17,18 @@
       "alleo": 11.3,
       "bus": 96.5,
       "average": 10.59,
-      "_comment": "CO2 in gram/km, source: http://medias.sncf.com/sncfcom/pdf/co2/Information_CO2_des_prestations_de_transport_Methodologie_generale.pdf or check relevant docs folder"
+      "_comment":
+        "CO2 in gram/km, source: http://medias.sncf.com/sncfcom/pdf/co2/Information_CO2_des_prestations_de_transport_Methodologie_generale.pdf or check relevant docs folder"
     },
     "irctc": {
       "average": 7.837,
-      "_comment": "CO2 in gram/km, source: https://drive.google.com/file/d/1N9OJ6xsKw9QrDZXr3-Imf1gkf9O65oOy/view?usp=sharing or check relevant docs folder"
+      "_comment":
+        "CO2 in gram/km, source: https://drive.google.com/file/d/1N9OJ6xsKw9QrDZXr3-Imf1gkf9O65oOy/view?usp=sharing or check relevant docs folder"
+    },
+    "europe": {
+      "nsb": 8,
+      "_comment":
+        "CO2 in gram/km, source(for norway): https://www.toi.no/getfile.php/1313922/Publikasjoner/T%C3%98I%20rapporter/2009/1047-2009/sum-1047-2009.pdf or check relevant docs folder"
     }
   }
 }

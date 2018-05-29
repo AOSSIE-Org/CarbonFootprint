@@ -1021,6 +1021,9 @@ injector.thalysInternational = [
   "https://travel.b-europe.com/thalys-nl/*/booking/*",
   "https://travel.b-europe.com/thalys-de/*/booking/*"
 ];
+injector.nsb = [
+  "https://www.nsb.no/en/booking/select-trip*"
+];
 
 injector.irctc = [
   "https://www.irctc.co.in/eticketing/mainpage.jsf/*",
@@ -1152,6 +1155,7 @@ injector.allTrains = injector.allTrains.concat(
   injector.voyages,
   injector.thalys,
   injector.thalysInternational,
+  injector.nsb,
   injector.irctc,
   injector.yatra,
   injector.goibio
@@ -1272,6 +1276,7 @@ injector.allTrainManagers = [
   injector.URL + "core/trains/voyages-sncf.js",
   injector.URL + "core/trains/thalys.js",
   injector.URL + "core/trains/thalys-international.js",
+  injector.URL + "core/trains/nsb.js",
   injector.URL + "core/trains/irctc.js",
   injector.URL + "core/trains/yatra.js",
   injector.URL + "core/trains/goibibo.js"
@@ -1317,6 +1322,7 @@ injector.allTrainURLs = [
   injector.voyages,
   injector.thalys,
   injector.thalysInternational,
+  injector.nsb,
   injector.irctc,
   injector.yatra,
   injector.goibio

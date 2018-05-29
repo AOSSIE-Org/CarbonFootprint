@@ -160,6 +160,11 @@
                 "active": true,
                 "working": true,
                 "regex": "goibibo\\.com/trains/results"
+            },
+            "nsb":{
+                "active": true,
+                "working": true,
+                "regex": "nsb\\.no/en/booking/select-trip"
             }
         }
     }

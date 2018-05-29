@@ -1412,6 +1412,24 @@
       "all_frames": true
     },
     {
+      "matches": ["https://www.nsb.no/en/booking/select-trip*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/TrainsCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/trainsValidator.js",
+        "core/validator/validatorServer.js",
+        "core/trains/nsb.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
       "matches": ["https://www.travelocity.com/*"],
       "css": ["core/css/flights.css"],
       "js": [
