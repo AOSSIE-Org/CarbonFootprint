@@ -1005,7 +1005,17 @@ injector.priceline = ["https://*.priceline.com/m/fly/*"];
 
 injector.travelocity = ["https://*.travelocity.com/*"];
 
-injector.eurostar = ["https://booking.eurostar.com/*/train-search/standard*"];
+injector.eurostar = [
+  "https://booking.eurostar.com/fr-fr/train-search/standard*"
+];
+injector.eurostarInternational = [
+  "https://booking.eurostar.com/nl-nl/train-search/standard*",
+  "https://booking.eurostar.com/be-en/train-search/standard*",
+  "https://booking.eurostar.com/be-fr/train-search/standard*",
+  "https://booking.eurostar.com/be-nl/train-search/standard*",
+  "https://booking.eurostar.com/uk-en/train-search/standard*",
+  "https://booking.eurostar.com/rw-en/train-search/standard*"
+];
 
 injector.ouigo = ["https://ventes.ouigo.com/Schedule/Select*"];
 
@@ -1021,9 +1031,7 @@ injector.thalysInternational = [
   "https://travel.b-europe.com/thalys-nl/*/booking/*",
   "https://travel.b-europe.com/thalys-de/*/booking/*"
 ];
-injector.nsb = [
-  "https://www.nsb.no/en/booking/select-trip*"
-];
+injector.nsb = ["https://www.nsb.no/en/booking/select-trip*"];
 
 injector.irctc = [
   "https://www.irctc.co.in/eticketing/mainpage.jsf/*",
@@ -1150,6 +1158,7 @@ injector.allTrains = [];
 
 injector.allTrains = injector.allTrains.concat(
   injector.eurostar,
+  injector.eurostarInternational,
   injector.ouigo,
   injector.tgvlyria,
   injector.voyages,
@@ -1271,6 +1280,7 @@ injector.allFlightManagers = [
 
 injector.allTrainManagers = [
   injector.URL + "core/trains/eurostar.js",
+  injector.URL + "core/trains/eurostar-international.js",
   injector.URL + "core/trains/ouigo.js",
   injector.URL + "core/trains/tgv-lyria.js",
   injector.URL + "core/trains/voyages-sncf.js",
@@ -1317,6 +1327,7 @@ injector.allFlightURLs = [
 
 injector.allTrainURLs = [
   injector.eurostar,
+  injector.eurostarInternational,
   injector.ouigo,
   injector.tgvlyria,
   injector.voyages,
