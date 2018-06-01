@@ -1303,6 +1303,25 @@
       "all_frames": true
     },
     {
+      "matches": ["https://shop.acprail.com/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/TrainsCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/trainsValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/trains/acprail.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
       "matches": [
         "https://www.tgv-lyria.com/en/booking/timetables-and-fares/timetables*"
       ],
