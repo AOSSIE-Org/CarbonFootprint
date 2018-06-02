@@ -1024,6 +1024,8 @@ injector.acprail = [
   "https://shop.acprail.com/#/ptp/point__to_point_tickets/results*"
 ];
 
+injector.raileurope = ["http://www.raileurope.com/spip.php*"];
+
 injector.tgvlyria = [
   "https://*.tgv-lyria.com/en/booking/timetables-and-fares/timetables*"
 ];
@@ -1166,6 +1168,7 @@ injector.allTrains = injector.allTrains.concat(
   injector.eurostarInternational,
   injector.ouigo,
   injector.acprail,
+  injector.raileurope,
   injector.tgvlyria,
   injector.voyages,
   injector.thalys,
@@ -1289,6 +1292,7 @@ injector.allTrainManagers = [
   injector.URL + "core/trains/eurostar-international.js",
   injector.URL + "core/trains/ouigo.js",
   injector.URL + "core/trains/acprail.js",
+  injector.URL + "core/trains/raileurope.js",
   injector.URL + "core/trains/tgv-lyria.js",
   injector.URL + "core/trains/voyages-sncf.js",
   injector.URL + "core/trains/thalys.js",
@@ -1337,6 +1341,7 @@ injector.allTrainURLs = [
   injector.eurostarInternational,
   injector.ouigo,
   injector.acprail,
+  injector.raileurope,
   injector.tgvlyria,
   injector.voyages,
   injector.thalys,

@@ -168,7 +168,12 @@
       "acprail": {
         "active": true,
         "working": true,
-        "regex": "shop\\.acprail\\.com/#/ptp/point__to_point_tickets/results"
+        "regex": "shop\\.acprail\\.com/./ptp/point__to_point_tickets/results"
+      },
+      "raileurope": {
+        "active": true,
+        "working": true,
+        "regex": "raileurope\\.com/spip\\.php"
       }
     }
   }

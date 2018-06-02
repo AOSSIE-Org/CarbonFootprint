@@ -7,7 +7,7 @@ var acprailManager = function(footprintCore, settingsProvider) {
     arrive: "",
     depart: ""
   };
-  this.validator = new TrainsValidator("europe");
+  this.validator = new TrainsValidator("acprail");
   this.footprintCore.storeTrainSpeed("europe");
   this.footprintCore.storeDataSource(this.dataSource);
 };
