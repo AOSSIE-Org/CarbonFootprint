@@ -63,11 +63,9 @@ TrainsFootprintCore.prototype.storeDataSource = function(dataSource) {
  *  @param String
  */
 TrainsFootprintCore.prototype.storeTrainSpeed = function(dataSource) {
-  debugger;
   this.getData(this.helper.getFilePath("core/resources/trains.json"), function(
     data
   ) {
-    debugger;
     trainSpeedData = data[dataSource];
     console.log(trainSpeedData);
   });
@@ -126,7 +124,7 @@ TrainsFootprintCore.prototype.getDistance = function(lat1, lon1, lat2, lon2) {
   var a =
     0.5 -
     c((lat2 - lat1) * p) / 2 +
-    c(lat1 * p) * c(lat2 * p) * (1 - c((lon2 - lon1) * p)) / 2;
+    (c(lat1 * p) * c(lat2 * p) * (1 - c((lon2 - lon1) * p))) / 2;
   var distanceBetweenCoords = 12742 * Math.asin(Math.sqrt(a)); // 12742 km = diameter of earth
   console.log("direct distance = " + distanceBetweenCoords);
   return this.convertToTrainDistance(distanceBetweenCoords);

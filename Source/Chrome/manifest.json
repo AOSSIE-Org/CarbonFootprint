@@ -1322,6 +1322,103 @@
       "all_frames": true
     },
     {
+      "matches": ["https://reiseauskunft.bahn.de/bin/query.exe/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/TrainsCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/trainsValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/trains/bahn.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://biglietti.italotreno.it/Booking_Acquisto_SelezioneTreno_A.aspx"
+      ],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/TrainsCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/trainsValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/trains/italotreno.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.lefrecce.it/B2CWeb/search.do*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/TrainsCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/trainsValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/trains/lefrecce.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.sj.se/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/TrainsCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/trainsValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/trains/sj.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://secure.transwa.wa.gov.au/bookingsexpress.aspx*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/TrainsCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/trainsValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/trains/transwa.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
       "matches": [
         "http://www.raileurope.com/spip.php*",
         "https://www.raileurope.com/spip.php*"

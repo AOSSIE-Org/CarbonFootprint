@@ -1,6 +1,6 @@
 {
   "_comment":
-    "this is the list of trains services with their average speed, source for India:https://indiarailinfo.com/trains, for thalys: time through wikipedia and distance using google maps, for nsb :- https://en.wikipedia.org/wiki/High-speed_rail_in_Norway",
+    "this is the list of trains services with their average speed, source for India:https://indiarailinfo.com/trains, for thalys: time through wikipedia and distance using google maps, for nsb :- https://en.wikipedia.org/wiki/High-speed_rail_in_Norway, for rest of europe:- data from acprail, for australlia:- wikipedia (https://en.wikipedia.org/wiki/AvonLink,https://en.wikipedia.org/wiki/Transwa_Prospector,https://en.wikipedia.org/wiki/Transwa_Australind)",
   "india": {
     "rajdhani": 73.24,
     "duronto": 71.42307692307692,
@@ -35,5 +35,11 @@
     "atoc": 111.4659200866206,
     "via": 138.68710102637868,
     "average": 138.68710102637868
+  },
+  "australia": {
+    "australind": 63,
+    "prospector": 85,
+    "avonlink": 76.52884615384616,
+    "average": 74.84294871794872
   }
 }

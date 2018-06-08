@@ -1021,9 +1021,18 @@ injector.eurostarInternational = [
 injector.ouigo = ["https://ventes.ouigo.com/Schedule/Select*"];
 
 injector.acprail = [
-  "https://shop.acprail.com/#/ptp/point__to_point_tickets/results*"
+  "https://shop.acprail.com/*/ptp/point__to_point_tickets/results*"
 ];
 
+injector.bahn = ["https://reiseauskunft.bahn.de/bin/query.exe/"];
+
+injector.italotreno = [
+  "https://biglietti.italotreno.it/Booking_Acquisto_SelezioneTreno_A.aspx"
+];
+
+injector.lefrecce = ["https://www.lefrecce.it/B2CWeb/search.do*"];
+injector.sj = ["https://www.sj.se/en/*/tidtabell/*"];
+injector.transwa = ["https://secure.transwa.wa.gov.au/bookingsexpress.aspx*"];
 injector.raileurope = ["http://www.raileurope.com/spip.php*"];
 
 injector.tgvlyria = [
@@ -1168,6 +1177,11 @@ injector.allTrains = injector.allTrains.concat(
   injector.eurostarInternational,
   injector.ouigo,
   injector.acprail,
+  injector.bahn,
+  injector.italotreno,
+  injector.lefrecce,
+  injector.sj,
+  injector.transwa,
   injector.raileurope,
   injector.tgvlyria,
   injector.voyages,
@@ -1292,6 +1306,11 @@ injector.allTrainManagers = [
   injector.URL + "core/trains/eurostar-international.js",
   injector.URL + "core/trains/ouigo.js",
   injector.URL + "core/trains/acprail.js",
+  injector.URL + "core/trains/bahn.js",
+  injector.URL + "core/trains/italotreno.js",
+  injector.URL + "core/trains/lefrecce.js",
+  injector.URL + "core/trains/sj.js",
+  injector.URL + "core/trains/transwa.js",
   injector.URL + "core/trains/raileurope.js",
   injector.URL + "core/trains/tgv-lyria.js",
   injector.URL + "core/trains/voyages-sncf.js",
@@ -1341,6 +1360,11 @@ injector.allTrainURLs = [
   injector.eurostarInternational,
   injector.ouigo,
   injector.acprail,
+  injector.bahn,
+  injector.italotreno,
+  injector.lefrecce,
+  injector.sj,
+  injector.transwa,
   injector.raileurope,
   injector.tgvlyria,
   injector.voyages,
