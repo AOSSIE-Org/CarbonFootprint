@@ -17,11 +17,26 @@
       "alleo": 11.3,
       "bus": 96.5,
       "average": 10.59,
-      "_comment": "CO2 in gram/km, source: http://medias.sncf.com/sncfcom/pdf/co2/Information_CO2_des_prestations_de_transport_Methodologie_generale.pdf or check relevant docs folder"
+      "_comment":
+        "CO2 in gram/km, source: http://medias.sncf.com/sncfcom/pdf/co2/Information_CO2_des_prestations_de_transport_Methodologie_generale.pdf or check relevant docs folder"
     },
     "irctc": {
       "average": 7.837,
-      "_comment": "CO2 in gram/km, source: https://drive.google.com/file/d/1N9OJ6xsKw9QrDZXr3-Imf1gkf9O65oOy/view?usp=sharing or check relevant docs folder"
+      "_comment":
+        "CO2 in gram/km, source: https://drive.google.com/file/d/1N9OJ6xsKw9QrDZXr3-Imf1gkf9O65oOy/view?usp=sharing or check relevant docs folder"
+    },
+    "europe": {
+      "nsb": 8,
+      "eurostar": 22.54,
+      "trenitalia": 28.5,
+      "average": 17.7,
+      "_comment":
+        "CO2 in gram/km, source(for norway): https://www.toi.no/getfile.php/1313922/Publikasjoner/T%C3%98I%20rapporter/2009/1047-2009/sum-1047-2009.pdf or check relevant docs folder, for eurostar(international) :- http://webarchive.nationalarchives.gov.uk/20130403211631/http://archive.defra.gov.uk/environment/business/reporting/pdf/passenger-transport.pdf, for source of trenitalia:- http://www.trenitalia.com/cms-file/allegati/il-gruppo/ambiente_2010_inglese_web.pdf"
+    },
+    "australia": {
+      "average": 74.84294871794872,
+      "_comment":
+        "CO2 in gram/km, source: http://www.ttf.org.au/wp-content/uploads/2016/06/TTF-Public-Transport-And-Climate-Change-2009.pdf or check relevant docs folder"
     }
   }
 }
