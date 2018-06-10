@@ -1,4 +1,5 @@
 var eurostarManager = function(footprintCore, settingsProvider){
+  // This is for eurostar-France
   this.footprintCore = footprintCore;
   this.settingsProvider = settingsProvider;
   this.subtree = true;
