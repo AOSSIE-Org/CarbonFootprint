@@ -186,15 +186,20 @@
         "regex":
           "biglietti\\.italotreno\\.it/Booking_Acquisto_SelezioneTreno_A\\.aspx"
       },
-      "trenitalia" :{
-        "active":true,
-        "working":true,
-        "regex":"lefrecce\\.it/B2CWeb/search\\.do.*"
+      "trenitalia": {
+        "active": true,
+        "working": true,
+        "regex": "lefrecce\\.it/B2CWeb/search\\.do.*"
       },
-      "transwa" :{
-        "active":true,
-        "working":true,
-        "regex":"secure\\.transwa\\.wa\\.gov\\.au/bookingsexpress\\.aspx*"
+      "transwa": {
+        "active": true,
+        "working": true,
+        "regex": "secure\\.transwa\\.wa\\.gov\\.au/bookingsexpress\\.aspx.*"
+      },
+      "nationalrail": {
+        "active": true,
+        "working": true,
+        "regex": "ojp\\.nationalrail\\.co\\.uk/service/timesandfares/.*"
       }
     }
   }

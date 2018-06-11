@@ -1008,6 +1008,9 @@ injector.travelocity = ["https://*.travelocity.com/*"];
 injector.eurostar = [
   "https://booking.eurostar.com/fr-fr/train-search/standard*"
 ];
+injector.nationalrail = [
+  "https://ojp.nationalrail.co.uk/service/timesandfares/*"
+];
 
 injector.eurostarInternational = [
   "https://booking.eurostar.com/nl-nl/train-search/standard*",
@@ -1175,6 +1178,7 @@ injector.allTrains = [];
 injector.allTrains = injector.allTrains.concat(
   injector.eurostar,
   injector.eurostarInternational,
+  injector.nationalrail,
   injector.ouigo,
   injector.acprail,
   injector.bahn,
@@ -1304,6 +1308,7 @@ injector.allFlightManagers = [
 injector.allTrainManagers = [
   injector.URL + "core/trains/eurostar.js",
   injector.URL + "core/trains/eurostar-international.js",
+  injector.URL + "core/trains/nationalrail.js",
   injector.URL + "core/trains/ouigo.js",
   injector.URL + "core/trains/acprail.js",
   injector.URL + "core/trains/bahn.js",
@@ -1358,6 +1363,7 @@ injector.allFlightURLs = [
 injector.allTrainURLs = [
   injector.eurostar,
   injector.eurostarInternational,
+  injector.nationalrail,
   injector.ouigo,
   injector.acprail,
   injector.bahn,
