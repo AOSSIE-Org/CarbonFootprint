@@ -200,6 +200,43 @@
         "active": true,
         "working": true,
         "regex": "ojp\\.nationalrail\\.co\\.uk/service/timesandfares/.*"
+      },
+      "southernrailway": {
+        "active": true,
+        "working": true,
+        "regex": "ticket\\.southernrailway\\.com/journeys-list/"
+      },
+      "nswtrainlink": {
+        "active": true,
+        "working": true,
+        "regex":
+          "bookings\\.nswtrainlink\\.info/NASApp/Odyssey/booking/trainSearch\\.action"
+      },
+      "amtrak": {
+        "active": true,
+        "working": true,
+        "regex": "tickets\\.amtrak\\.com/itd/amtrak"
+      },
+      "kayak": {
+        "active": true,
+        "working": true,
+        "regex": "kayak\\.co\\.uk/trains/.*"
+      },
+      "mytrainticket": {
+        "active": true,
+        "working": true,
+        "regex": "\\.thetrainline\\.com/book/results.*"
+      },
+      "virgintrains": {
+        "active": true,
+        "working": true,
+        "regex":
+          "buytickets\\.virgintrains\\.co\\.uk/buytickets/categorymatrix\\.aspx"
+      },
+      "redspottedhanky": {
+        "active": true,
+        "working": true,
+        "regex": "tickets\\.redspottedhanky\\.com/rsh/"
       }
     }
   }

@@ -2,7 +2,7 @@ var nationalRailManager = function(footprintCore, settingsProvider) {
   this.footprintCore = footprintCore;
   this.settingsProvider = settingsProvider;
   this.dataSource = "europe";
-  this.MODE = ["nationalrail"];
+  this.MODE = ["uk"];
   this.stations = {
     arrive: "",
     depart: ""
@@ -44,6 +44,8 @@ nationalRailManager.prototype.update = function() {
       ) /
         60;
     debugger;
+    if (!trainSpeedData[trainName])
+      trainName = trainSpeedData["uk"] ? "uk" : "average";
     distanceBetween = trainSpeedData[trainName] * trainDuration;
     self.insertInDom(self.footprintCore.getEmission([self.MODE]), row); //There is only 1 type of train
   });
