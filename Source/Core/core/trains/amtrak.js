@@ -13,12 +13,17 @@ var amtrackRailManager = function(footprintCore, settingsProvider) {
 };
 
 amtrackRailManager.prototype.setStyle = function(emission) {
-  emission.querySelector("a").style.fontSize = "2rem";
   emission.querySelector("a").style.color = "#fffff4";
+  emission.style.float = "left";
+  emission.style["padding-top"] = "3px";
+  emission.style["margin-left"] = "1em";
   return emission;
 };
 
 amtrackRailManager.prototype.insertInDom = function(emission, element) {
+  element = element.querySelector(
+    ".row.header_no_margin.row-divided.train_detail_row .column-one"
+  );
   emission = this.setStyle(emission);
   if (element.getElementsByClassName("carbon").length === 0) {
     element.appendChild(emission);

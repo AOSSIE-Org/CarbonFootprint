@@ -14,6 +14,7 @@ var virgintrainsManager = function(footprintCore, settingsProvider) {
 
 virgintrainsManager.prototype.setStyle = function(emission) {
   emission.style.fontSize = "small";
+  emission.querySelector("a").style["font-weight"] = "500";
   emission.style.padding = "0";
   return emission;
 };
