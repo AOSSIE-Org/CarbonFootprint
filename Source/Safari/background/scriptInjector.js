@@ -1008,6 +1008,9 @@ injector.travelocity = ["https://*.travelocity.com/*"];
 injector.eurostar = [
   "https://booking.eurostar.com/fr-fr/train-search/standard*"
 ];
+injector.nationalrail = [
+  "https://ojp.nationalrail.co.uk/service/timesandfares/*"
+];
 
 injector.eurostarInternational = [
   "https://booking.eurostar.com/nl-nl/train-search/standard*",
@@ -1056,6 +1059,21 @@ injector.irctc = [
 
 injector.yatra = ["https://rail.yatra.com/trains/*/search*"];
 
+injector.southernrailway = [
+  "https://ticket.southernrailway.com/journeys-list/*"
+];
+injector.nswtrainlink = [
+  "https://bookings.nswtrainlink.info/NASApp/Odyssey/booking/trainSearch.action"
+];
+injector.amtrak = ["https://tickets.amtrak.com/itd/amtrak"];
+injector.kayaktrain = ["https://www.kayak.co.uk/trains/*"];
+injector.mytrainticket = ["https://www.thetrainline.com/book/results*"];
+injector.redspottedhanky = [
+  "http://tickets.redspottedhanky.com/rsh/en/JourneyPlanning/FaresView"
+];
+injector.virgintrains = [
+  "https://www.buytickets.virgintrains.co.uk/buytickets/categorymatrix.aspx*"
+];
 injector.goibio = ["https://www.goibibo.com/trains/results*"];
 
 injector.lufthansa = [
@@ -1175,6 +1193,7 @@ injector.allTrains = [];
 injector.allTrains = injector.allTrains.concat(
   injector.eurostar,
   injector.eurostarInternational,
+  injector.nationalrail,
   injector.ouigo,
   injector.acprail,
   injector.bahn,
@@ -1190,6 +1209,13 @@ injector.allTrains = injector.allTrains.concat(
   injector.nsb,
   injector.irctc,
   injector.yatra,
+  injector.southernrailway,
+  injector.nswtrainlink,
+  injector.amtrak,
+  injector.kayaktrain,
+  injector.mytrainticket,
+  injector.redspottedhanky,
+  injector.virgintrains,
   injector.goibio
 );
 
@@ -1304,6 +1330,7 @@ injector.allFlightManagers = [
 injector.allTrainManagers = [
   injector.URL + "core/trains/eurostar.js",
   injector.URL + "core/trains/eurostar-international.js",
+  injector.URL + "core/trains/nationalrail.js",
   injector.URL + "core/trains/ouigo.js",
   injector.URL + "core/trains/acprail.js",
   injector.URL + "core/trains/bahn.js",
@@ -1319,6 +1346,13 @@ injector.allTrainManagers = [
   injector.URL + "core/trains/nsb.js",
   injector.URL + "core/trains/irctc.js",
   injector.URL + "core/trains/yatra.js",
+  injector.URL + "core/trains/southernrailway.js",
+  injector.URL + "core/trains/nswtrainlink.js",
+  injector.URL + "core/trains/amtrak.js",
+  injector.URL + "core/trains/kayak.js",
+  injector.URL + "core/trains/mytrainticket.js",
+  injector.URL + "core/trains/redspottedhanky.js",
+  injector.URL + "core/trains/virgintrains.js",
   injector.URL + "core/trains/goibibo.js"
 ];
 
@@ -1358,6 +1392,7 @@ injector.allFlightURLs = [
 injector.allTrainURLs = [
   injector.eurostar,
   injector.eurostarInternational,
+  injector.nationalrail,
   injector.ouigo,
   injector.acprail,
   injector.bahn,
@@ -1373,6 +1408,13 @@ injector.allTrainURLs = [
   injector.nsb,
   injector.irctc,
   injector.yatra,
+  injector.southernrailway,
+  injector.nswtrainlink,
+  injector.kayaktrain,
+  injector.amtrak,
+  injector.mytrainticket,
+  injector.redspottedhanky,
+  injector.virgintrains,
   injector.goibio
 ];
 
