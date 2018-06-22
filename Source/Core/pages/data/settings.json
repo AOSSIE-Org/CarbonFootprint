@@ -237,6 +237,21 @@
         "active": true,
         "working": true,
         "regex": "tickets\\.redspottedhanky\\.com/rsh/"
+      },
+      "trainose": {
+        "active": true,
+        "working": true,
+        "regex": "tickets\\.trainose\\.gr/dromologia/.*"
+      },
+      "wanderu": {
+        "active": true,
+        "working": true,
+        "regex": "wanderu\\.com/en/depart/*"
+      },
+      "viarail": {
+        "active": true,
+        "working": true,
+        "regex": "reservia\\.viarail\\.ca/search/tripresult\\.aspx.*"
       }
     }
   }

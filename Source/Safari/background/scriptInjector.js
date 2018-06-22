@@ -1071,6 +1071,9 @@ injector.mytrainticket = ["https://www.thetrainline.com/book/results*"];
 injector.redspottedhanky = [
   "http://tickets.redspottedhanky.com/rsh/en/JourneyPlanning/FaresView"
 ];
+injector.viarail = ["https://reservia.viarail.ca/search/tripresult.aspx*"];
+injector.trainose = ["https://tickets.trainose.gr/dromologia/*"];
+injector.wanderu = ["https://www.wanderu.com/en/depart/*"];
 injector.virgintrains = [
   "https://www.buytickets.virgintrains.co.uk/buytickets/categorymatrix.aspx*"
 ];
@@ -1215,6 +1218,9 @@ injector.allTrains = injector.allTrains.concat(
   injector.kayaktrain,
   injector.mytrainticket,
   injector.redspottedhanky,
+  injector.viarail,
+  injector.trainose,
+  injector.wanderu,
   injector.virgintrains,
   injector.goibio
 );
@@ -1352,6 +1358,9 @@ injector.allTrainManagers = [
   injector.URL + "core/trains/kayak.js",
   injector.URL + "core/trains/mytrainticket.js",
   injector.URL + "core/trains/redspottedhanky.js",
+  injector.URL + "core/trains/viarail.js",
+  injector.URL + "core/trains/trainose.js",
+  injector.URL + "core/trains/wanderu.js",
   injector.URL + "core/trains/virgintrains.js",
   injector.URL + "core/trains/goibibo.js"
 ];
@@ -1414,6 +1423,9 @@ injector.allTrainURLs = [
   injector.amtrak,
   injector.mytrainticket,
   injector.redspottedhanky,
+  injector.viarail,
+  injector.trainose,
+  injector.wanderu,
   injector.virgintrains,
   injector.goibio
 ];

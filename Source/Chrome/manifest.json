@@ -1716,6 +1716,63 @@
       "all_frames": true
     },
     {
+      "matches": ["https://reservia.viarail.ca/search/tripresult.aspx*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/TrainsCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/trainsValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/trains/viarail.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://tickets.trainose.gr/dromologia/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/TrainsCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/trainsValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/trains/trainose.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.wanderu.com/en/depart/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/TrainsCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/trainsValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/trains/wanderu.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
       "matches": ["https://ventes.ouigo.com/Schedule/Select*"],
       "css": ["core/css/main.css"],
       "js": [
