@@ -1146,6 +1146,12 @@ injector.united = [
   "https://*.united.com/ual/en/*/flight-search/book-a-flight/results/rev*"
 ];
 
+injector.easternbus = ["https://www.easternbus.com/search-bus/*"];
+injector.megabus = ["https://us.megabus.com/journey-planner/journeys*"];
+injector.greyhound = ["https://www.greyhound.com/en/ecommerce/schedule"];
+injector.peterpanbus = ["https://webstore.peterpanbus.com/*"];
+injector.boltbus = ["https://www.boltbus.com/*"];
+
 /**
  * matching patterns for all map services
  */
@@ -1161,6 +1167,20 @@ injector.allMaps = injector.allMaps.concat(
   injector.viaMichelinMaps,
   injector.wazeMaps,
   injector.yandexMaps
+);
+
+/**
+ * matching patterns for all bus services
+ */
+
+injector.allBuses = [];
+
+injector.allMaps = injector.allMaps.concat(
+  injector.easternbus,
+  injector.megabus,
+  injector.greyhound,
+  injector.peterpanbus,
+  injector.boltbus
 );
 
 /**
@@ -1228,7 +1248,8 @@ injector.allTrains = injector.allTrains.concat(
 injector.allURLs = [].concat(
   injector.allMaps,
   injector.allFlights,
-  injector.allTrains
+  injector.allTrains,
+  injector.allBuses
 );
 /**
  * base URL of the extension in Safari
@@ -1365,6 +1386,13 @@ injector.allTrainManagers = [
   injector.URL + "core/trains/goibibo.js"
 ];
 
+injector.allBusManagers = [
+  injector.URL + "core/buses/boltbus.js",
+  injector.URL + "core/buses/easternbus.js",
+  injector.URL + "core/buses/greyhound.js",
+  injector.URL + "core/buses/megabus.js",
+  injector.URL + "core/buses/peterpan.js"
+];
 /**
  * Matching URLs for different services
  */
@@ -1430,6 +1458,13 @@ injector.allTrainURLs = [
   injector.goibio
 ];
 
+injector.allBusesURL = [
+  injector.boltbus,
+  injector.easternbus,
+  injector.greyhound,
+  injector.megabus,
+  injector.peterpanbus
+];
 /**
  * links safari to different map services
  */
@@ -1464,6 +1499,19 @@ for (injector.i in injector.allTrainURLs) {
   safari.extension.addContentScriptFromURL(
     injector.allTrainManagers[injector.i],
     injector.allTrainURLs[injector.i],
+    [],
+    true
+  );
+}
+
+/**
+ * links safari to different bus services
+ */
+
+for (injector.i in injector.allBusesURL) {
+  safari.extension.addContentScriptFromURL(
+    injector.allBusManagers[injector.i],
+    injector.allBusesURL[injector.i],
     [],
     true
   );
@@ -1515,6 +1563,15 @@ injector.commonScriptsTrains = injector.commonScripts.concat([
   injector.URL + "core/validator/trainsValidator.js"
 ]);
 
+/**
+ * links to scripts that are common to all bus services
+ */
+
+injector.commonScriptsBuses = injector.commonScripts.concat([
+  injector.URL + "core/BusCarbonFootprintCore.js",
+  injector.URL + "core/validator/busesValidator.js"
+]);
+
 for (injector.i in injector.commonScriptsMaps) {
   safari.extension.addContentScriptFromURL(
     injector.commonScriptsMaps[injector.i],
@@ -1537,6 +1594,15 @@ for (injector.i in injector.commonScriptsTrains) {
   safari.extension.addContentScriptFromURL(
     injector.commonScriptsTrains[injector.i],
     injector.allTrains,
+    [],
+    true
+  );
+}
+
+for (injector.i in injector.commonScriptsBuses) {
+  safari.extension.addContentScriptFromURL(
+    injector.commonScriptsBuses[injector.i],
+    injector.allBuses,
     [],
     true
   );

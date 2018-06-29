@@ -253,6 +253,33 @@
         "working": true,
         "regex": "reservia\\.viarail\\.ca/search/tripresult\\.aspx.*"
       }
+    },
+    "buses": {
+      "megabus": {
+        "active": true,
+        "working": true,
+        "regex": "us\\.megabus\\.com/journey-planner/journeys.*"
+      },
+      "easternbus": {
+        "active": true,
+        "working": true,
+        "regex": "easternbus\\.com/search-bus/.*"
+      },
+      "greyhound": {
+        "active": true,
+        "working": true,
+        "regex": "greyhound\\.com/en/ecommerce/schedule"
+      },
+      "peterpanbus": {
+        "active": true,
+        "working": true,
+        "regex": "https://webstore.peterpanbus.com/.*"
+      },
+      "boltbus": {
+        "active": true,
+        "working": true,
+        "regex": "www\\.boltbus\\.com/.*"
+      }
     }
   }
 }

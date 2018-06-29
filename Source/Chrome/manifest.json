@@ -19,6 +19,8 @@
     "core/resources/airports.json",
     "core/resources/airplanes.json",
     "core/resources/trainEmissions.json",
+    "core/resources/buses.json",
+    "core/resources/busesEmissions.json",
     "core/resources/trains.json"
   ],
   "browser_action": {
@@ -1767,6 +1769,101 @@
         "core/validator/validatorServer.js",
         "core/CarbonFootprintCommon.js",
         "core/trains/wanderu.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://us.megabus.com/journey-planner/journeys*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/megabus.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.easternbus.com/search-bus/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/easternbus.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.greyhound.com/en/ecommerce/schedule"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/greyhound.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://webstore.peterpanbus.com/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/peterpan.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.boltbus.com/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/boltbus.js",
         "core/init.js"
       ],
       "run_at": "document_end",
