@@ -14,7 +14,7 @@ var viarailManager = function(footprintCore, settingsProvider) {
 
 viarailManager.prototype.setStyle = function(emission) {
   emission.style.fontSize = "inherit";
-  emission.style.margin = "0 5em";
+  emission.style.margin = "0 6.4em";
   emission.style.padding = "0";
   return emission;
 };

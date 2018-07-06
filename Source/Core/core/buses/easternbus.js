@@ -10,8 +10,8 @@ var easternBusManager = function(footprintCore, settingsProvider) {
 
 easternBusManager.prototype.setStyle = function(emission) {
   emission.style.color = "black";
-  emission.style.position = "absolute";
   emission.style["padding-top"] = "0";
+  emission.style["margin"] = "auto";
   emission.style["font-size"] = "smaller";
   return emission;
 };
@@ -23,16 +23,13 @@ easternBusManager.prototype.insertInDom = function(emission, element) {
   }
 };
 easternBusManager.prototype.update = function() {
-  debugger;
   if (!document.getElementById("schedule_selector")) return;
   var self = this;
-  debugger;
   document
     .querySelectorAll("#schedule_selector .schedule_stripe")
     .forEach(function(row) {
       timeOutRequired = false;
       if (row.getElementsByClassName("carbon").length !== 0) return;
-      debugger;
       var busDurationArray = self.validator
         .querySelector("span[sid=durationTime]", row)
         .textContent.trim()

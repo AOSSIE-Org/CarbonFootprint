@@ -1870,6 +1870,121 @@
       "all_frames": true
     },
     {
+      "matches": [
+        "https://www.ourbus.com/bookTicket"
+      ],
+      "css": [
+        "core/css/main.css"
+      ],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/ourbus.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://www.washny.com/reservations-2.php"
+      ],
+      "css": [
+        "core/css/main.css"
+      ],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/washingtondeluxe.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://book.nationalexpress.com/coach*"
+      ],
+      "css": [
+        "core/css/main.css"
+      ],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/nationalexpress.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://www.firstgroup.com/journey-planner/*"
+      ],
+      "css": [
+        "core/css/main.css"
+      ],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/firstbus.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "http://www.traveline.info/*"
+      ],
+      "css": [
+        "core/css/main.css"
+      ],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/traveline.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
       "matches": ["https://ventes.ouigo.com/Schedule/Select*"],
       "css": ["core/css/main.css"],
       "js": [

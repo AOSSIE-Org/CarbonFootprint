@@ -1151,6 +1151,11 @@ injector.megabus = ["https://us.megabus.com/journey-planner/journeys*"];
 injector.greyhound = ["https://www.greyhound.com/en/ecommerce/schedule"];
 injector.peterpanbus = ["https://webstore.peterpanbus.com/*"];
 injector.boltbus = ["https://www.boltbus.com/*"];
+injector.ourbus = ["https://www.ourbus.com/bookTicket"];
+injector.washny = ["https://www.washny.com/reservations-2.php"];
+injector.nationalexpress = ["https://book.nationalexpress.com/coach*"];
+injector.firstbus = ["https://www.firstgroup.com/journey-planner/*"];
+injector.traveline = ["http://www.traveline.info/*"];
 
 /**
  * matching patterns for all map services
@@ -1175,12 +1180,17 @@ injector.allMaps = injector.allMaps.concat(
 
 injector.allBuses = [];
 
-injector.allMaps = injector.allMaps.concat(
+injector.allBuses = injector.allMaps.concat(
+  injector.boltbus,
   injector.easternbus,
-  injector.megabus,
   injector.greyhound,
+  injector.megabus,
   injector.peterpanbus,
-  injector.boltbus
+  injector.ourbus,
+  injector.washny,
+  injector.nationalexpress,
+  injector.firstbus,
+  injector.traveline
 );
 
 /**
@@ -1391,7 +1401,11 @@ injector.allBusManagers = [
   injector.URL + "core/buses/easternbus.js",
   injector.URL + "core/buses/greyhound.js",
   injector.URL + "core/buses/megabus.js",
-  injector.URL + "core/buses/peterpan.js"
+  injector.URL + "core/buses/ourbus.js",
+  injector.URL + "core/buses/washingtondeluxe.js",
+  injector.URL + "core/buses/nationalexpress.js",
+  injector.URL + "core/buses/firstbus.js",
+  injector.URL + "core/buses/traveline.js"
 ];
 /**
  * Matching URLs for different services
@@ -1463,7 +1477,12 @@ injector.allBusesURL = [
   injector.easternbus,
   injector.greyhound,
   injector.megabus,
-  injector.peterpanbus
+  injector.peterpanbus,
+  injector.ourbus,
+  injector.washny,
+  injector.nationalexpress,
+  injector.firstbus,
+  injector.traveline
 ];
 /**
  * links safari to different map services

@@ -279,6 +279,31 @@
         "active": true,
         "working": true,
         "regex": "www\\.boltbus\\.com/.*"
+      },
+      "ourbus": {
+        "active": true,
+        "working": true,
+        "regex": "https://www.ourbus.com/bookTicket"
+      },
+      "washingtondeluxe": {
+        "active": true,
+        "working": true,
+        "regex": "https://www.washny.com/reservations-2.php"
+      },
+      "nationalexpress": {
+        "active": true,
+        "working": true,
+        "regex": "https://book.nationalexpress.com/coach*"
+      },
+      "firstgroup": {
+        "active": true,
+        "working": true,
+        "regex": "https://www.firstgroup.com/journey-planner/*"
+      },
+      "traveline": {
+        "active": true,
+        "working": true,
+        "regex": "http://www.traveline.info/*"
       }
     }
   }
