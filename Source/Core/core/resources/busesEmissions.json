@@ -1,0 +1,16 @@
+{
+  "_comment":
+    "this is the list of CO2 (in grams) emitted per passenger km by buses, source (for US):-http://www.mdpi.com/1996-1073/4/4/563/pdf or for UK:-https://laqm.defra.gov.uk/documents/AEAPTEGCarbonFootprintingfinalversion2009.pdf, for canada :- https://www.viarail.ca/sites/all/files/media/pdfs/SUSTAINABLE_MOBILITY_REPORT_2015.pdfcheck, for australia:- http://www.ttf.org.au/wp-content/uploads/2016/06/TTF-Public-Transport-And-Climate-Change-2009.pdf relevant docs folder",
+  "america": {
+    "average": 50
+  },
+  "uk": {
+    "average": 107.3
+  },
+  "canada": {
+    "average": 56
+  },
+  "australia": {
+    "average": 50
+  }
+}

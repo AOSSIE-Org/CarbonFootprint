@@ -1071,6 +1071,9 @@ injector.mytrainticket = ["https://www.thetrainline.com/book/results*"];
 injector.redspottedhanky = [
   "http://tickets.redspottedhanky.com/rsh/en/JourneyPlanning/FaresView"
 ];
+injector.viarail = ["https://reservia.viarail.ca/search/tripresult.aspx*"];
+injector.trainose = ["https://tickets.trainose.gr/dromologia/*"];
+injector.wanderu = ["https://www.wanderu.com/en/depart/*"];
 injector.virgintrains = [
   "https://www.buytickets.virgintrains.co.uk/buytickets/categorymatrix.aspx*"
 ];
@@ -1143,6 +1146,17 @@ injector.united = [
   "https://*.united.com/ual/en/*/flight-search/book-a-flight/results/rev*"
 ];
 
+injector.easternbus = ["https://www.easternbus.com/search-bus/*"];
+injector.megabus = ["https://us.megabus.com/journey-planner/journeys*"];
+injector.greyhound = ["https://www.greyhound.com/en/ecommerce/schedule"];
+injector.peterpanbus = ["https://webstore.peterpanbus.com/*"];
+injector.boltbus = ["https://www.boltbus.com/*"];
+injector.ourbus = ["https://www.ourbus.com/bookTicket"];
+injector.washny = ["https://www.washny.com/reservations-2.php"];
+injector.nationalexpress = ["https://book.nationalexpress.com/coach*"];
+injector.firstbus = ["https://www.firstgroup.com/journey-planner/*"];
+injector.traveline = ["http://www.traveline.info/*"];
+
 /**
  * matching patterns for all map services
  */
@@ -1158,6 +1172,25 @@ injector.allMaps = injector.allMaps.concat(
   injector.viaMichelinMaps,
   injector.wazeMaps,
   injector.yandexMaps
+);
+
+/**
+ * matching patterns for all bus services
+ */
+
+injector.allBuses = [];
+
+injector.allBuses = injector.allMaps.concat(
+  injector.boltbus,
+  injector.easternbus,
+  injector.greyhound,
+  injector.megabus,
+  injector.peterpanbus,
+  injector.ourbus,
+  injector.washny,
+  injector.nationalexpress,
+  injector.firstbus,
+  injector.traveline
 );
 
 /**
@@ -1215,6 +1248,9 @@ injector.allTrains = injector.allTrains.concat(
   injector.kayaktrain,
   injector.mytrainticket,
   injector.redspottedhanky,
+  injector.viarail,
+  injector.trainose,
+  injector.wanderu,
   injector.virgintrains,
   injector.goibio
 );
@@ -1222,7 +1258,8 @@ injector.allTrains = injector.allTrains.concat(
 injector.allURLs = [].concat(
   injector.allMaps,
   injector.allFlights,
-  injector.allTrains
+  injector.allTrains,
+  injector.allBuses
 );
 /**
  * base URL of the extension in Safari
@@ -1352,10 +1389,24 @@ injector.allTrainManagers = [
   injector.URL + "core/trains/kayak.js",
   injector.URL + "core/trains/mytrainticket.js",
   injector.URL + "core/trains/redspottedhanky.js",
+  injector.URL + "core/trains/viarail.js",
+  injector.URL + "core/trains/trainose.js",
+  injector.URL + "core/trains/wanderu.js",
   injector.URL + "core/trains/virgintrains.js",
   injector.URL + "core/trains/goibibo.js"
 ];
 
+injector.allBusManagers = [
+  injector.URL + "core/buses/boltbus.js",
+  injector.URL + "core/buses/easternbus.js",
+  injector.URL + "core/buses/greyhound.js",
+  injector.URL + "core/buses/megabus.js",
+  injector.URL + "core/buses/ourbus.js",
+  injector.URL + "core/buses/washingtondeluxe.js",
+  injector.URL + "core/buses/nationalexpress.js",
+  injector.URL + "core/buses/firstbus.js",
+  injector.URL + "core/buses/traveline.js"
+];
 /**
  * Matching URLs for different services
  */
@@ -1414,10 +1465,25 @@ injector.allTrainURLs = [
   injector.amtrak,
   injector.mytrainticket,
   injector.redspottedhanky,
+  injector.viarail,
+  injector.trainose,
+  injector.wanderu,
   injector.virgintrains,
   injector.goibio
 ];
 
+injector.allBusesURL = [
+  injector.boltbus,
+  injector.easternbus,
+  injector.greyhound,
+  injector.megabus,
+  injector.peterpanbus,
+  injector.ourbus,
+  injector.washny,
+  injector.nationalexpress,
+  injector.firstbus,
+  injector.traveline
+];
 /**
  * links safari to different map services
  */
@@ -1452,6 +1518,19 @@ for (injector.i in injector.allTrainURLs) {
   safari.extension.addContentScriptFromURL(
     injector.allTrainManagers[injector.i],
     injector.allTrainURLs[injector.i],
+    [],
+    true
+  );
+}
+
+/**
+ * links safari to different bus services
+ */
+
+for (injector.i in injector.allBusesURL) {
+  safari.extension.addContentScriptFromURL(
+    injector.allBusManagers[injector.i],
+    injector.allBusesURL[injector.i],
     [],
     true
   );
@@ -1503,6 +1582,15 @@ injector.commonScriptsTrains = injector.commonScripts.concat([
   injector.URL + "core/validator/trainsValidator.js"
 ]);
 
+/**
+ * links to scripts that are common to all bus services
+ */
+
+injector.commonScriptsBuses = injector.commonScripts.concat([
+  injector.URL + "core/BusCarbonFootprintCore.js",
+  injector.URL + "core/validator/busesValidator.js"
+]);
+
 for (injector.i in injector.commonScriptsMaps) {
   safari.extension.addContentScriptFromURL(
     injector.commonScriptsMaps[injector.i],
@@ -1525,6 +1613,15 @@ for (injector.i in injector.commonScriptsTrains) {
   safari.extension.addContentScriptFromURL(
     injector.commonScriptsTrains[injector.i],
     injector.allTrains,
+    [],
+    true
+  );
+}
+
+for (injector.i in injector.commonScriptsBuses) {
+  safari.extension.addContentScriptFromURL(
+    injector.commonScriptsBuses[injector.i],
+    injector.allBuses,
     [],
     true
   );
