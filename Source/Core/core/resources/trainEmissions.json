@@ -30,7 +30,8 @@
       "eurostar": 22.54,
       "trenitalia": 28.5,
       "uk": 55.225,
-      "virgintrains":52,
+      "virgintrains": 52,
+      "greece": 70,
       "average": 17.7,
       "_comment":
         "CO2 in gram/km, source(for norway): https://www.toi.no/getfile.php/1313922/Publikasjoner/T%C3%98I%20rapporter/2009/1047-2009/sum-1047-2009.pdf or check relevant docs folder, for eurostar(international) :- http://webarchive.nationalarchives.gov.uk/20130403211631/http://archive.defra.gov.uk/environment/business/reporting/pdf/passenger-transport.pdf, for source of trenitalia:- http://www.trenitalia.com/cms-file/allegati/il-gruppo/ambiente_2010_inglese_web.pdf, for UK :- http://webarchive.nationalarchives.gov.uk/20130403211631/http://archive.defra.gov.uk/environment/business/reporting/pdf/passenger-transport.pdf, for virgintrains:-https://www.virgintrainseastcoast.com/rail-travel/the-best-way-to-travel/carbon-calculator/"
@@ -44,6 +45,11 @@
       "average": 121.167683647,
       "_comment":
         "CO2 in gram/km, source: https://www.ucsusa.org/sites/default/files/legacy/assets/documents/clean_vehicles/greentravel_report.pdf or check relevant docs folder"
+    },
+    "canada": {
+      "average": 90,
+      "_comment":
+        "CO2 in gram/km, source: https://www.viarail.ca/sites/all/files/media/pdfs/SUSTAINABLE_MOBILITY_REPORT_2015.pdf or check relevant docs folder"
     }
   }
 }

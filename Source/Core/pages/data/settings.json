@@ -237,6 +237,73 @@
         "active": true,
         "working": true,
         "regex": "tickets\\.redspottedhanky\\.com/rsh/"
+      },
+      "trainose": {
+        "active": true,
+        "working": true,
+        "regex": "tickets\\.trainose\\.gr/dromologia/.*"
+      },
+      "wanderu": {
+        "active": true,
+        "working": true,
+        "regex": "wanderu\\.com/en/depart/*"
+      },
+      "viarail": {
+        "active": true,
+        "working": true,
+        "regex": "reservia\\.viarail\\.ca/search/tripresult\\.aspx.*"
+      }
+    },
+    "buses": {
+      "megabus": {
+        "active": true,
+        "working": true,
+        "regex": "us\\.megabus\\.com/journey-planner/journeys.*"
+      },
+      "easternbus": {
+        "active": true,
+        "working": true,
+        "regex": "easternbus\\.com/search-bus/.*"
+      },
+      "greyhound": {
+        "active": true,
+        "working": true,
+        "regex": "greyhound\\.com/en/ecommerce/schedule"
+      },
+      "peterpanbus": {
+        "active": true,
+        "working": true,
+        "regex": "https://webstore.peterpanbus.com/.*"
+      },
+      "boltbus": {
+        "active": true,
+        "working": true,
+        "regex": "www\\.boltbus\\.com/.*"
+      },
+      "ourbus": {
+        "active": true,
+        "working": true,
+        "regex": "https://www.ourbus.com/bookTicket"
+      },
+      "washingtondeluxe": {
+        "active": true,
+        "working": true,
+        "regex": "https://www.washny.com/reservations-2.php"
+      },
+      "nationalexpress": {
+        "active": true,
+        "working": true,
+        "regex": "https://book.nationalexpress.com/coach*"
+      },
+      "firstgroup": {
+        "active": true,
+        "working": true,
+        "regex": "https://www.firstgroup.com/journey-planner/*"
+      },
+      "traveline": {
+        "active": true,
+        "working": true,
+        "regex": "http://www.traveline.info/*"
       }
     }
   }

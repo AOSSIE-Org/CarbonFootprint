@@ -1,6 +1,6 @@
 {
   "_comment":
-    "this is the list of trains services with their average speed, source for India:https://indiarailinfo.com/trains, for thalys: time through wikipedia and distance using google maps, for nsb :- https://en.wikipedia.org/wiki/High-speed_rail_in_Norway, for rest of europe:- data from acprail, for australlia:- wikipedia (https://en.wikipedia.org/wiki/AvonLink,https://en.wikipedia.org/wiki/Transwa_Prospector,https://en.wikipedia.org/wiki/Transwa_Australind) for national rail :- https://www.onaverage.co.uk/speed-averages/58-average-train-speed, for amtrack:- https://www.amtrak.com/national-facts & https://www.quora.com/How-fast-do-Amtrak-trains-go",
+    "this is the list of trains services with their average speed, source for India:https://indiarailinfo.com/trains, for thalys: time through wikipedia and distance using google maps, for nsb :- https://en.wikipedia.org/wiki/High-speed_rail_in_Norway, for rest of europe:- data from acprail, for australlia:- wikipedia (https://en.wikipedia.org/wiki/AvonLink,https://en.wikipedia.org/wiki/Transwa_Prospector,https://en.wikipedia.org/wiki/Transwa_Australind) for national rail :- https://www.onaverage.co.uk/speed-averages/58-average-train-speed, for amtrack:- https://www.amtrak.com/national-facts & https://www.quora.com/How-fast-do-Amtrak-trains-go, for viarail(canada):-https://cptdb.ca/topic/5860-via-rail-train-speed/",
   "india": {
     "rajdhani": 73.24,
     "duronto": 71.42307692307692,
@@ -46,5 +46,9 @@
   "america": {
     "amtrack": 105,
     "average": 105
+  },
+  "canada": {
+    "viarail": 152.888,
+    "average": 152.888
   }
 }

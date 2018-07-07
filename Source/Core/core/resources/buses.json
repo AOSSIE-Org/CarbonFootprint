@@ -1,0 +1,16 @@
+{
+  "_comment":
+    "this is the list of bus services with their average speed, source for america:-http://www.apta.com/resources/statistics/Documents/FactBook/2016-APTA-Fact-Book.pdf or for UK https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/209104/free-flow-vehicle-speeds-2012.pdf for Australia(use table D1, formula = (speed * duration for which it is used)/totalDuration :- http://sydney.edu.au/business/__data/assets/pdf_file/0019/133048/ITLS-WP-09.pdf, for canada :- http://www.rapibus.sto.ca/fileadmin/user_upload/directionRapibus/Doc_et_etude/issue_paper_25E(1).pdf check Relevant Docs folder",
+  "america": {
+    "average": 49.72873
+  },
+  "uk": {
+    "average": 56
+  },
+  "canada": {
+    "average": 47.5
+  },
+  "australia": {
+    "average": 33.05555555555556
+  }
+}
