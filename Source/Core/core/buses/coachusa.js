@@ -2,7 +2,7 @@ var coachUSABusManager = function(footprintCore, settingsProvider) {
   this.footprintCore = footprintCore;
   this.settingsProvider = settingsProvider;
   this.dataSource = "canada";
-  this.validator = new BusValidator("coachcanada");
+  this.validator = new BusValidator("coachusa");
   this.footprintCore.storeBusEmissionData(this.dataSource);
   this.footprintCore.storeBusSpeedData(this.dataSource);
 };
