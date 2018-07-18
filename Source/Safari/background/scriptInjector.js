@@ -1156,6 +1156,14 @@ injector.washny = ["https://www.washny.com/reservations-2.php"];
 injector.nationalexpress = ["https://book.nationalexpress.com/coach*"];
 injector.firstbus = ["https://www.firstgroup.com/journey-planner/*"];
 injector.traveline = ["http://www.traveline.info/*"];
+injector.murrays = [
+  "https://online.murrays.com.au/MurraysCoaches/Booking/ExpressTickets"
+];
+injector.greyhoundcanada = "https://www.greyhound.ca/farefinder/step2.aspx*";
+injector.greyhoundaustralia =
+  "https://www.greyhound.com.au/coach-travel/express-booking/availability*";
+injector.coachusa = "https://web.coachusa.com/*/ss.details.asp*";
+injector.coachcanada = "https://ca.megabus.com/journey-planner/journeys*";
 
 /**
  * matching patterns for all map services
@@ -1190,7 +1198,12 @@ injector.allBuses = injector.allMaps.concat(
   injector.washny,
   injector.nationalexpress,
   injector.firstbus,
-  injector.traveline
+  injector.traveline,
+  injector.murrays,
+  injector.greyhoundcanada,
+  injector.greyhoundaustralia,
+  injector.coachusa,
+  injector.coachcanada
 );
 
 /**
@@ -1405,7 +1418,11 @@ injector.allBusManagers = [
   injector.URL + "core/buses/washingtondeluxe.js",
   injector.URL + "core/buses/nationalexpress.js",
   injector.URL + "core/buses/firstbus.js",
-  injector.URL + "core/buses/traveline.js"
+  injector.URL + "core/buses/traveline.js",
+  injector.URL + "core/buses/greyhoundcanada.js",
+  injector.URL + "core/buses/greyhoundaustralia.js",
+  injector.URL + "core/buses/coachusa.js",
+  injector.URL + "core/buses/coachcanada.js"
 ];
 /**
  * Matching URLs for different services
@@ -1482,7 +1499,12 @@ injector.allBusesURL = [
   injector.washny,
   injector.nationalexpress,
   injector.firstbus,
-  injector.traveline
+  injector.traveline,
+  injector.murrays,
+  injector.greyhoundcanada,
+  injector.greyhoundaustralia,
+  injector.coachusa,
+  injector.coachcanada
 ];
 /**
  * links safari to different map services

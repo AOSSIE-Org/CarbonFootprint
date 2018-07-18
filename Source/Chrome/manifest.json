@@ -1871,11 +1871,28 @@
     },
     {
       "matches": [
-        "https://www.ourbus.com/bookTicket"
+        "https://online.murrays.com.au/MurraysCoaches/Booking/ExpressTickets"
       ],
-      "css": [
-        "core/css/main.css"
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/murrays.js",
+        "core/init.js"
       ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.ourbus.com/bookTicket"],
+      "css": ["core/css/main.css"],
       "js": [
         "core/BusCarbonFootprintCore.js",
         "core/SettingsProviderCore.js",
@@ -1893,12 +1910,8 @@
       "all_frames": true
     },
     {
-      "matches": [
-        "https://www.washny.com/reservations-2.php"
-      ],
-      "css": [
-        "core/css/main.css"
-      ],
+      "matches": ["https://www.washny.com/reservations-2.php"],
+      "css": ["core/css/main.css"],
       "js": [
         "core/BusCarbonFootprintCore.js",
         "core/SettingsProviderCore.js",
@@ -1916,12 +1929,8 @@
       "all_frames": true
     },
     {
-      "matches": [
-        "https://book.nationalexpress.com/coach*"
-      ],
-      "css": [
-        "core/css/main.css"
-      ],
+      "matches": ["https://book.nationalexpress.com/coach*"],
+      "css": ["core/css/main.css"],
       "js": [
         "core/BusCarbonFootprintCore.js",
         "core/SettingsProviderCore.js",
@@ -1939,12 +1948,8 @@
       "all_frames": true
     },
     {
-      "matches": [
-        "https://www.firstgroup.com/journey-planner/*"
-      ],
-      "css": [
-        "core/css/main.css"
-      ],
+      "matches": ["https://www.firstgroup.com/journey-planner/*"],
+      "css": ["core/css/main.css"],
       "js": [
         "core/BusCarbonFootprintCore.js",
         "core/SettingsProviderCore.js",
@@ -1962,12 +1967,8 @@
       "all_frames": true
     },
     {
-      "matches": [
-        "http://www.traveline.info/*"
-      ],
-      "css": [
-        "core/css/main.css"
-      ],
+      "matches": ["http://www.traveline.info/*"],
+      "css": ["core/css/main.css"],
       "js": [
         "core/BusCarbonFootprintCore.js",
         "core/SettingsProviderCore.js",
@@ -1979,6 +1980,84 @@
         "core/validator/validatorServer.js",
         "core/CarbonFootprintCommon.js",
         "core/buses/traveline.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://ca.megabus.com/journey-planner/journeys*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/coachcanada.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.greyhound.ca/farefinder/step2.aspx*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/greyhoundcanada.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://www.greyhound.com.au/coach-travel/express-booking/availability*"
+      ],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/greyhoundaustralia.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://web.coachusa.com/*/ss.details.asp*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/BusCarbonFootprintCore.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/busesValidator.js",
+        "core/validator/validatorServer.js",
+        "core/CarbonFootprintCommon.js",
+        "core/buses/coachusa.js",
         "core/init.js"
       ],
       "run_at": "document_end",

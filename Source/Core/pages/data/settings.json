@@ -304,6 +304,33 @@
         "active": true,
         "working": true,
         "regex": "http://www.traveline.info/*"
+      },
+      "murrays": {
+        "active": true,
+        "working": true,
+        "regex":
+          "online\\.murrays\\.com\\.au/MurraysCoaches/Booking/ExpressTickets"
+      },
+      "greyhoundCanada": {
+        "active": true,
+        "working": true,
+        "regex": "www\\.greyhound\\.ca/farefinder/step2.aspx.*"
+      },
+      "greyhoundaustralia": {
+        "active": true,
+        "working": true,
+        "regex":
+          "www\\.greyhound\\.com\\.au/coach-travel/express-booking/availability.*"
+      },
+      "coachusa": {
+        "active": true,
+        "working": true,
+        "regex": "web\\.coachusa\\.com/.*/ss\\.details\\.asp*"
+      },
+      "coachcanada": {
+        "active": true,
+        "working": true,
+        "regex": "ca\\.megabus\\.com/journey-planner/journeys*"
       }
     }
   }
