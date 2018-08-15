@@ -1,9 +1,7 @@
-var MockHelper = function(){
-
-};
+var MockHelper = function() {};
 
 MockHelper.prototype.getFilePath = function(filename) {
-  return;
+  return filename;
 };
 
 var Helper = new MockHelper();

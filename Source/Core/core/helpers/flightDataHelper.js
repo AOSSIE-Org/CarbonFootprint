@@ -1,11 +1,9 @@
-var FlightDataHelper = function(){
+var FlightDataHelper = function() {};
 
-};
-
-FlightDataHelper.prototype.getData = function(link, cb){
+FlightDataHelper.prototype.getData = function(link, cb) {
   var req = new XMLHttpRequest();
   var data;
-  req.open('GET', Helper.getFilePath(link));
+  req.open("GET", Helper.getFilePath(link));
   req.onreadystatechange = function(ev) {
     if (req.readyState == 4) {
       if (req.status == 200 || req.status == 0) {

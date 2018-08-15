@@ -1,73 +1,74 @@
-var ourBusManager = function(footprintCore, settingsProvider) {
-  this.footprintCore = footprintCore;
-  this.settingsProvider = settingsProvider;
-  this.dataSource = "america";
-  this.validator = new BusValidator("ourbus");
-  this.footprintCore.storeBusEmissionData(this.dataSource);
-  this.footprintCore.storeBusSpeedData(this.dataSource);
-};
-
-ourBusManager.prototype.setStyle = function(emission) {
-  emission.style.padding = "0";
-  emission.style.color = "black";
-  return emission;
-};
-
-ourBusManager.prototype.insertInDom = function(emission, element) {
-  emission = this.setStyle(emission);
-  if (element.getElementsByClassName("carbon").length === 0) {
-    element.appendChild(emission);
+class ourBusManager {
+  constructor(footprintCore, settingsProvider) {
+    this.footprintCore = footprintCore;
+    this.settingsProvider = settingsProvider;
+    this.dataSource = "america";
+    this.validator = new BusValidator("ourbus");
+    this.footprintCore.storeBusEmissionData(this.dataSource);
+    this.footprintCore.storeBusSpeedData(this.dataSource);
   }
-};
 
-ourBusManager.prototype.update = function() {
-  if (document.querySelectorAll(".inter_comm_route_list").length === 0) return;
-  var self = this;
-  document.querySelectorAll(".inter_comm_route_list").forEach(function(row) {
-    if (row.getElementsByClassName("carbon").length !== 0) return;
+  setStyle(emission) {
+    emission.style.padding = "0";
+    emission.style.color = "black";
+    return emission;
+  }
 
-    debugger;
-    var departureTimeArray = row
-      .querySelector(".mrng_time_up")
-      .textContent.trim()
-      .split(":");
-    if (departureTimeArray[1].indexOf("PM") !== -1) {
-      departureTimeArray[0] = (parseInt(departureTimeArray[0], 10) % 12) + 12;
+  insertInDom(emission, element) {
+    emission = this.setStyle(emission);
+    if (element.getElementsByClassName("carbon").length === 0) {
+      element.appendChild(emission);
     }
-    var arrivalTimeArray = row
-      .querySelector(".mrng_time_down")
-      .textContent.trim()
-      .split(":");
-    if (arrivalTimeArray[1].indexOf("PM") !== -1) {
-      arrivalTimeArray[0] = (parseInt(arrivalTimeArray[0], 10) % 12) + 12;
-    }
+  }
 
-    var startDate = new Date(
-      0,
-      0,
-      0,
-      parseInt(departureTimeArray[0], 10),
-      parseInt(departureTimeArray[1], 10),
-      0
-    );
+  update() {
+    if (document.querySelectorAll(".inter_comm_route_list").length === 0) return;
+    document.querySelectorAll(".inter_comm_route_list").forEach(row => {
+      if (row.getElementsByClassName("carbon").length !== 0) return;
 
-    var endDate = new Date(
-      0,
-      0,
-      0,
-      parseInt(arrivalTimeArray[0], 10),
-      parseInt(arrivalTimeArray[1], 10),
-      0
-    );
-    var diff = endDate.getTime() - startDate.getTime();
-    var busDuration = diff / (1000 * 60 * 60);
-    if (busDuration < 0) busDuration = busDuration + 24;
-    debugger;
-    self.insertInDom(
-      self.footprintCore.getEmissionElementFromDuration(busDuration),
-      row.querySelector(".inter_com_route_slct")
-    );
-  });
-};
+      debugger;
+      var departureTimeArray = row
+        .querySelector(".mrng_time_up")
+        .textContent.trim()
+        .split(":");
+      if (departureTimeArray[1].indexOf("PM") !== -1) {
+        departureTimeArray[0] = (parseInt(departureTimeArray[0], 10) % 12) + 12;
+      }
+      var arrivalTimeArray = row
+        .querySelector(".mrng_time_down")
+        .textContent.trim()
+        .split(":");
+      if (arrivalTimeArray[1].indexOf("PM") !== -1) {
+        arrivalTimeArray[0] = (parseInt(arrivalTimeArray[0], 10) % 12) + 12;
+      }
+
+      var startDate = new Date(
+        0,
+        0,
+        0,
+        parseInt(departureTimeArray[0], 10),
+        parseInt(departureTimeArray[1], 10),
+        0
+      );
+
+      var endDate = new Date(
+        0,
+        0,
+        0,
+        parseInt(arrivalTimeArray[0], 10),
+        parseInt(arrivalTimeArray[1], 10),
+        0
+      );
+      var diff = endDate.getTime() - startDate.getTime();
+      var busDuration = diff / (1000 * 60 * 60);
+      if (busDuration < 0) busDuration = busDuration + 24;
+      debugger;
+      this.insertInDom(
+        this.footprintCore.getEmissionElementFromDuration(busDuration),
+        row.querySelector(".inter_com_route_slct")
+      );
+    });
+  }
+}
 
 var WebsiteManager = ourBusManager;

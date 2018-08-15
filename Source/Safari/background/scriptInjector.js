@@ -1156,6 +1156,7 @@ injector.washny = ["https://www.washny.com/reservations-2.php"];
 injector.nationalexpress = ["https://book.nationalexpress.com/coach*"];
 injector.firstbus = ["https://www.firstgroup.com/journey-planner/*"];
 injector.traveline = ["http://www.traveline.info/*"];
+
 injector.murrays = [
   "https://online.murrays.com.au/MurraysCoaches/Booking/ExpressTickets"
 ];
@@ -1164,6 +1165,7 @@ injector.greyhoundaustralia =
   "https://www.greyhound.com.au/coach-travel/express-booking/availability*";
 injector.coachusa = "https://web.coachusa.com/*/ss.details.asp*";
 injector.coachcanada = "https://ca.megabus.com/journey-planner/journeys*";
+
 
 /**
  * matching patterns for all map services
@@ -1511,7 +1513,7 @@ injector.allBusesURL = [
  */
 
 for (injector.i in injector.allMapURLs) {
-  safari.extension.addContentScriptFromURL(
+i.extension.addContentScriptFromURL(
     injector.allMapManagers[injector.i],
     injector.allMapURLs[injector.i],
     [],
