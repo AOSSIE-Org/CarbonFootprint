@@ -30,11 +30,10 @@ nswtrainlinkManager.prototype.insertInDom = function(emission, element) {
 
 nswtrainlinkManager.prototype.update = function() {
   if (document.querySelectorAll(".tableSeparatorLine").length === 0) return;
-  var self = this;
   document.querySelectorAll(".tableSeparatorLine").forEach(function(row) {
     if (row.getElementsByClassName("carbon").length != 0) return;
     var trainName = trainSpeedData["nswtrainlink"] ? "nswtrainlink" : "average";
-    var trainDurationArray = self.validator
+    var trainDurationArray = this.validator
       .querySelector("td:nth-child(4) .tdPad", row)
       .textContent.trim()
       .split(" ");
@@ -43,7 +42,7 @@ nswtrainlinkManager.prototype.update = function() {
       parseInt(trainDurationArray[1], 10) / 60;
     debugger;
     distanceBetween = trainSpeedData[trainName] * trainDuration;
-    self.insertInDom(self.footprintCore.getEmission([self.MODE]), row); //There is only 1 type of train
+    this.insertInDom(this.footprintCore.getEmission([this.MODE]), row); //There is only 1 type of train
   });
 };
 

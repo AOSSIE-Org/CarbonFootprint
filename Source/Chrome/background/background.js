@@ -249,7 +249,7 @@ if (background.isSafari) {
    */
 
   background.showNotification = function() {
-    if (!'Notification' in window) {
+    if (!('Notification' in window)) {
       // If the browser version is unsupported, remain silent.
       console.log('Browser Not Supported');
       return;

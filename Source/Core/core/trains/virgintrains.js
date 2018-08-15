@@ -29,11 +29,10 @@ virgintrainsManager.prototype.insertInDom = function(emission, element) {
 
 virgintrainsManager.prototype.update = function() {
   if (document.querySelectorAll(".container").length === 0) return;
-  var self = this;
   document.querySelectorAll(".container").forEach(function(row) {
     if (row.getElementsByClassName("carbon").length != 0) return;
     var trainName = "virgintrains";
-    var trainDurationArray = self.validator
+    var trainDurationArray = this.validator
       .querySelector(".journey_duration", row)
       .textContent.trim()
       .split(" ");
@@ -44,9 +43,9 @@ virgintrainsManager.prototype.update = function() {
     if (!trainSpeedData[trainName])
       trainName = trainSpeedData["uk"] ? "uk" : "average";
     distanceBetween = trainSpeedData[trainName] * trainDuration;
-    self.insertInDom(
-      self.footprintCore.getEmission([self.MODE]),
-      self.validator.querySelector(".content_wrapper", row)
+    this.insertInDom(
+      this.footprintCore.getEmission([this.MODE]),
+      this.validator.querySelector(".content_wrapper", row)
     );
   });
 };

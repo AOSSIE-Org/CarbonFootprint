@@ -29,23 +29,22 @@ transwaManager.prototype.insertInDom = function(emission, element) {
 
 transwaManager.prototype.update = function() {
   if (document.querySelectorAll(".jbsRouteTextColumn").length === 0) return;
-  var self = this;
   document.querySelectorAll(".jbsRouteTextColumn").forEach(function(row) {
     if (row.getElementsByClassName("carbon").length != 0) return;
-    var trainName = self.validator
+    var trainName = this.validator
       .querySelector("li span")
       .textContent.trim()
       .split(" ")[0];
 
     var trainDuration =
       parseInt(
-        self.validator
+        this.validator
           .querySelector("span", row)
           .textContent.trim()
           .split(" ")[3]
       ) +
       parseInt(
-        self.validator
+        this.validator
           .querySelector("span", row)
           .textContent.trim()
           .split(" ")[5]
@@ -56,7 +55,7 @@ transwaManager.prototype.update = function() {
     for (trainTestString in trainSpeedData) {
       trainName.split(" ").forEach(function(word) {
         if (
-          self.footprintCore.fuzzySearch(word.toLowerCase(), trainTestString)
+          this.footprintCore.fuzzySearch(word.toLowerCase(), trainTestString)
         ) {
           usingAverageSpeed = false;
           distanceBetween = trainDuration * trainSpeedData[trainTestString];
@@ -67,7 +66,7 @@ transwaManager.prototype.update = function() {
     }
     if (usingAverageSpeed)
       distanceBetween = trainSpeedData["average"] * trainDuration;
-    self.insertInDom(self.footprintCore.getEmission([self.MODE]), row); //There is only 1 type of train
+    this.insertInDom(this.footprintCore.getEmission([this.MODE]), row); //There is only 1 type of train
   });
 };
 
