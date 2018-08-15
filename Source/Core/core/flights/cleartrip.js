@@ -1,114 +1,114 @@
 class clearTripManager {
-  constructor(footprintCore, settingsProvider) {
-    this.core = footprintCore;
-    this.settingsProvider = settingsProvider;
-    this.validator = new FlightsValidator("cleartrip");
-    this.subtree = true;
-  }
-
-  /**
-   * Function for making an object of flight
-   * @return array of Object
-   */
-
-  getList() {
-    console.log("Hey Cleartrip!");
-    var rawList = document.getElementsByClassName("listItem nonBundled");
-    console.log("raw list");
-    console.log(rawList);
-    var processedList = [];
-    var route;
-    var getValidRoute = [];
-    for (var x = 0; x < rawList.length; x++) {
-      route = this.validator.getByClass("route", rawList[x])[0].innerText;
-      route = route.split(" ");
-
-      for (var y = 0; y < route.length; y += 2) {
-        getValidRoute.push(route[y]);
-      }
-      route = getValidRoute;
-      getValidRoute = [];
-      if (route.length > 2) stops = route.slice(1, route.length - 1);
-      else stops = [];
-      var depart = route[0];
-      var arrive = route[route.length - 1];
-      processedList.push({
-        depart,
-        arrive,
-        stops,
-        aircraft: "A380"
-      });
-      this.validator.verifyList(processedList);
-      console.log(stops);
+    constructor(footprintCore, settingsProvider) {
+      this.core = footprintCore;
+      this.settingsProvider = settingsProvider;
+      this.validator = new FlightsValidator("cleartrip");
+      this.subtree = true;
     }
-    console.log(processedList);
-    return processedList;
-  }
 
-  /**
-   * Function for getting coordinates from the JSON
-   * @param array
-   * @return array
-   */
+    /**
+    * Function for making an object of flight
+    * @return array of Object
+    */
 
-  getCoordinates(processedList) {
-    processedList = this.core.getCoordinates(processedList);
-    console.log("--- got coordinates ---");
-    console.log(processedList);
-    return processedList;
-  }
+    getList() {
+        console.log("Hey Cleartrip!");
+        var rawList = document.getElementsByClassName('listItem nonBundled');
+        console.log("raw list");
+        console.log(rawList);
+        var processedList = [];
+        var route;
+        var getValidRoute=[];
+        for(var x=0; x< rawList.length; x++){
+            route = this.validator.getByClass('route', rawList[x])[0].innerText;
+            route = route.split(" ");
 
-  /**
-   * Function for getting Total Distance of flight
-   * @param array
-   * @return array
-   */
-
-  getDistances(processedList) {
-    processedList = this.core.getTotalDistance(processedList);
-    console.log("---got Distance---");
-    console.log(processedList);
-    return processedList;
-  }
-
-  /**
-   * Function for getting Emission of flight
-   * @param array
-   * @return array
-   */
-
-  getEmission(processedList) {
-    processedList = this.core.getEmission(processedList);
-    console.log(processedList);
-    return processedList;
-  }
-
-  /**
-   * Function for inserting Element in DOM
-   * @param array
-   * @return array
-   */
-
-  insertInDom(processedList) {
-    var checkOption = document.getElementsByClassName("listItem nonBundled");
-    var insertIn = [];
-    console.log(checkOption);
-    console.log(processedList);
-    for (var x = 0; x < checkOption.length; x++) {
-      console.log(checkOption[x].getElementsByClassName("carbon"));
-      insertIn = checkOption[x];
-      console.log(x);
-      if (checkOption[x].getElementsByClassName("carbon").length < 1) {
-        console.log("here we are");
-        console.log(insertIn);
-        insertIn.appendChild(
-          this.core.createMark(processedList[x].co2Emission, 0)
-        );
-      } else {
-        console.log("saved");
-      }
+            for(var y=0;y<route.length;y+=2){
+                getValidRoute.push(route[y]);
+            }
+            route = getValidRoute;
+            getValidRoute = [];
+            if(route.length>2) stops = route.slice(1,route.length-1);
+            else stops = [];
+            var depart = route[0];
+            var arrive = route[route.length-1];
+            processedList.push({
+                depart,
+                arrive,
+                stops,
+                aircraft: "A380"
+            });
+            this.validator.verifyList(processedList);
+            console.log(stops);
+        }
+        console.log(processedList);
+        return processedList;
     }
-  }
+
+    /**
+    * Function for getting coordinates from the JSON
+    * @param array
+    * @return array
+    */
+
+    getCoordinates(processedList) {
+        processedList = this.core.getCoordinates(processedList);
+        console.log("--- got coordinates ---");
+        console.log(processedList);
+        return processedList;
+    }
+
+    /**
+    * Function for getting Total Distance of flight
+    * @param array
+    * @return array
+    */
+
+    getDistances(processedList) {
+        processedList = this.core.getTotalDistance(processedList);
+        console.log("---got Distance---");
+        console.log(processedList);
+        return processedList;
+    }
+
+    /**
+    * Function for getting Emission of flight
+    * @param array
+    * @return array
+    */
+
+    getEmission(processedList) {
+        processedList = this.core.getEmission(processedList);
+        console.log(processedList);
+        return processedList;
+    }
+
+    /**
+    * Function for inserting Element in DOM
+    * @param array
+    * @return array
+    */
+
+    insertInDom(processedList) {
+        var checkOption = document.getElementsByClassName('listItem nonBundled');
+        var insertIn = [];
+        console.log(checkOption);
+        console.log(processedList);
+        for(var x=0;x<checkOption.length;x++){
+            console.log(checkOption[x].getElementsByClassName('carbon'));
+            insertIn = checkOption[x];
+            console.log(x);
+            if(checkOption[x].getElementsByClassName('carbon').length < 1)
+            {
+                console.log("here we are");
+                console.log(insertIn);
+                insertIn.appendChild(this.core.createMark(processedList[x].co2Emission,0));
+            }
+            else{
+                console.log("saved");
+            }
+        }
+    }
 }
 
 var WebsiteManager = clearTripManager;
