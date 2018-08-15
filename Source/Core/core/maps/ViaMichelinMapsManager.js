@@ -32,6 +32,7 @@ class ViaMichelinMapsManager {
   getAllRoutes() {
     var element = document.getElementsByClassName("itinerary-index-summary");
     if (element[0] && element[0].childNodes[0]) {
+      debugger;
       table = this.validator.getChildNode([0, 2], element[0]);
     } else {
       table = false;
@@ -39,14 +40,12 @@ class ViaMichelinMapsManager {
     var routes = [];
     //console.log(table);
     if (table) {
-      for (var i = 0, row; (row = table.rows[i]); i++) {
-        for (var j = 0, col; (col = row.cells[j]); j++) {
-          var route = this.validator.getByTag("p", col);
-          routes.push({
-            distance: route[0].innerHTML
-          });
-          this.validator.isString(route[0].innerHTML);
-        }
+      var rows = table.querySelectorAll("li");
+      for (var i = 0, row; (row = rows[i]); i++) {
+        var route = this.validator.querySelector("span:nth-child(3)", row);
+        routes.push({
+          distance: route.innerHTML.trim()
+        });
       }
     }
     return routes;
@@ -65,7 +64,12 @@ class ViaMichelinMapsManager {
         var d = this.getDistanceString(routes[i].distance);
         this.validator.isNumber(parseFloat(d));
         if (el[i].getElementsByClassName("carbon").length === 0) {
-          el[i].appendChild(this.footprintCore.createFootprintElement(d));
+          var element = this.footprintCore.createFootprintElement(d);
+          element.setAttribute(
+            "style",
+            "display:inline; color:black; margin-left:1em;"
+          );
+          el[i].appendChild(element);
         }
       }
     }
