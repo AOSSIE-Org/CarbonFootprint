@@ -4,6 +4,7 @@ class pricelineManager {
       this.settingsProvider = settingsProvider;
       this.treeGrowthPerYear = 8.3;
       this.validator = new FlightsValidator("priceline");
+      this.subtree = true;
     }
 
     /**
@@ -13,7 +14,7 @@ class pricelineManager {
 
     getList() {
         console.log("Hey Priceline!");
-        var rawList = document.getElementsByClassName('slice-container');
+        var rawList =  document.querySelectorAll('li.pcln1-retail-flight.card-style');
         console.log("raw list");
         console.log(rawList);
         var processedList = [];
@@ -22,16 +23,14 @@ class pricelineManager {
         var arrive;
         var airport;
         for(var x=0; x< rawList.length; x++){
-            stops = this.validator.getByClass('stops-locations', rawList[x]);
-            airport = this.validator.getByClass('airport-code', rawList[x]);
-            depart = airport[0].innerText;
-            arrive = airport[1].innerText;
+            stops = Array.from(rawList[x].querySelectorAll('p[data-test="stop-text"]')).map((e)=>e.textContent.trim().substr(0,3));
+            var flag = (rawList[x].querySelector('p[data-test="stops-text-component"]'));
+            if(flag && flag.textContent.indexOf("Stops")> -1)continue;
+
+            depart = rawList[x].querySelector('abbr[data-test="left-airport-code"]').textContent;
+            arrive = rawList[x].querySelector('abbr[data-test="right-airport-code"]').textContent;
             if(stops.length>0){
-                stops = stops[0].innerText;
-                stops = stops.split(",");
-                stops = stops.join("");
-                stops = stops.slice(1,stops.length-1);
-                stops = stops.split(" ");
+                stops = Array.from(stops);
             }
             else{
                 console.log("no stops");
@@ -58,19 +57,18 @@ class pricelineManager {
 
     insertInDom(processedList) {
       if(processedList.length){
-        var checkOption = this.validator.getByClass('fly-itinerary retail');
+        var checkOption = document.querySelectorAll('li.pcln1-retail-flight.card-style');
         var insertIn = [];
         console.log(checkOption);
         console.log(processedList);
         for(var x=0;x<checkOption.length;x++){
             console.log(checkOption[x].getElementsByClassName('carbon'));
-            insertIn = this.validator.getByClass('fineprint', checkOption[x]);
-            insertIn = insertIn[insertIn.length-1];
+            insertIn = this.validator.querySelector('div[data-test="main-zone"]', checkOption[x]);
             console.log(x);
             if(checkOption[x].getElementsByClassName('carbon').length < 1)
             {
                 console.log("here we are");
-                insertIn.appendChild(this.core.createMark(processedList[2*x].co2Emission,processedList[(2*x)+1].co2Emission));
+                insertIn.appendChild(this.core.createMark(processedList[x].co2Emission,processedList[x].co2Emission));
             }
             else{
                 console.log("saved");

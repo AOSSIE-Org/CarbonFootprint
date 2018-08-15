@@ -3,11 +3,11 @@
  */
 
 /**
-* WazeMapsManager namespace.
-* @constructor
-* @param {object} footprintCore
-* @param {object} settingsProvider
-*/
+ * WazeMapsManager namespace.
+ * @constructor
+ * @param {object} footprintCore
+ * @param {object} settingsProvider
+ */
 
 class WazeMapsManager {
   constructor(footprintCore, settingsProvider) {
@@ -26,9 +26,10 @@ class WazeMapsManager {
   getAllDrivingRoutes() {
     var routes = [];
     // Get all routes suggested by waze Maps. route-info
-    var r = document.getElementsByClassName('route-info');
+    var r = document.getElementsByClassName("wm-route-item__stats");
     for (var i = r.length - 1; i >= 0; i--) {
-        routes.push(r[i]);
+      debugger;
+      routes.push(r[i]);
     }
     console.log(routes);
     return routes;
@@ -41,9 +42,12 @@ class WazeMapsManager {
    */
 
   getDistanceString(route) {
-    var distanceString = this.validator.getByClass('route-length', route)[0].textContent;
+    var distanceString = this.validator.getByClass(
+      "wm-route-item__length",
+      route
+    )[0].textContent;
     distanceString = distanceString.trim();
-    console.log('distanceString: ' + distanceString);
+    console.log("distanceString: " + distanceString);
     return distanceString;
   }
 
@@ -55,7 +59,7 @@ class WazeMapsManager {
 
   convertDistance(distanceStr) {
     if (distanceStr) {
-      var distanceAndUnit = distanceStr.replace('&nbsp;', ' ').split(/ /);
+      var distanceAndUnit = distanceStr.replace("&nbsp;", " ").split(/ /);
       var distance = distanceAndUnit[0];
       var unit = distanceAndUnit[1];
       return this.footprintCore.getDistanceFromStrings(distance, unit);
@@ -69,33 +73,29 @@ class WazeMapsManager {
    */
 
   insertFootprintElement(route, e) {
-    if (route.getElementsByClassName('carbon').length === 0) {
+    if (route.getElementsByClassName("carbon").length === 0) {
       e.setAttribute(
-        'style',
-        'padding-left:5px;display:inline-block;position:relative;top:-5px;'
+        "style",
+        "padding-left:5px;display:inline-block;position:relative;"
       );
-      this.validator
-        .getByClass('route-stats', route)[0]
-        .appendChild(e);
+      route.appendChild(e);
     }
   }
 
   /**
-  * Inserts element where travel cost will be displayed if not present
-  * @param {object} route
-  * @param {element} e
-  */
+   * Inserts element where travel cost will be displayed if not present
+   * @param {object} route
+   * @param {element} e
+   */
 
   insertTravelCostElement(route, e) {
     //A check to ensure that the display travel cost checkbox is checked
-    if (route.getElementsByClassName('travelCost').length === 0) {
+    if (route.getElementsByClassName("travelCost").length === 0) {
       e.setAttribute(
-        'style',
-        'padding-right:15px;display:inline-block;position:relative;top:-15px;'
+        "style",
+        "padding-right:15px;display:inline-block;position:relative;top:-15px;"
       );
-      this.validator
-        .getByClass('route-stats', route)[0]
-        .appendChild(e);
+      route.appendChild(e);
     }
   }
 
@@ -111,7 +111,7 @@ class WazeMapsManager {
       var distanceString = thisMap.getDistanceString(drivingRoutes[i]);
       this.validator.isString(distanceString);
       var distanceInKm = thisMap.convertDistance(distanceString);
-      this.isNumber(distanceInKm);
+      this.validator.isNumber(distanceInKm);
       thisMap.insertFootprintElement(
         drivingRoutes[i],
         thisMap.footprintCore.createFootprintElement(distanceInKm)

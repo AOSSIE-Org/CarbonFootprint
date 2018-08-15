@@ -7,19 +7,19 @@ class deltaManager {
   }
 
   getList() {
-    var rawList = document.getElementsByClassName("flightPathProgress");
+    var rawList = document.getElementsByClassName("mainContentCard p0-md-up");
     console.log("raw list");
     console.log(rawList);
     var processedList = [];
     for(var x = 0, i = rawList.length; x < i; x++){
       var stops = [];
-      rawStops = rawList[x].getElementsByClassName("originCityVia2Stops").length > 0 ? this.validator.getByClass("originCityVia2Stops"): [];
-      for(var y = 0, j = rawStops.length; y < j; y++){
-        stops.push(rawStops[y].innerText.split(" ")[0]);
+      rawStops = rawList[x].getElementsByClassName("flightSecFocus").length > 0 ? this.validator.getByClass("flightSecFocus",rawList[x]): [];
+      for(var y = 1, j = rawStops.length-1; y < j; y++){
+        stops.push(rawStops[y].firstChild.textContent.trim());
       }
       processedList.push({
-        depart: this.validator.getByClass("originCity", rawList[x])[0].innerText,
-        arrive: this.validator.getByClass("destinationCity", rawList[x])[0].innerText,
+        depart: this.validator.getByClass("flightSecFocus", rawList[x])[0].firstChild.textContent.trim(),
+        arrive: this.validator.getByClass("flightSecFocus", rawList[x])[j].firstChild.textContent.trim(),
         stops,
         aircraft: "A380" //hardcoded for now
       });
@@ -32,10 +32,14 @@ class deltaManager {
 
   insertInDom(processedList) {
     if(processedList.length > 0){
-      insertIn = this.validator.getByClass("aminitiesDetailWrapper");
+      insertIn = document.getElementsByClassName("col-12 partnerText");
       for(var x = 0, i = insertIn.length; x < i; x++){
         if(insertIn[x].getElementsByClassName("carbon").length === 0){
-             insertIn[x].appendChild(this.core.createMark(processedList[x].co2Emission));
+             var ele = this.core.createMark(processedList[x].co2Emission);
+             ele.style.display = "inline-block";
+             ele.style.float = "right";
+
+             insertIn[x].appendChild(ele);
         }
         //console.log(insertIn[x].childNodes[1].childNodes[1]);
       }

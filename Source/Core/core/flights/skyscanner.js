@@ -7,15 +7,15 @@ class skyscannerManager {
   }
 
   getList() {
-    var rawList = document.getElementsByClassName("card-main");
-    if(rawList.length){
-      var seatType = this.validator.getByClass("search-summary-info")[0].innerHTML;
-      if(seatType.indexOf("Economy") >= 0){
+    var rawList = document.getElementsByClassName("day-list-item");
+    if (rawList.length) {
+      var seatType = this.validator.getByClass("search-summary-info")[0]
+        .innerHTML;
+      if (seatType.indexOf("Economy") >= 0) {
         console.log(seatType.indexOf("Economy"));
         this.core.setSeatType("economy");
         console.log("economy");
-      }
-      else{
+      } else {
         this.core.setSeatType("business");
         console.log("business");
       }
@@ -23,11 +23,19 @@ class skyscannerManager {
     console.log("raw list");
     //console.log(rawList);
     var processedList = [];
-    for(var x = 0, i = rawList.length; x < i; x++){
-      stops = (this.validator.getByClass('leg-stops-station', rawList[x])[0].innerText.length)? this.validator.getByClass('leg-stops-station', rawList[x])[0].innerText.split(",").join("").split(" "): [];
+    for (var x = 0, i = rawList.length; x < i; x++) {
+      var depart = rawList[x].querySelectorAll('span[data-e2e="city"')[0]
+        .textContent;
+      var arrive = rawList[x].querySelectorAll('span[data-e2e="city"')[1]
+        .textContent;
+      stops = rawList[x].querySelectorAll(".global-stop-station span")
+        ? [].__proto__.slice
+            .call(rawList[x].querySelectorAll(".global-stop-station span"), 0)
+            .map(e => e.textContent)
+        : [];
       processedList.push({
-        depart: this.validator.getChildNode([1,0,0,1], rawList[x]).innerHTML,
-        arrive: this.validator.getChildNode([1,2,0,1], rawList[x]).innerHTML,
+        depart,
+        arrive,
         stops,
         aircraft: "A380" //hardcoded for now
       });
@@ -40,17 +48,22 @@ class skyscannerManager {
 
   insertInDom(processedList) {
     var insertIn = [];
-    if(processedList.length){
-      insertIn = this.validator.getByClass("card-main");
+    debugger;
+    if (processedList.length) {
+      insertIn = document.querySelectorAll(
+        ".day-list-item div.bpk-ticket__paper.bpk-ticket__main.bpk-ticket__main--padded.bpk-ticket__main--horizontal > div"
+      );
     }
     //console.log(insertIn);
-    for(var x = 0, i = insertIn.length; x < i; x++){
-      if(this.validator.getChildNode([1], insertIn[x]).childNodes.length <= 4 ||
-         this.validator.getChildNode([1,4], insertIn[x]).className == "leg-operator" &&
-         this.validator.getChildNode([1], insertIn[x]).childNodes.length <= 5){
-           this.validator.getChildNode([1], insertIn[x]).appendChild(this.core.createMark(processedList[x].co2Emission));
+    for (var x = 0, i = insertIn.length; x < i; x++) {
+      if (!insertIn[x].querySelector(".carbon")) {
+        insertIn[x].appendChild(
+          this.core.createMark(
+            processedList[x].co2Emission,
+            processedList[x].co2Emission
+          )
+        );
       }
-      //console.log(insertIn[x].childNodes[1].childNodes[1]);
     }
   }
 }
