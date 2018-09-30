@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Carbon Footprint for Google Maps™ and Others",
   "short_name": "Carbon Footprint",
-  "version": "5.0.0",
+  "version": "6.0",
   "description":
     "Automatically estimates CO2 emissions on Google Maps™, other maps services and train and flight search engines.",
   "content_security_policy":
