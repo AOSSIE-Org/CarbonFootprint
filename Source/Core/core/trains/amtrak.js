@@ -22,8 +22,8 @@ class amtrackRailManager {
   }
 
   insertInDom(emission, element) {
-    element = element.querySelector(
-      ".row.header_no_margin.row-divided.train_detail_row .column-one"
+    element = this.validator.querySelector(
+      ".row.header_no_margin.row-divided.train_detail_row .column-one",element
     );
     emission = this.setStyle(emission);
     if (element.getElementsByClassName("carbon").length === 0) {
