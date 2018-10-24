@@ -21,7 +21,7 @@ class bahnManager {
   insertInDom(emission, element) {
     if (element.querySelector(".carbon.verified")) return;
     emission = this.setStyle(emission);
-    element = element.querySelector("tr.buttonLine .time");
+    element = this.validator.querySelector("tr.buttonLine .time",element);
     console.log(emission);
     if (element.querySelector(".carbon") && emission.classList.length !== 2)
       return;
@@ -35,7 +35,7 @@ class bahnManager {
       element.querySelectorAll(".carbon.verified").length === 0 &&
       emission.classList.length === 2
     ) {
-      element.removeChild(element.querySelector("carbon"));
+      element.removeChild(this.validator.querySelector("carbon",element));
       element.appendChild(emission);
       return;
     }
@@ -61,20 +61,21 @@ class bahnManager {
           var trainName = "intercity-express";
           totalFootPrint = 0;
 
-          var fromTime = fromArray[index]
-            .querySelector(".nowrap.time")
+          var fromTime = 
+            this.validator.querySelector(".nowrap.time",fromArray[index])
             .textContent.trim()
             .split(" ")[
-              fromArray[index]
-                .querySelector(".nowrap.time")
+              this.validator.querySelector(".nowrap.time",fromArray[index])
                 .textContent.trim()
                 .split(" ").length - 1
             ].split(":");
 
-          var toTime = fromArray[index]
-            .querySelector(".nowrap.time")
+          var toTime =             
+          his.validator.querySelector(".nowrap.time",fromArray[index])
             .textContent.trim()
-            .split(" ")[fromArray[index].querySelector(".nowrap.time").textContent.trim().split(" ").length - 1].split(":");
+            .split(" ")[
+              this.validator.querySelector(".nowrap.time",fromArray[index])
+              .textContent.trim().split(" ").length - 1].split(":");
 
           var startDate = new Date(0, 0, 0, fromTime[0], fromTime[1], 0);
           var endDate = new Date(0, 0, 0, toTime[0], toTime[1], 0);

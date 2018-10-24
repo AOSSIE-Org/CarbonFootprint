@@ -39,23 +39,21 @@ class acprailManager {
           .lastChild.textContent === "CO2 emission"
       )
     ) {
-      var x = document
-        .querySelector("table.table")
-        .querySelector("tr:only-child")
+      var x = this.validator
+      .querySelector("tr:only-child", this.validator.querySelector("table.table")
+      )
         .lastChild.previousSibling.cloneNode();
       x.textContent = "CO2 emission";
-      document
-        .querySelector("table.table")
-        .querySelector("tr:only-child")
-        .appendChild(x);
+      this.validator
+      .querySelector("tr:only-child", this.validator.querySelector("table.table"))
+      .appendChild(x);
     }
-    var a_journey_class = this.validator
-      .getByClass("table")[0]
-      .querySelectorAll("tbody tr.a_journey");
+    var a_journey_class = this.validator.querySelectorAll("tbody tr.a_journey", this.validator
+      .getByClass("table")[0]);
 
-    var journey_details_class = this.validator
-      .getByClass("table")[0]
-      .querySelectorAll("tbody tr.journey_details");
+    var journey_details_class = 
+    this.validator.querySelectorAll("tbody tr.journey_details",this.validator
+      .getByClass("table")[0]);
 
     for (var i = 0; i < a_journey_class.length; i++) {
       var row = a_journey_class[i];
@@ -69,10 +67,10 @@ class acprailManager {
         var trainName = trainNameArray
           .slice(1, trainNameArray.length - 2)
           .join("");
-        trainDepartureTime = row.childNodes[4].textContent
+        trainDepartureTime = this.validator.getChildNode([4],row).textContent
           .split(" ")[2]
           .split(":");
-        trainArrivalTime = row.childNodes[6].textContent.split(" ")[2].split(":");
+        trainArrivalTime = this.validator.getChildNode([6],row).textContent.split(" ")[2].split(":");
         var startDate = new Date(
           0,
           0,

@@ -103,6 +103,24 @@ class BasicValidator {
   }
 
   /**
+   * Wrapper function for document.querySelector()
+   * @param {string} q
+   * @param {object} element
+   */
+
+  querySelectorAll(q, element) {
+    if(element === undefined) element = document;
+    var e = element.querySelectorAll(q);
+    if(!(e.length)){
+      this.counterMeasure("invalid element");
+    }
+    else{
+      if(this.isWorking) this.updateCheck(this.isWorking);
+    }
+    return e;
+  }
+
+  /**
    * Wrapper function for .childNodes[], gets
    * children of children as in the array
    * @param {array} children
