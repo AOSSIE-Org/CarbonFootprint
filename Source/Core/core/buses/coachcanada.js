@@ -24,7 +24,7 @@ class coachCanadaBusManager {
   update() {
     if (document.querySelectorAll(".ticket").length === 0) return;
     var self = this;
-    document.querySelectorAll(".ticket").forEach(row => {
+    this.validator.querySelectorAll(".ticket").forEach(row => {
       if (row.getElementsByClassName("carbon").length !== 0) return;
       var busDurationArray = self.validator
         .querySelector(".ticket__summary__text", row)
@@ -35,7 +35,7 @@ class coachCanadaBusManager {
         parseInt(busDurationArray[1], 10) / 60;
       self.insertInDom(
         self.footprintCore.getEmissionElementFromDuration(busDuration),
-        row.querySelector(".ticket__time")
+        self.validator.querySelector(".ticket__time", row)
       );
     });
   }

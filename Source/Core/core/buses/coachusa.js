@@ -25,13 +25,13 @@ class coachUSABusManager {
       document.querySelectorAll(".schedule-table-container table tr").length === 0
     )
       return;
-    document
+    this.validator
       .querySelectorAll(".schedule-table-container table tr")
       .forEach(row => {
         if (!row.querySelector("td[nowrap=true]")) return;
         if (row.getElementsByClassName("carbon").length !== 0) return;
         debugger;
-        var timeArray = row.querySelectorAll("td[nowrap=true]");
+        var timeArray = this.validator.querySelectorAll("td[nowrap=true]", row);
         var startTime = timeArray[0].textContent.trim().split(":");
         if (startTime[1].indexOf("p") > 0) {
           startTime[0] = (parseInt(startTime[0]) % 12) + 12;
@@ -52,7 +52,7 @@ class coachUSABusManager {
         debugger;
         this.insertInDom(
           this.footprintCore.getEmissionElementFromDuration(busDuration),
-          row.querySelectorAll("td")[row.querySelectorAll("td").length - 1]
+          this.validator.querySelectorAll("td", row)[this.validator.querySelectorAll("td", row).length - 1]
         );
       });
   }

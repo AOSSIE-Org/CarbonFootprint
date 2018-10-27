@@ -23,19 +23,19 @@ class boltBusManager{
 
   update() {
     if (document.querySelectorAll("table.fareview").length === 0) return;
-    document.querySelectorAll("table.fareview tr").forEach(row => {
+    this.validator.querySelectorAll("table.fareview tr").forEach(row => {
       if (row.getElementsByClassName("carbon").length !== 0) return;
       if (row.getElementsByClassName("faresColumn1").length === 0) return;
 
-      const departureTimeArray = row
-        .querySelector(".faresColumn1")
+      const departureTimeArray = this.validator
+        .querySelector(".faresColumn1", row)
         .textContent.trim()
         .split(":");
       if (departureTimeArray[1].indexOf("PM") !== -1) {
         departureTimeArray[0] = (parseInt(departureTimeArray[0], 10) % 12) + 12;
       }
-      const arrivalTimeArray = row
-        .querySelector(".faresColumn2")
+      const arrivalTimeArray = this.validator
+        .querySelector(".faresColumn2", row)
         .textContent.trim()
         .split(":");
       if (arrivalTimeArray[1].indexOf("PM") !== -1) {
@@ -64,7 +64,7 @@ class boltBusManager{
       if (busDuration < 0) busDuration = busDuration + 24;
       this.insertInDom(
         this.footprintCore.getEmissionElementFromDuration(busDuration),
-        row.querySelector(".faresColumn4")
+        this.validator.querySelector(".faresColumn4", row)
       );
     });
   }

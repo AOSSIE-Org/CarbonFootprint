@@ -26,7 +26,7 @@ class easternBusManager {
 
   update() {
     if (!document.getElementById("schedule_selector")) return;
-    document
+    this.validator
       .querySelectorAll("#schedule_selector .schedule_stripe")
       .forEach(row => {
         timeOutRequired = false;
@@ -47,7 +47,7 @@ class easternBusManager {
         }
         this.insertInDom(
           this.footprintCore.getEmissionElementFromDuration(busDuration),
-          row.querySelector(".time")
+          this.validator.querySelector(".time", row)
         );
       });
   }
