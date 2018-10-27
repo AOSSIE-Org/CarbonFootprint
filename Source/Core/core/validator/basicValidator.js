@@ -31,10 +31,9 @@ class BasicValidator {
    */
 
 
-  getByClass(c, element) {
+  getByClass(c, element = document) {
     console.log("website",this.website);
     console.log("type",this.type);
-    if(element === undefined) element = document;
     var toGet = element.getElementsByClassName(c);
     if(toGet.length){
       console.log("got class " + c);
@@ -52,8 +51,7 @@ class BasicValidator {
    * @param {object} element
    */
 
-  getById(i, element) {
-    if(element === undefined) element = document;
+  getById(i, element = document) {
     var toGet = element.getElementById(i);
     if(toGet){
       console.log("got id " + i);
@@ -71,8 +69,7 @@ class BasicValidator {
    * @param {object} element
    */
 
-  getByTag(t, element) {
-    if(element === undefined) element = document;
+  getByTag(t, element = document) {
     var toGet = element.getElementsByTagName(t);
     if(toGet.length){
       console.log("got tag " + t);
@@ -90,8 +87,7 @@ class BasicValidator {
    * @param {object} element
    */
 
-  querySelector(q, element) {
-    if(element === undefined) element = document;
+  querySelector(q, element = document) {
     var e = element.querySelector(q);
     if(!e){
       this.counterMeasure("invalid element");
@@ -108,8 +104,7 @@ class BasicValidator {
    * @param {object} element
    */
 
-  querySelectorAll(q, element) {
-    if(element === undefined) element = document;
+  querySelectorAll(q, element = document) {
     var e = element.querySelectorAll(q);
     if(!(e.length)){
       this.counterMeasure("invalid element");
@@ -127,8 +122,7 @@ class BasicValidator {
    * @param {object} element
    */
 
-  getChildNode(children, element) {
-    if(element === undefined) element = document;
+  getChildNode(children, element = document) {
     for(var x = 0, i = children.length; x < i; x++){
       if(element && element.childNodes.length){
         element = element.childNodes[children.shift()];
