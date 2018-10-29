@@ -9,9 +9,9 @@ class firstBusManager {
     this.footprintCore.storeBusSpeedData(this.dataSource);
     debugger;
   }
-
+.
   setStyle(emission) {
-    emission.querySelector("a").setAttribute("style", "color:black !important;");
+    this.validator.querySelector("a", emission).setAttribute("style", "color:black !important;");
     return emission;
   }
 
