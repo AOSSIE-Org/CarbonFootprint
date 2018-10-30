@@ -29,7 +29,7 @@ class greyhoundBusManager {
       element.querySelectorAll(".verified .carbon").length === 0 &&
       emission.classList.length === 1
     ) {
-      element.removeChild(this.validator.querySelector("#carbon-footprint-label"));
+      element.removeChild(this.validator.querySelector("#carbon-footprint-label", element));
       element.appendChild(emission);
       return;
     }
