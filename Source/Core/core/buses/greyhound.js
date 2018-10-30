@@ -29,7 +29,7 @@ class greyhoundBusManager {
       element.querySelectorAll(".verified .carbon").length === 0 &&
       emission.classList.length === 1
     ) {
-      element.removeChild(element.querySelector("#carbon-footprint-label"));
+      element.removeChild(this.validator.querySelector("#carbon-footprint-label", element));
       element.appendChild(emission);
       return;
     }
@@ -37,7 +37,7 @@ class greyhoundBusManager {
 
   update() {
     if (!document.querySelectorAll(".fare")) return;
-    document.querySelectorAll(".fare").forEach(row => {
+    this.validator.querySelectorAll(".fare").forEach(row => {
       if (row.getElementsByClassName("carbon verified").length !== 0) return;
       debugger;
       var busDurationArray = this.validator
@@ -50,8 +50,8 @@ class greyhoundBusManager {
       if (row.querySelector(".timeline")) {
         debugger;
         var excludedTime = 0;
-        row.querySelectorAll(".stop-information").forEach(stop => {
-          var durationStop = stop.querySelectorAll("li")[2];
+        this.validator.querySelectorAll(".stop-information", row).forEach(stop => {
+          var durationStop = this.validator.querySelectorAll("li", stop)[2];
           if (durationStop) {
             excludedTimeArray = durationStop
               .querySelector("strong")
@@ -75,14 +75,14 @@ class greyhoundBusManager {
         emissionElement.classList.add("verified");
         this.insertInDom(
           emissionElement,
-          row.querySelector(".details.table-cell")
+          this.validator.querySelector(".details.table-cell", row)
         );
         return;
       }
       if (row.getElementsByClassName("carbon").length === 0) {
         this.insertInDom(
           this.footprintCore.getEmissionElementFromDuration(busDuration),
-          row.querySelector(".details.table-cell")
+          this.validator.querySelector(".details.table-cell", row)
         );
         return;
       }

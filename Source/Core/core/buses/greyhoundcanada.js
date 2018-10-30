@@ -30,7 +30,7 @@ class greyhoundCanadaBusManager {
 
   update() {
     if (!document.querySelectorAll(".outerRow")) return;
-    document.querySelectorAll(".outerRow").forEach(row => {
+    this.validator.querySelectorAll(".outerRow").forEach(row => {
       var busDurationArray = this.validator
         .querySelector(".ptStep2travelTimeCol", row)
         .textContent.trim()
@@ -53,7 +53,7 @@ class greyhoundCanadaBusManager {
       if (row.getElementsByClassName("carbon").length === 0) {
         this.insertInDom(
           this.footprintCore.getEmissionElementFromDuration(busDuration),
-          row.querySelector(".ptStep2transfersCol")
+          this.validator.querySelector(".ptStep2transfersCol", row)
         );
         return;
       }

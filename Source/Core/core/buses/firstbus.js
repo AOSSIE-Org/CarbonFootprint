@@ -11,7 +11,7 @@ class firstBusManager {
   }
 
   setStyle(emission) {
-    emission.querySelector("a").setAttribute("style", "color:black !important;");
+    this.validator.querySelector("a", emission).setAttribute("style", "color:black !important;");
     return emission;
   }
 

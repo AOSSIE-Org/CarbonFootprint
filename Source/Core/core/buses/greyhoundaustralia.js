@@ -33,7 +33,7 @@ class greyhoundAustraliaBusManager {
 
   update() {
     if (!document.querySelectorAll(".trip-item .trip-summary")) return;
-    document.querySelectorAll(".trip-item .trip-summary").forEach(row => {
+    this.validator.querySelectorAll(".trip-item .trip-summary").forEach(row => {
       debugger;
       var busDurationArray = this.validator
         .querySelector(
@@ -60,8 +60,8 @@ class greyhoundAustraliaBusManager {
       if (row.getElementsByClassName("carbon").length === 0) {
         this.insertInDom(
           this.footprintCore.getEmissionElementFromDuration(busDuration),
-          row.querySelector(
-            ".col-sm-offset-6.col-sm-6.trip-expand.container-bleed"
+          this.validator.querySelector(
+            ".col-sm-offset-6.col-sm-6.trip-expand.container-bleed", row
           )
         );
         return;
