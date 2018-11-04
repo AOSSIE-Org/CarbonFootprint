@@ -31,14 +31,14 @@ class trainoseManager {
   update() {
     debugger;
     if (document.querySelectorAll(".dromologio").length === 0) return;
-    document.querySelectorAll(".dromologio").forEach(row => {
+    this.validator.querySelectorAll(".dromologio").forEach(row => {
       if (row.querySelector(".trip-segment")) {
         if (row.getElementsByClassName("carbon").length != 0) return;
 
         var totalFootPrint = 0;
 
-        var fromArray = row.querySelectorAll(".tanax");
-        var toArray = row.querySelectorAll(".tafix");
+        var fromArray = this.validator.querySelectorAll(".tanax", row);
+        var toArray = this.validator.querySelectorAll(".tafix", row);
         var trainName = "trainose";
         if (!trainSpeedData[trainName])
           trainName = trainSpeedData["greece"] ? "greece" : "average";
