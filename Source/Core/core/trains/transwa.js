@@ -29,7 +29,7 @@ transwaManager.prototype.insertInDom = function(emission, element) {
 
 transwaManager.prototype.update = function() {
   if (document.querySelectorAll(".jbsRouteTextColumn").length === 0) return;
-  document.querySelectorAll(".jbsRouteTextColumn").forEach(function(row) {
+  this.validator.querySelectorAll(".jbsRouteTextColumn").forEach(function(row) {
     if (row.getElementsByClassName("carbon").length != 0) return;
     var trainName = this.validator
       .querySelector("li span")

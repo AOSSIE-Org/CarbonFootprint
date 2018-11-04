@@ -29,7 +29,7 @@ class viarailManager {
 
   update() {
     if (document.querySelectorAll(".train-route-container").length === 0) return;
-    document.querySelectorAll(".train-route-container").forEach(row => {
+    this.validator.querySelectorAll(".train-route-container").forEach(row => {
       if (row.getElementsByClassName("carbon").length != 0) return;
       var trainName = "viarail";
       var trainDurationArray = this.validator
