@@ -31,7 +31,7 @@ class sjManager {
   update() {
     if (document.querySelectorAll(".timetable__table-rows.ng-scope").length === 0)
       return;
-    document
+    this.validator
       .querySelectorAll(".timetable__table-rows.ng-scope")
       .forEach(row => {
         if (row.getElementsByClassName("carbon").length != 0) return;
@@ -48,7 +48,7 @@ class sjManager {
         distanceBetween = trainSpeedData["sj"] * trainDuration;
         this.insertInDom(
           this.footprintCore.getEmission([this.MODE]),
-          row.querySelector(".timetable__extra-info span.ng-binding")
+          this.validator.querySelector(".timetable__extra-info span.ng-binding", row)
         ); //There is only 1 type of train
       });
   }
