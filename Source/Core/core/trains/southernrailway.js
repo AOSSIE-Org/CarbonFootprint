@@ -28,7 +28,7 @@ class southernRailManager {
 
   update() {
     if (document.querySelectorAll(".display__row").length === 0) return;
-    document.querySelectorAll(".display__row").forEach(row => {
+    this.validator.querySelectorAll(".display__row").forEach(row => {
       if (row.getElementsByClassName("carbon").length !== 0) return;
       var trainName = "southernrailway";
       var trainDuration;

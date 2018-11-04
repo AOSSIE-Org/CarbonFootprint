@@ -22,7 +22,7 @@ class railEuropeManager {
   insertInDom(emission, element) {
     if (element.getElementsByClassName("carbon").length !== 0) return;
     emission = this.setStyle(emission);
-    element = element.querySelector(".train-specs");
+    element = this.validator.querySelector(".train-specs", element);
     console.log(emission);
     if (element.getElementsByClassName("carbon").length === 0) {
       element.appendChild(emission);
@@ -31,14 +31,14 @@ class railEuropeManager {
 
   update() {
     if (document.querySelectorAll(".row.js-solution").length === 0) return;
-    document.querySelectorAll(".row.js-solution").forEach(row => {
+    this.validator.querySelectorAll(".row.js-solution").forEach(row => {
       if (row.getElementsByClassName("carbon").length != 0) return;
 
       var totalFootPrint = 0;
 
-      row.querySelectorAll(".segment-line").forEach(train => {
-        var trainDurationArray = train
-          .querySelector(".spec.spec-duration")
+      this.validator.querySelectorAll(".segment-line", row).forEach(train => {
+        var trainDurationArray = this.validator
+          .querySelector(".spec.spec-duration", train)
           .textContent.trim()
           .split(" ");
 
@@ -46,8 +46,8 @@ class railEuropeManager {
           parseInt(trainDurationArray[1], 10) / 60 +
           parseInt(trainDurationArray[0], 10);
 
-        var trainName = train
-          .querySelector(".spec.spec-carrier")
+        var trainName = this.validator
+          .querySelector(".spec.spec-carrier", train)
           .textContent.trim();
         var usingAverageSpeed = true;
         for (trainTestString in trainSpeedData) {
