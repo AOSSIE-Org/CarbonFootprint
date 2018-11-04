@@ -37,18 +37,18 @@ class redspottedhankyManager {
           .lastChild.textContent === "CO2 emission"
       )
     ) {
-      var x = document
+      var x = this.validator
         .querySelector("table.FaresView")
         .querySelector("th")
         .cloneNode();
       x.textContent = "CO2 emission";
-      document
+      this.validator
         .querySelector("table.FaresView")
         .querySelector("tr:only-child")
         .appendChild(x);
     }
     debugger;
-    document.querySelectorAll(".FaresViewDetail").forEach(row => {
+    this.validator.querySelectorAll(".FaresViewDetail").forEach(row => {
       if (row.getElementsByClassName("carbon").length != 0) return;
 
       var trainName = "redspottedhanky";
