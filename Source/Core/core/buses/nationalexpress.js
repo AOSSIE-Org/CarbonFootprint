@@ -29,7 +29,7 @@ class nationalexpressManager {
         .length === 0
     )
       return;
-    document
+    this.validator
       .querySelectorAll("div.ng-scope[ng-repeat='journey in data']")
       .forEach(row => {
         if (row.getElementsByClassName("carbon").length !== 0) return;
@@ -43,7 +43,7 @@ class nationalexpressManager {
         debugger;
         this.insertInDom(
           this.footprintCore.getEmissionElementFromDuration(busDuration),
-          row.querySelector(".nx-journey-details")
+          this.validator.querySelector(".nx-journey-details", row)
         );
       });
   }

@@ -23,19 +23,19 @@ class ourBusManager {
 
   update() {
     if (document.querySelectorAll(".inter_comm_route_list").length === 0) return;
-    document.querySelectorAll(".inter_comm_route_list").forEach(row => {
+    this.validator.querySelectorAll(".inter_comm_route_list").forEach(row => {
       if (row.getElementsByClassName("carbon").length !== 0) return;
 
       debugger;
-      var departureTimeArray = row
-        .querySelector(".mrng_time_up")
+      var departureTimeArray = this.validator
+        .querySelector(".mrng_time_up", row)
         .textContent.trim()
         .split(":");
       if (departureTimeArray[1].indexOf("PM") !== -1) {
         departureTimeArray[0] = (parseInt(departureTimeArray[0], 10) % 12) + 12;
       }
-      var arrivalTimeArray = row
-        .querySelector(".mrng_time_down")
+      var arrivalTimeArray = this.validator
+        .querySelector(".mrng_time_down", row)
         .textContent.trim()
         .split(":");
       if (arrivalTimeArray[1].indexOf("PM") !== -1) {
@@ -65,7 +65,7 @@ class ourBusManager {
       debugger;
       this.insertInDom(
         this.footprintCore.getEmissionElementFromDuration(busDuration),
-        row.querySelector(".inter_com_route_slct")
+        this.validator.querySelector(".inter_com_route_slct", row)
       );
     });
   }

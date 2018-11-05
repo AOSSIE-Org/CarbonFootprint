@@ -24,19 +24,19 @@ class murraysBusManager {
 
   update() {
     if (document.querySelectorAll(".trChooseTime").length === 0) return;
-    document.querySelectorAll(".trChooseTime").forEach(row => {
+    this.validator.querySelectorAll(".trChooseTime").forEach(row => {
       if (row.getElementsByClassName("carbon").length !== 0) return;
 
       debugger;
-      var departureTimeArray = row
-        .querySelector("td:nth-child(1) time")
+      var departureTimeArray = this.validator
+        .querySelector("td:nth-child(1) time", row)
         .textContent.trim()
         .split(":");
       if (departureTimeArray[1].indexOf("pm") !== -1) {
         departureTimeArray[0] = (parseInt(departureTimeArray[0], 10) % 12) + 12;
       }
-      var arrivalTimeArray = row
-        .querySelector("td:nth-child(2) time")
+      var arrivalTimeArray = this.validator
+        .querySelector("td:nth-child(2) time", row)
         .textContent.trim()
         .split(":");
       if (arrivalTimeArray[1].indexOf("pm") !== -1) {
@@ -66,7 +66,7 @@ class murraysBusManager {
       debugger;
       this.insertInDom(
         this.footprintCore.getEmissionElementFromDuration(busDuration),
-        row.querySelector("td:nth-child(1) > time")
+        this.validator.querySelector("td:nth-child(1) > time", row)
       );
     });
   }

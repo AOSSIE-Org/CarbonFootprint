@@ -23,7 +23,7 @@ class megabusBusManager {
 
   update() {
     if (document.querySelectorAll(".ticket").length === 0) return;
-    document.querySelectorAll(".ticket").forEach(row => {
+    this.validator.querySelectorAll(".ticket").forEach(row => {
       if (row.getElementsByClassName("carbon").length !== 0) return;
       debugger;
       var busDurationArray = this.validator
@@ -36,7 +36,7 @@ class megabusBusManager {
       debugger;
       this.insertInDom(
         this.footprintCore.getEmissionElementFromDuration(busDuration),
-        row.querySelector(".ticket__time")
+        this.validator.querySelector(".ticket__time", row)
       );
     });
   }
