@@ -24,8 +24,8 @@ class washingtonDeluxeManager {
 
   update() {
     debugger;
-    if (document.querySelectorAll(".reserv_table_sched").length === 0) return;
-    document.querySelectorAll(".reserv_table_sched").forEach(row => {
+    if (this.validator.querySelectorAll(".reserv_table_sched").length === 0) return;
+    this.validator.querySelectorAll(".reserv_table_sched").forEach(row => {
       if (row.getElementsByClassName("carbon").length !== 0) return;
       debugger;
       // As website is used only for route between NYC and Washington DC
@@ -33,10 +33,10 @@ class washingtonDeluxeManager {
       debugger;
       this.insertInDom(
         this.footprintCore.getEmissionElementFromDistance(busDuration),
-        row.querySelector("td:nth-child(6)")
+        this.validator.querySelector("td:nth-child(6)",row)
       );
     });
-    document.querySelectorAll(".reserv_table_sched_last").forEach(row => {
+    this.validator.querySelectorAll(".reserv_table_sched_last").forEach(row => {
       if (row.getElementsByClassName("carbon").length !== 0) return;
       debugger;
       // As website is used only for route between NYC and Washington DC
@@ -44,7 +44,7 @@ class washingtonDeluxeManager {
       debugger;
       this.insertInDom(
         this.footprintCore.getEmissionElementFromDistance(busDuration),
-        row.querySelector("td:nth-child(6)")
+        this.validator.querySelector("td:nth-child(6)", row)
       );
     });
   }
