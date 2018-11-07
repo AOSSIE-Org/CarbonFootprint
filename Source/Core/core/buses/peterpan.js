@@ -26,10 +26,10 @@ class peterpanBusManager {
 
   update() {
     if (document.querySelectorAll(".fineborder").length === 0) return;
-    document.querySelectorAll(".fineborder").forEach(row => {
+    this.validator.querySelectorAll(".fineborder").forEach(row => {
       if (row.getElementsByClassName("carbon").length !== 0) return;
       debugger;
-      var timeTD = row.querySelectorAll("td")[6];
+      var timeTD = this.validator.querySelectorAll("td", row)[6];
       if (!timeTD) return;
 
       var busDuration = Number(timeTD.getAttribute("sorting")) / 60;
