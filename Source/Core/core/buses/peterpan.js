@@ -25,7 +25,7 @@ class peterpanBusManager {
   }
 
   update() {
-    if (this.validator.querySelectorAll(".fineborder").length === 0) return;
+    if (document.querySelectorAll(".fineborder").length === 0) return;
     this.validator.querySelectorAll(".fineborder").forEach(row => {
       if (row.getElementsByClassName("carbon").length !== 0) return;
       debugger;

@@ -24,7 +24,7 @@ class washingtonDeluxeManager {
 
   update() {
     debugger;
-    if (this.validator.querySelectorAll(".reserv_table_sched").length === 0) return;
+    if (document.querySelectorAll(".reserv_table_sched").length === 0) return;
     this.validator.querySelectorAll(".reserv_table_sched").forEach(row => {
       if (row.getElementsByClassName("carbon").length !== 0) return;
       debugger;

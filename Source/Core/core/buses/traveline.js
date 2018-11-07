@@ -27,9 +27,9 @@ class travelineBusManager {
   }
 
   update() {
-    if (this.validator.querySelectorAll(".journey-summary").length === 0) return;
+    if (document.querySelectorAll(".journey-summary").length === 0) return;
     if (
-        this.validator.querySelector(".journey-summaries table thead tr th:nth-child(4)")
+        document.querySelector(".journey-summaries table thead tr th:nth-child(4)")
         .textContent !== "CO2 emission"
     ) {
       var th = document.createElement("th");
@@ -46,7 +46,7 @@ class travelineBusManager {
       .querySelector(".journey-summary.break td")
       .setAttribute("colspan", 8);
     this.validator.querySelectorAll(".journey-summary").forEach(row => {
-      if (!this.validator.querySelector(".next", row)) return;
+      if (!row.querySelector(".next")) return;
       if (row.getElementsByClassName("carbon").length !== 0) return;
       var busDurationArray = this.validator
         .querySelector(".next", row)
