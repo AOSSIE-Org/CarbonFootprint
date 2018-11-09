@@ -29,7 +29,7 @@ class nsbManager {
   }
 
   update() {
-    document.querySelectorAll(".itinerary-list-item").forEach(row => {
+    this.validator.querySelectorAll(".itinerary-list-item").forEach(row => {
       if (row.getElementsByClassName("carbon").length != 0) return;
 
       var trainDuration;

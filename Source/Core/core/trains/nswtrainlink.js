@@ -30,7 +30,7 @@ nswtrainlinkManager.prototype.insertInDom = function(emission, element) {
 
 nswtrainlinkManager.prototype.update = function() {
   if (document.querySelectorAll(".tableSeparatorLine").length === 0) return;
-  document.querySelectorAll(".tableSeparatorLine").forEach(function(row) {
+  this.validator.querySelectorAll(".tableSeparatorLine").forEach(function(row) {
     if (row.getElementsByClassName("carbon").length != 0) return;
     var trainName = trainSpeedData["nswtrainlink"] ? "nswtrainlink" : "average";
     var trainDurationArray = this.validator
