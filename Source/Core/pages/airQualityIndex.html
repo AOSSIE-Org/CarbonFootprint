@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Carbon Footprint">
+    <meta name="description"
+          content="An extension that calculates CO<sub>2</sub> emissions for driving on routes suggested by Google Maps, Here and Open Street Map.">
+
+    <title>Air Quality Index</title>
+
+    <!-- Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    >
+
+
+    <!-- Font-Awesome Stylesheet -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet prefetch">
+
+    <!-- Leaflet Stylesheet -->
+    <link href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/knowMore.css" rel="stylesheet prefetch">
+</head>
+<body>
+
+<!-- tile Modal 1 - Air Index Quality -->
+<!-- Source : http://aqicn.org/faq/2015-09-18/map-web-service-real-time-air-quality-tile-api/ -->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="modal-body">
+                <h2>Live Air Quality Index</h2>
+                <div id="map-container"></div>
+                <p>
+                <ul id="airQualityScale" class="row container-fluid ">
+                    <div class="row" id="airQualityScaleRow">
+                        <div class="col-sm-0.9" style="color:grey; padding-left:0px">Scale
+                    </div>
+                    <div class="col-sm-1" style="background-color: #019866">Good</div>
+                    <div class="col-sm-2" style="background-color: #ffdd34">Moderate</div>
+                    <div class="col-sm-3" style="background-color: #ff9934">Unhealthy for sensitive groups</div>
+                    <div class="col-sm-2" style="background-color: #cf0033">Unhealthy</div>
+                    <div class="col-sm-2" style="background-color: #670099">Very unhealthy</div>
+                    <div class="col-sm-1.1" style="background-color: #820126">Hazardous</div>
+            </div>
+            </ul>
+            <form class="form-inline pull-left">
+                <div class="form-group">
+                    <label for="map-type">Marker Type: </label>
+                    <select class="form-control" id="map-type">
+                        <option value="usepa-aqi" selected>Air Quality Index</option>
+                        <option value="usepa-pm25">PM<sub>2.5</sub>
+                        </option>
+                        <option value="usepa-10">PM<sub>10</sub>
+                        </option>
+                        <option value="usepa-o3">Ozone</option>
+                        <option value="usepa-no2">NO<sub>2</sub>
+                        </option>
+                        <option value="usepa-so2">SO<sub>2</sub>
+                        </option>
+                        <option value="usepa-co">CO</option>
+                        <option value="asean-pm10">Asean PM<sub>10</sub>
+                        </option>
+                    </select>
+                </div>
+            </form>
+            <span class="pull-right"><i>Source: </i><a href="http://aqicn.org/">http://aqicn.org/</a></span>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+</div>
+<!-- jQuery -->
+<!-- Note:  Bootstrap's JavaScript requires jQuery version 1.9.1 or higher, but lower than version 3 -->
+<script src="js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Leaflet (V 1.0.3) Map API -->
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+<!-- Custom JavaScript -->
+
+<!-- Custom JavaScript -->
+<script type="text/javascript" src="js/browserServices.js"></script>
+<script type="text/javascript" src="js/airIndex.js"></script>
+<script type="text/javascript" src="js/caloriesCalc.js"></script>
+<script type="text/javascript" src="../core/helpers/ChromeHelper.js"></script>
+<script type="text/javascript" src="../core/helpers/SafariHelper.js"></script>
+<script type="text/javascript" src="../core/helpers/FirefoxHelper.js"></script>
+<script type="text/javascript" src="../core/helpers/flightDataHelper.js"></script>
+<script type="text/javascript" src="../core/CarbonFootprintCommon.js"></script>
+<script type="text/javascript" src="../core/FlightsFootprintCommon.js"></script>
+<script type="text/javascript" src="js/absorptionCalc.js"></script>
+<script type="text/javascript" src="js/airplaneCalc.js"></script>
+
+</body>
+</html>
