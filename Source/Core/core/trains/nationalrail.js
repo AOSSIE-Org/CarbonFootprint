@@ -28,7 +28,7 @@ class nationalRailManager {
 
   update() {
     if (document.querySelectorAll(".mtx").length === 0) return;
-    document.querySelectorAll(".mtx").forEach(row => {
+    this.validator.querySelectorAll(".mtx").forEach(row => {
       if (row.getElementsByClassName("carbon").length !== 0) return;
       var trainName = "nationalrail";
       var trainDuration =
