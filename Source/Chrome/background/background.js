@@ -138,7 +138,6 @@ if (background.isChrome) {
   chrome.tabs.onUpdated.addListener(function(tabid, changeInfo, Tab) {
     // console.log(tabid,changeInfo,Tab);
     console.log("chrome", chrome);
-    console.log("anurag gupta");
     chrome.pageAction.getTitle({tabId: tabid},function(title) {
       if (title != 'Carbon Footprint') {
         var index = background.tabs.indexOf(tabid);
