@@ -72,10 +72,16 @@ class FlightsFootprintCommon extends CarbonFootprintCommon {
         var interpolationFailed = false;
         for(var y = 0, j = flightData.airplanesData.distances.length; y < j; y++){
             if(flightData.airplanesData.distances[y]*FlightsFootprintCommon.NMI_TO_KM > list[x].distance){
-              fuelConsumptionFloor = flightData.airplanesData[aircraft].fuel[y-1];
               fuelConsumptionCeil = flightData.airplanesData[aircraft].fuel[y];
-              distanceFloor = flightData.airplanesData.distances[y-1]*FlightsFootprintCommon.NMI_TO_KM;
               distanceCeil = flightData.airplanesData.distances[y]*FlightsFootprintCommon.NMI_TO_KM;
+              if(y>0) {
+                fuelConsumptionFloor = flightData.airplanesData[aircraft].fuel[y-1];
+                distanceFloor = flightData.airplanesData.distances[y-1]*FlightsFootprintCommon.NMI_TO_KM;
+              }
+              else {
+                fuelConsumptionFloor = fuelConsumptionCeil;
+                distanceFloor = distanceCeil;
+              }
               break;
             }
         }
@@ -92,13 +98,16 @@ class FlightsFootprintCommon extends CarbonFootprintCommon {
         }
         //if interpolation wont fail then use it
         else{
+          if (distanceCeil != distanceFloor)
           fuelConsumption = fuelConsumptionFloor + ((fuelConsumptionCeil - fuelConsumptionFloor)/
                                 (distanceCeil - distanceFloor))*(list[x].distance - distanceFloor);
+          
+          else fuelConsumption = fuelConsumptionCeil;
         }
         list[x].co2Emission = this.convertFuelToCO2(fuelConsumption, aircraft);
       }
-    //console.log("--- final list ---");
-    //console.log(list);
+    console.log("--- final list ---");
+    console.log(list);
     return list;
   }
 
@@ -109,6 +118,9 @@ class FlightsFootprintCommon extends CarbonFootprintCommon {
    */
 
   convertFuelToCO2(fuel, aircraft) {
+    console.log("inside convert")
+    console.log("data1", fuel)
+
     var obj =  {
       economy: Math.floor(fuel*FlightsFootprintCommon.CO2_FOR_JETFUEL/flightData.airplanesData[aircraft].capacity),
       business: Math.floor(fuel*FlightsFootprintCommon.CO2_FOR_JETFUEL/flightData.airplanesData[aircraft].capacityTwoClass)

@@ -16,7 +16,6 @@ class googleFlightsManager {
         var rawList = document.querySelectorAll(".gws-flights-results__collapsed-itinerary.gws-flights-results__itinerary");
         console.log(rawList);
         console.log("--raw list--");
-        //console.log(rawList);
         var processedList = [];
         var depart;
         var arrive;
