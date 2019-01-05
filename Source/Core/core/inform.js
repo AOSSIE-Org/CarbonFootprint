@@ -18,15 +18,11 @@ console.log('inform.js');
 const cb = (result, serviceManager) => {
     const question = location.href;
     let flag=true;
-    console.log(result['data']);
     const data = result['data'];
     for(const id in data){
         for(const key in data[id]){
             const check = data[id][key]['regex'];
             const regex = new RegExp(check);
-            console.log(regex,check);
-            console.log(regex.test(question));
-            console.log(data[id][key]['active']);
             if(regex.test(question) && (!data[id][key]['active'] || !data[id][key]['working'])){
                 flag = false;
                 console.log('this site is disabled');
@@ -84,7 +80,6 @@ class inform {
     permission(serviceManager) {
         if(this.isChrome){
             chrome.storage.sync.get('data',data => {
-                console.log(data['data']);
                 cb(data,serviceManager);
             });
         }
@@ -93,7 +88,6 @@ class inform {
         }
         else if(this.isFirefox){
             browser.storage.sync.get('data',data => {
-                console.log(data['data']);
                 cb(data,serviceManager);
             });
         }
