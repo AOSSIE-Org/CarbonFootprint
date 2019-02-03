@@ -102,9 +102,7 @@ gulp.task('localesFF', function() {
 });
 
 gulp.task('coreFirefox', function() {
-  var jsFilter = gulpFilter('**/*.js', { restore: true });
   var linkFilter = gulpFilter('**/knowMore.html', { restore: true });
-  var validatorFilter = gulpFilter('**/validatorServer.js', { restore: true });
 
   return merged(
     transpiledFiles
@@ -199,7 +197,6 @@ gulp.task('localesChrome', function() {
 });
 
 gulp.task('coreChrome', function() {
-  var jsFilter = gulpFilter('**/*.js', { restore: true });
   var linkFilter = gulpFilter('**/knowMore.html', { restore: true });
   var validatorFilter = gulpFilter('**/validatorServer.js', { restore: true });
   return merged(
@@ -272,9 +269,7 @@ gulp.task('specificChrome', function() {
 });
 
 gulp.task('coreSafari', function() {
-  var jsFilter = gulpFilter('**/*.js', { restore: true });
   var linkFilter = gulpFilter('**/knowMore.html', { restore: true });
-  var validatorFilter = gulpFilter('**/validatorServer.js', { restore: true });
   return merged(
     transpiledFiles
       .pipe(gulpif(doMinify, uglify()))
@@ -374,9 +369,7 @@ gulp.task('localesWebext', function() {
 });
 
 gulp.task('coreWebExt', function() {
-  var jsFilter = gulpFilter('**/*.js', { restore: true });
   var linkFilter = gulpFilter('**/knowMore.html', { restore: true });
-  var validatorFilter = gulpFilter('**/validatorServer.js', { restore: true });
   return merged(
     transpiledFiles
       .pipe(gulpif(doMinify, uglify()))
