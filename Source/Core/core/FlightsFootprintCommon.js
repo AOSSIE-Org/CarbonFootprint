@@ -24,7 +24,7 @@ class FlightsFootprintCommon extends CarbonFootprintCommon {
     //console.log("started placing coords");
     //console.log(core.airportsData);
     for(var x = 0, i = list.length; x < i; x++){
-      list[x].departCoordinates = flightData.airportsData[list[x].depart];
+        list[x].departCoordinates = flightData.airportsData[list[x].depart];
         list[x].arriveCoordinates = flightData.airportsData[list[x].arrive];
         list[x].stopCoordinatesNew = [];
         if(list[x].stops.length){
