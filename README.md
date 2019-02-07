@@ -25,9 +25,9 @@ Building and Using Beta Versions
 
 * run `npm install`
 
-* run `gulp group` or `gulp groupFirefox` or `gulp groupChrome` or `gulp groupSafari` or `gulp groupWebext`
+* run `num run group` or `num run groupFirefox` or `num run groupChrome` or `num run groupSafari` or `num run groupWebext`
 
-* add flag `--debugApp` to keep all debug statements and comments.
+* run `num run group:debug` or `num run groupFirefox:debug` or `num run groupChrome:debug` or `num run groupSafari:debug` or `num run groupWebext:debug` to keep all debug statements and comments.
 
 * for chrome, load the unpacked extension from the Build/Chrome folder
 
