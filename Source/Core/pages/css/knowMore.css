@@ -330,6 +330,8 @@ section h3.section-subheading {
 
 .tile-modal .modal-content img {
     margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tile-modal .close-modal {
@@ -443,10 +445,6 @@ body {
 }
 
 /* Accordian Panel */
-#accordion {
-    /*background-color: var(--primary-color);*/;
-}
-
 .panel {
     border: none;
     box-shadow: none;
