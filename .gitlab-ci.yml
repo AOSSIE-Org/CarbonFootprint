@@ -5,9 +5,8 @@ cache:
     - node_modules/
 
 before_script:
-  - npm install -g gulp-cli
   - npm install
 
 test:
   script:
-    - gulp test
+    - npm test

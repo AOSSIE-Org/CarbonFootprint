@@ -3,7 +3,16 @@
   "version": "6.0.2",
   "description": "Carbon Footprint",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "group": "gulp group",
+    "groupFirefox": "gulp groupFirefox",
+    "groupChrome": "gulp groupChrome",
+    "groupSafari": "gulp groupSafari",
+    "groupWebext": "gulp groupWebext",
+    "groupFirefox:debug": "gulp groupFirefox --debugApp",
+    "groupChrome:debug": "gulp groupChrome --debugApp",
+    "groupSafari:debug": "gulp groupSafari --debugApp",
+    "groupWebext:debug": "gulp groupWebext --debugApp"
   },
   "repository": {
     "type": "git",
