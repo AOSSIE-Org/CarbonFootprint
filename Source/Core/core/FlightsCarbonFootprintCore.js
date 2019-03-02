@@ -57,8 +57,8 @@ class FlightsFootprintCore extends FlightsFootprintCommon {
                                                         processedList[x].arriveCoordinates.lon);
       }
     }
-    //console.log("---got distances---");
-    //console.log(processedList);
+    // console.log("---got distances---");
+    // console.log(processedList);
     return processedList;
   }
 

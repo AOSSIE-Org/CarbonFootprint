@@ -32,7 +32,7 @@ class storageManager {
      */
 
     getStorage(key, cb) {
-        console.log('use sync data');
+        // console.log('use sync data');
         var self = this;
         try{
         if(self.isChrome){
@@ -87,7 +87,7 @@ class storageManager {
 
     insertStorage(key, data, cb) {
         if(data.hasOwnProperty(key)){
-                console.log("updating data",data);
+                // console.log("updating data",data);
                 var self = this;
                 if(self.isChrome){
                     chrome.storage.sync.set(data,() => {

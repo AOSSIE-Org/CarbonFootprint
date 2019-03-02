@@ -27,7 +27,7 @@ class googleFlightsManager {
             console.log(detail);
             var stopsLength = parseInt(detail.querySelector("div").textContent);
             if(!Number.isNaN(stopsLength)){
-                stops= rawList[x].querySelector(".gws-flights-results__layover-time").textContent.split(",").map(e=>e.trim());
+                stops= rawList[x].querySelector(".gws-flights-results__layover-time").textContent.trim().split(" ").filter(e => {const lastChar = e[e.length-1]; return lastChar!=='h'&& lastChar!=='m' }) ;
             }else stops=[];
             //In the case of city having more than one airport
             // we try to find exact airport by not considering URL
