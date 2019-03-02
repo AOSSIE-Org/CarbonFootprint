@@ -1,0 +1,98 @@
+{
+  "extName": {
+    "message": "గూగుల్ పటాలు కోసం కార్బన్ ఫుట్ప్రింట్ ™",
+    "description": "Telugu title"
+  },
+  "extDesc": {
+    "message": "గూగుల్ మ్యాప్స్ సూచించిన మార్గాల్లో డ్రైవింగ్ కోసం బొగ్గుపులుసు వాయువు ఉద్గారాలను స్వయంచాలకంగా అంచనా వేస్తుంది",
+    "description": "Telugu description"
+  },
+  "mainParah": {
+    "message": "<p>గూగుల్ మ్యాప్స్, ఓపెన్ స్ట్రీట్ మ్యాప్ లేదా ఇక్కడ మ్యాప్లు సూచించిన డ్రైవింగ్ మార్గాల్లో మీ కార్ ద్వారా బొగ్గుపులుసు వాయువు విడుదలవుతుందో తెలుసుకోండి.మార్టిన్ యొక్క మొత్తం దూరం పక్కన కార్బండోయిక్సైడ్ ఎమిషన్ అంచనా కనిపిస్తుంది. ఐచ్ఛికంగా, ఇంధన వ్యయం కూడా చూపబడుతుంది.</p>",
+    "description": "The paragraph beside form in Telugu"
+  },
+  "fuelConsumption": {
+    "message": "ఇంధన వినియోగం:"
+  },
+  "fuelConsumptionUnit": {
+    "message": "ఇంధన వినియోగ యూనిట్లు"
+  },
+  "fuelEfficiency": {
+    "message": "ఇంధన ఫలోత్పాదకశక్తి"
+  },
+  "fuelEfficiencyUnit": {
+    "message": "ఇంధన సామర్ధ్యం యూనిట్లు"
+  },
+  "coEmission": {
+    "message": "బొగ్గుపులుసు వాయువు ఉద్గారాల రేటు:"
+  },
+  "coEmissionUnit": {
+    "message": "CO<sub>2</sub> उत्सर्जन इकाई"
+  },
+  "coEmissionUnit": {
+    "message": "కార్బన్డైక్సైడ్ ఎమిషన్ యూనిట్స్"
+  },
+  "fuelType": {
+    "message": "ఇంధన రకం:"
+  },
+  "fuelDiesel": {
+    "message": "డీజిల్"
+  },
+  "fuelPetrol": {
+    "message": "పెట్రోల్"
+  },
+  "fuelGasoline": {
+    "message": "గాసోలిన్"
+  },
+  "fuelLPG": {
+    "message": "ఎల్పిజి"
+  },
+  "fuelE10": {
+    "message": "ఇ10"
+  },
+  "fuelE25": {
+    "message": "ఇ25"
+  },
+  "fuelE85": {
+    "message": "ఇ85"
+  },
+  "fuelEthanol": {
+    "message": "ఇథనాల్"
+  },
+  "fuelBioDiesel": {
+    "message": "బయో డీజిల్"
+  },
+  "fuelCost": {
+    "message": "ఇంధనం ఖర్చు:"
+  },
+  "fuelCostUnit": {
+    "message": "వాల్యూమ్ యూనిట్కు $"
+  },
+  "fuelCostNote": {
+    "message": "$' సాధారణ కరెన్సీని సూచిస్తుంది."
+  },
+  "distance": {
+    "message": "దూరం"
+  },
+  "volume": {
+    "message": "వాల్యూమ్"
+  },
+  "mass": {
+    "message": "బరువు"
+  },
+  "perVolume": {
+    "message": "ప్రతి వాల్యూమ్"
+  },
+  "perDistance": {
+    "message": "ప్రతి దూరం"
+  },
+  "conversionNote": {
+    "message": "మార్పిడులు పొందడానికి, యూనిట్లను మార్చండి."
+  },
+  "travelCostEstimate": {
+    "message": "ఇంధన వ్యయ అంచనా ప్రదర్శించు"
+  },
+  "save": {
+    "message": "సేవ్"
+  }
+}
