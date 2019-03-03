@@ -9,8 +9,8 @@ var Settings = function() {
   this.isSafari = false;
   this.isChrome = false;
   this.isFirefox = false;
-  this.enable = "#4caf50";
-  this.disable = "#f44336";
+  this.enabledColor = "#4caf50";
+  this.disabledColor = "#f44336";
   this.category;
   this.name;
   this.active;
@@ -165,8 +165,8 @@ Settings.prototype.prepareBlock = function(data) {
       title;
     for (var key in data[id]) {
       if (data[id][key]["active"]) {
-        color = setting.enable;
-      } else color = setting.disable;
+        color = setting.enabledColor;
+      } else color = setting.disabledColor;
       console.log(data[id][key]["working"]);
       if (data[id][key]["working"]) {
         status = "";
@@ -196,7 +196,8 @@ Settings.prototype.prepareBlock = function(data) {
           )
           .append(
             $("<div>", {
-              class: "switch"
+              class: "switch",
+              id: id + '_' + title + '_' + status
             }).append(
               $("<label>")
                 .append("Disable")
@@ -299,25 +300,28 @@ var setting = new Settings();
  * function use to define click event on the 'item' element
  * Includes : update the data instantly when the checkbox is clicked
  */
-
-$(".items").on("click", ".item", function() {
+$(".items").on("click", ".switch", function() {
   console.log("hey I am clicked");
   console.log($(this));
-  var thisItem = $(this).parent()[0];
-  var category = $(thisItem).parent()[0].id;
-  var item = $(this);
-  var status = true;
-  if (thisItem.getElementsByClassName("off").length > 0) status = false;
-  //console.log(item);
-  var name = item[0].getElementsByTagName("img")[0].getAttribute("title");
-  var active = item[0].getElementsByTagName("input")[0].checked;
-  var statusBlock = item[0].getElementsByClassName("status")[0];
+
+  var itemDetails = $(this)[0].id.split('_');
+  var category = itemDetails[0];
+  var status = itemDetails[2] === "off" ? false : true;
+  var name = itemDetails[1];
+
+  var inputSwitch = $(this).children('label').children('input')[0]
+  var active =  inputSwitch.checked;
+
+  var statusBlock = $(this).next();
+
   if (active) {
-    $(statusBlock).css("background-color", setting.enable);
+    $(statusBlock).css("background-color", setting.enabledColor);
   } else {
-    $(statusBlock).css("background-color", setting.disable);
+    $(statusBlock).css("background-color", setting.disabledColor);
   }
-  if (!status) $(statusBlock).css("background-color", "#777777");
+  if (!status) {
+    $(statusBlock).css("background-color", "#777777");
+  }
   console.log(category, name, active);
 
   setting.onChange(category, name, active);
