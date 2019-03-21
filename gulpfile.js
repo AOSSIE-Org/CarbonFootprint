@@ -116,7 +116,7 @@ gulp.task('coreFirefox', function() {
           $('#rating-link')
             .attr('href', variables['firefox']['storeLink'])
             .html(
-              `<i class="fa fa-external-link" aria-hidden="true"></i> ${variables[
+              `<i class="fas fa-external-link-alt" aria-hidden="true"></i> ${variables[
                 'firefox'
               ]['storeName']}`
             );
@@ -221,7 +221,7 @@ gulp.task('coreChrome', function() {
           $('#rating-link')
             .attr('href', variables['chrome']['storeLink'])
             .html(
-              `<i class="fa fa-external-link" aria-hidden="true"></i> ${variables[
+              `<i class="fas fa-external-link-alt" aria-hidden="true"></i> ${variables[
                 'chrome'
               ]['storeName']}`
             );
@@ -286,7 +286,7 @@ gulp.task('coreSafari', function() {
           $('#rating-link')
             .attr('href', variables['safari']['storeLink'])
             .html(
-              `<i class="fa fa-external-link" aria-hidden="true"></i> ${variables[
+              `<i class="fas fa-external-link-alt" aria-hidden="true"></i> ${variables[
                 'safari'
               ]['storeName']}`
             );
@@ -382,7 +382,7 @@ gulp.task('coreWebExt', function() {
           $('#rating-link')
             .attr('href', variables['firefox']['storeLink'])
             .html(
-              `<i class="fa fa-external-link" aria-hidden="true"></i> ${variables[
+              `<i class="fas fa-external-link-alt" aria-hidden="true"></i> ${variables[
                 'firefox'
               ]['storeName']}`
             );

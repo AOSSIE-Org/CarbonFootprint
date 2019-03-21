@@ -7,7 +7,7 @@
   "firefox" : {
     "storeName" : "Firefox Add-On Gallery",
     "storeLink" : "https://addons.mozilla.org/en-US/firefox/addon/carbon-footprint/",
-    "badge" : "./img/firefoxBadge.png"
+    "badge" : "./img/firefoxQuantumBadge.png"
   },
   "safari" : {
     "storeName" : "Safari Extensions",
