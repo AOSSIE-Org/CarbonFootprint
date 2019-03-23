@@ -1,11 +1,7 @@
 var gulp = require('gulp');
 var Server = require('karma').Server;
-var localizeForFirefox = require('chrome-to-firefox-translation');
 var flatten = require('gulp-flatten');
-var run = require('jpm/lib/run');
-var xpi = require('jpm/lib/xpi');
-var cmd = require('jpm/lib/cmd');
-var argv = require('yargs').argv;
+var argv = require('yargs').argv; 
 var gulpif = require('gulp-if');
 var gulpFilter = require('gulp-filter');
 var deleteLines = require('gulp-delete-lines');
@@ -43,7 +39,6 @@ var transpiledFiles = gulp
   )
   .pipe(validatorFilter.restore);
 var chromeBuildpath = 'Build/Chrome/';
-var firefoxBuildpath = 'Build/Firefox/';
 var safariBuildpath = 'Build/Safari/CarbonFootprint.safariextension/';
 var webExtensionBuildpath = 'Build/WebExtension-Firefox/';
 process.env.mode = argv.debugApp === undefined ? 'production' : 'development';
@@ -93,102 +88,6 @@ gulp.task('eslint', function() {
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('localesFF', function() {
-  return gulp
-    .src('Source/Locales/**/*.json')
-    .pipe(localizeForFirefox())
-    .pipe(flatten())
-    .pipe(gulp.dest(firefoxBuildpath + 'locale'));
-});
-
-gulp.task('coreFirefox', function() {
-  var linkFilter = gulpFilter('**/knowMore.html', { restore: true });
-
-  return merged(
-    transpiledFiles
-      .pipe(gulpif(doMinify, uglify()))
-      .pipe(gulp.dest(firefoxBuildpath + 'data')),
-    gulp
-      .src(['!Source/Core/**/*.js', 'Source/Core/**'])
-      .pipe(linkFilter)
-      .pipe(
-        cheerio(function($, file) {
-          $('#rating-link')
-            .attr('href', variables['firefox']['storeLink'])
-            .html(
-              `<i class="fas fa-external-link-alt" aria-hidden="true"></i> ${variables[
-                'firefox'
-              ]['storeName']}`
-            );
-          $('#store-link-1')
-            .attr('href', variables['safari']['storeLink'])
-            .html(
-              `<img src="${variables['safari'][
-                'badge'
-              ]}" class="img-responsive" />`
-            );
-          $('#store-link-2')
-            .attr('href', variables['chrome']['storeLink'])
-            .html(
-              `<img src="${variables['chrome'][
-                'badge'
-              ]}" class="img-responsive" />`
-            );
-        })
-      )
-      .pipe(linkFilter.restore)
-      .pipe(gulp.dest(firefoxBuildpath + 'data'))
-  );
-});
-
-gulp.task('foldersFirefox', function() {
-  var jsFilter = gulpFilter('**/*.js', { restore: true });
-  var validatorFilter = gulpFilter('**/validatorServer.js', { restore: true });
-  var linkFilter = gulpFilter('**/knowMore.html', { restore: true });
-  return gulp
-    .src('Source/Firefox/*/**')
-    .pipe(jsFilter)
-    .pipe(gulpif(doMinify, stripDebug()))
-    .pipe(gulpif(doMinify, uglify()))
-    .pipe(validatorFilter)
-    .pipe(
-      gulpif(
-        !doMinify,
-        deleteLines({
-          filters: [/Raven(.|\s)+?;/g]
-        })
-      )
-    )
-    .pipe(validatorFilter.restore)
-    .pipe(linkFilter)
-    .pipe(jsFilter.restore)
-    .pipe(gulp.dest(firefoxBuildpath + 'data'));
-});
-
-gulp.task('filesFirefox', function() {
-  var jsFilter = gulpFilter('*.js', { restore: true });
-  var validatorFilter = gulpFilter('**/validatorServer.js', { restore: true });
-
-  return gulp
-    .src('Source/Firefox/*.*')
-    .pipe(jsFilter)
-    .pipe(gulpif(doMinify, stripDebug()))
-    .pipe(gulpif(doMinify, uglify()))
-    .pipe(validatorFilter)
-    .pipe(
-      gulpif(
-        !doMinify,
-        deleteLines({
-          filters: [/Raven(.|\s)+?;/g]
-        })
-      )
-    )
-    .pipe(validatorFilter.restore)
-    .pipe(jsFilter.restore)
-    .pipe(gulp.dest(firefoxBuildpath));
-});
-
-gulp.task('specificFirefox', ['foldersFirefox', 'filesFirefox']);
 
 gulp.task('localesChrome', function() {
   return gulp
@@ -452,20 +351,13 @@ gulp.task('cleanSafari', function() {
   return del.sync(safariBuildpath);
 });
 
-gulp.task('cleanFirefox', function() {
-  return del.sync(firefoxBuildpath);
-});
+
 
 gulp.task('cleanWebExt', function() {
   return del.sync(webExtensionBuildpath);
 });
 
-gulp.task('groupFirefox', [
-  'cleanFirefox',
-  'localesFF',
-  'coreFirefox',
-  'specificFirefox'
-]);
+
 gulp.task('groupChrome', [
   'cleanChrome',
   'localesChrome',
@@ -493,39 +385,9 @@ gulp.task('groupSafari', function(done) {
 
 gulp.task('group', [
   'groupChrome',
-  'groupFirefox',
   'groupSafari',
   'groupWebext'
 ]);
 
-gulp.task('runFirefox', ['groupFirefox'], function(done) {
-  if (!argv.b) {
-    console.error('You need to specify the firefox binary with -b');
-    return;
-  }
-
-  var dataObj = {
-    addonDir: __dirname + '/' + firefoxBuildpath,
-    binary: argv.b
-  };
-
-  cmd.prepare('run', dataObj, function(mf) {
-    run(mf, dataObj).then(null, console.error);
-  })();
-
-  done();
-});
-
-gulp.task('packageFirefox', ['groupFirefox'], function(done) {
-  var dataObj = {
-    addonDir: __dirname + '/' + firefoxBuildpath
-  };
-
-  cmd.prepare('xpi', dataObj, function(mf) {
-    xpi(mf, dataObj).then(null, console.error);
-  })();
-
-  done();
-});
 
 gulp.task('test', gulpSequence('prepareTest', 'eslint', 'karma'));
