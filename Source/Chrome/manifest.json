@@ -3,10 +3,8 @@
   "name": "Carbon Footprint for Google Maps™ and Others",
   "short_name": "Carbon Footprint",
   "version": "6.0",
-  "description":
-    "Automatically estimates CO2 emissions on Google Maps™, other maps services and train and flight search engines.",
-  "content_security_policy":
-    "script-src 'self' https://maps.googleapis.com https://maps.gstatic.com https://ssl.google-analytics.com https://maps.google.com/ https://unpkg.com/leaflet@1.0.3/dist/leaflet.js; object-src 'self';media-src 'self';",
+  "description": "Automatically estimates CO2 emissions on Google Maps™, other maps services and train and flight search engines.",
+  "content_security_policy": "script-src 'self' https://maps.googleapis.com https://maps.gstatic.com https://ssl.google-analytics.com https://maps.google.com/ https://unpkg.com/leaflet@1.0.3/dist/leaflet.js; object-src 'self';media-src 'self';",
   "default_locale": "en",
   "background": {
     "scripts": ["background/google-analytics.js", "background/background.js"]
@@ -26,7 +24,7 @@
   "page_action": {
     "default_icon": "images/globe-64.png",
     "default_title": "Google Maps Carbon Footprint",
-    "default_popup": "pages/popup.html"        
+    "default_popup": "pages/popup.html"
   },
   "options_ui": {
     "page": "pages/options.html"
@@ -1083,9 +1081,10 @@
       "all_frames": true
     },
     {
-      "matches": ["https://*.delta.com/air-shopping/findFlights.action*",
-      "https://*.delta.com/flight-search/search-results*"
-    ],
+      "matches": [
+        "https://*.delta.com/air-shopping/findFlights.action*",
+        "https://*.delta.com/flight-search/search-results*"
+      ],
       "css": ["core/css/flights.css"],
       "js": [
         "core/helpers/flightDataHelper.js",
@@ -2117,6 +2116,45 @@
         "core/CarbonFootprintCommon.js",
         "core/FlightsFootprintCommon.js",
         "core/FlightsCarbonFootprintCore.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://booking.seahub.com/app/0/cruise/0/selection.html"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/seahub.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.orbitz.com/Cruise-Search*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/orbitz.js",
         "core/init.js"
       ],
       "run_at": "document_end",

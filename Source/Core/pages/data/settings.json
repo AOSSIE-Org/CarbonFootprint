@@ -332,6 +332,13 @@
         "working": true,
         "regex": "ca\\.megabus\\.com/journey-planner/journeys*"
       }
+    },
+    "cruises": {
+      "orbitz": {
+        "active": true,
+        "working": true,
+        "regex": "https://www.orbitz.com/Cruise-Search*"
+      }
     }
   }
 }
