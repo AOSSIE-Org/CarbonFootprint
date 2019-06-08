@@ -3,10 +3,8 @@
   "name": "Carbon Footprint for Google Maps™ and Others",
   "short_name": "Carbon Footprint",
   "version": "6.0",
-  "description":
-    "Automatically estimates CO2 emissions on Google Maps™, other maps services and train and flight search engines.",
-  "content_security_policy":
-    "script-src 'self' https://maps.googleapis.com https://maps.gstatic.com https://ssl.google-analytics.com https://maps.google.com/ https://unpkg.com/leaflet@1.0.3/dist/leaflet.js; object-src 'self';media-src 'self';",
+  "description": "Automatically estimates CO2 emissions on Google Maps™, other maps services and train and flight search engines.",
+  "content_security_policy": "script-src 'self' https://maps.googleapis.com https://maps.gstatic.com https://ssl.google-analytics.com https://maps.google.com/ https://unpkg.com/leaflet@1.0.3/dist/leaflet.js; object-src 'self';media-src 'self';",
   "default_locale": "en",
   "background": {
     "scripts": ["background/google-analytics.js", "background/background.js"]
@@ -21,12 +19,13 @@
     "core/resources/trainEmissions.json",
     "core/resources/buses.json",
     "core/resources/busesEmissions.json",
-    "core/resources/trains.json"
+    "core/resources/trains.json",
+    "core/resources/cruiseEmissions.json"
   ],
   "page_action": {
     "default_icon": "images/globe-64.png",
     "default_title": "Google Maps Carbon Footprint",
-    "default_popup": "pages/popup.html"        
+    "default_popup": "pages/popup.html"
   },
   "options_ui": {
     "page": "pages/options.html"
@@ -1005,40 +1004,40 @@
     },
     {
       "matches": [
-        "https://www.expedia.com/*",
-        "https://www.expedia.ca/*",
-        "https://www.expedia.co.in/*",
-        "https://www.expedia.com.ar/*",
-        "https://www.expedia.at/*",
-        "https://www.expedia.com.au/*",
-        "https://www.expedia.be/*",
-        "https://www.expedia.com.br/*",
-        "https://www.expedia.ch/*",
-        "https://www.expedia.dk/*",
-        "https://www.expedia.fi/*",
-        "https://www.expedia.fr/*",
-        "https://www.expedia.de/*",
-        "https://www.expedia.com.hk/*",
-        "https://www.expedia.co.id/*",
-        "https://www.expedia.ie/*",
-        "https://www.expedia.it/*",
-        "https://www.expedia.co.jp/*",
-        "https://www.expedia.co.kr/*",
-        "https://www.expedia.com.my/*",
-        "https://www.expedia.mx/*",
-        "https://www.expedia.nl/*",
-        "https://www.expedia.co.nz/*",
-        "https://www.expedia.no/*",
-        "https://www.expedia.com.ph/*",
-        "https://www.expedia.com.sg/*",
-        "https://www.expedia.es/*",
-        "https://www.expedia.se/*",
-        "https://www.expedia.com.tw/*",
-        "https://www.expedia.co.th/*",
-        "https://www.expedia.co.uk/*",
-        "https://www.expedia.com/*",
-        "https://www.expedia.com.vn/*",
-        "https://www.expedia.cn/*"
+        "https://www.expedia.com/Flights-Search*",
+        "https://www.expedia.ca/Flights-Search*",
+        "https://www.expedia.co.in/Flights-Search*",
+        "https://www.expedia.com.ar/Flights-Search*",
+        "https://www.expedia.at/Flights-Search*",
+        "https://www.expedia.com.au/Flights-Search*",
+        "https://www.expedia.be/Flights-Search*",
+        "https://www.expedia.com.br/Flights-Search*",
+        "https://www.expedia.ch/Flights-Search*",
+        "https://www.expedia.dk/Flights-Search*",
+        "https://www.expedia.fi/Flights-Search*",
+        "https://www.expedia.fr/Flights-Search*",
+        "https://www.expedia.de/Flights-Search*",
+        "https://www.expedia.com.hk/Flights-Search*",
+        "https://www.expedia.co.id/Flights-Search*",
+        "https://www.expedia.ie/Flights-Search*",
+        "https://www.expedia.it/Flights-Search*",
+        "https://www.expedia.co.jp/Flights-Search*",
+        "https://www.expedia.co.kr/Flights-Search*",
+        "https://www.expedia.com.my/Flights-Search*",
+        "https://www.expedia.mx/Flights-Search*",
+        "https://www.expedia.nl/Flights-Search*",
+        "https://www.expedia.co.nz/Flights-Search*",
+        "https://www.expedia.no/Flights-Search*",
+        "https://www.expedia.com.ph/Flights-Search*",
+        "https://www.expedia.com.sg/Flights-Search*",
+        "https://www.expedia.es/Flights-Search*",
+        "https://www.expedia.se/Flights-Search*",
+        "https://www.expedia.com.tw/Flights-Search*",
+        "https://www.expedia.co.th/Flights-Search*",
+        "https://www.expedia.co.uk/Flights-Search*",
+        "https://www.expedia.com/Flights-Search*",
+        "https://www.expedia.com.vn/Flights-Search*",
+        "https://www.expedia.cn/Flights-Search*"
       ],
       "css": ["core/css/flights.css"],
       "js": [
@@ -1083,9 +1082,10 @@
       "all_frames": true
     },
     {
-      "matches": ["https://*.delta.com/air-shopping/findFlights.action*",
-      "https://*.delta.com/flight-search/search-results*"
-    ],
+      "matches": [
+        "https://*.delta.com/air-shopping/findFlights.action*",
+        "https://*.delta.com/flight-search/search-results*"
+      ],
       "css": ["core/css/flights.css"],
       "js": [
         "core/helpers/flightDataHelper.js",
@@ -2117,6 +2117,66 @@
         "core/CarbonFootprintCommon.js",
         "core/FlightsFootprintCommon.js",
         "core/FlightsCarbonFootprintCore.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.orbitz.com/Cruise-Search*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/orbitz.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.expedia.com/Cruise-Search*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/expedia.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://booking.seahub.com/app/0/cruise/0/selection.html"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/seahub.js",
         "core/init.js"
       ],
       "run_at": "document_end",
