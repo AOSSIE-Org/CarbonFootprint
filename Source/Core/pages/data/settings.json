@@ -51,7 +51,7 @@
       "expedia": {
         "active": true,
         "working": true,
-        "regex": "expedia\\.(.*)\\/"
+        "regex": "expedia\\.(.*)\\/Flights-Search"
       },
       "google": {
         "active": true,
@@ -331,6 +331,23 @@
         "active": true,
         "working": true,
         "regex": "ca\\.megabus\\.com/journey-planner/journeys*"
+      }
+    },
+    "cruises": {
+      "orbitz": {
+        "active": true,
+        "working": true,
+        "regex": "orbitz\\.com/Cruise-Search\\/"
+      },
+      "expedia": {
+        "active": true,
+        "working": true,
+        "regex": "expedia\\.(.*)\\/Cruise-Search\\/"
+      },
+      "seahub": {
+        "active": true,
+        "working": true,
+        "regex": "seahub\\.com\\/app\\/0\\/cruise\\/0\\/selection\\.html\\/"
       }
     }
   }

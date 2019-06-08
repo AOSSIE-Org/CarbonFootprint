@@ -15,7 +15,6 @@ class expediaManager {
         console.log("Hey Expedia!");
         var rawList = document.getElementsByClassName('flight-module segment offer-listing');
         console.log("--raw list--");
-        debugger;
         console.log(rawList);
         var processedList = [];
         var route;
@@ -83,7 +82,6 @@ class expediaManager {
       if(processedList.length){
         var checkOption = this.validator.getByClass('flight-module segment offer-listing');
         console.log(checkOption);
-        debugger;
         console.log(processedList);
         for(var x=0;x<checkOption.length;x++){
             console.log(checkOption[x].getElementsByClassName('carbon'));

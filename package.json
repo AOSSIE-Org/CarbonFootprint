@@ -9,6 +9,7 @@
     "groupChrome": "gulp groupChrome",
     "groupSafari": "gulp groupSafari",
     "groupWebext": "gulp groupWebext",
+    "group:debug": "gulp group --debugApp",
     "groupFirefox:debug": "gulp groupFirefox --debugApp",
     "groupChrome:debug": "gulp groupChrome --debugApp",
     "groupSafari:debug": "gulp groupSafari --debugApp",
