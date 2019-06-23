@@ -348,6 +348,36 @@
         "active": true,
         "working": true,
         "regex": "seahub\\.com\\/app\\/0\\/cruise\\/0\\/selection\\.html\\/"
+      },
+      "priceline": {
+        "active": true,
+        "working": true,
+        "regex": "priceline\\.com\\/"
+      },
+      "tours4fun": {
+        "active": true,
+        "working": true,
+        "regex": "tours4fun\\.com\\/tours\\/.*\\/cruise\\/"
+      },
+      "celebritycruises": {
+        "active": true,
+        "working": true,
+        "regex": "celebritycruises\\.com\\/"
+      },
+      "silversea": {
+        "active": true,
+        "working": true,
+        "regex": "silversea\\.com\\/find-a-cruise\\/"
+      },
+      "cruisedirect": {
+        "active": true,
+        "working": true,
+        "regex": "cruisedirect\\.com\\/search-results\\/"
+      },
+      "cruisewatch": {
+        "active": true,
+        "working": true,
+        "regex": "cruisewatch\\.com\\/find\\/cruise"
       }
     }
   }
