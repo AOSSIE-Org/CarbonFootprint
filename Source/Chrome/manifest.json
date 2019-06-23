@@ -2181,6 +2181,126 @@
       ],
       "run_at": "document_end",
       "all_frames": true
+    },
+    {
+      "matches": ["https://cruises.priceline.com/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/priceline.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.tours4fun.com/tours/*/cruise/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/tours4fun.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.celebritycruises.com/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/celebritycruises.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.silversea.com/find-a-cruise/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/silversea.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.cruisedirect.com/search-results/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/cruisedirect.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.cruisewatch.com/find/cruise"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/cruisewatch.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
     }
   ],
   "icons": {
