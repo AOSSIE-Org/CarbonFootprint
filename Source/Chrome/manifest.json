@@ -2301,6 +2301,146 @@
       ],
       "run_at": "document_end",
       "all_frames": true
+    },
+    {
+      "matches": ["https://www.carnival.com/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/carnival.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://cs.cruise.com/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/cruise.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.travelocity.com/Cruise-Search*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/travelocity.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.cruisenation.com/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/cruisenation.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.kayak.com/cruises/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/kayak.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["http://*.tirun.com/itinerary-list*", "https://*.tirun.com/itinerary-list*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/tirun.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.tripadvisor.com/Cruises*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/tripadvisor.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
     }
   ],
   "icons": {

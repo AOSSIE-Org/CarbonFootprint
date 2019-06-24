@@ -66,7 +66,7 @@
       "kayak": {
         "active": true,
         "working": true,
-        "regex": "kayak\\.(.*)\\/"
+        "regex": "kayak\\.com\\/flights/.*"
       },
       "makemytrip": {
         "active": true,
@@ -378,6 +378,41 @@
         "active": true,
         "working": true,
         "regex": "cruisewatch\\.com\\/find\\/cruise"
+      },
+      "carnival": {
+        "active": true,
+        "working": true,
+        "regex": "carnival\\.com"
+      },
+      "cruise": {
+        "active": true,
+        "working": true,
+        "regex": "cruise\\.com"
+      },
+      "travelocity": {
+        "active": true,
+        "working": true,
+        "regex": "travelocity\\.com"
+      },
+      "cruisenation": {
+        "active": true,
+        "working": true,
+        "regex": "cruisenation\\.com"
+      },
+      "kayak": {
+        "active": true,
+        "working": true,
+        "regex": "kayak\\.com\\/cruises/.*"
+      },
+      "tirun": {
+        "active": true,
+        "working": true,
+        "regex": "tirun\\.com"
+      },
+      "tripadvisor": {
+        "active": true,
+        "working": true,
+        "regex": "tripadvisor\\.com\\/Cruises"
       }
     }
   }
