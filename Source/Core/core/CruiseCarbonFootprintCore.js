@@ -23,8 +23,6 @@ class CruiseFootPrintCore {
 
   }
 
-<<<<<<< HEAD
-=======
    /**
    * Function for getting the appropriate data according to the website.
    * @param {String} dataSource source of Emission Data
@@ -39,7 +37,6 @@ class CruiseFootPrintCore {
     );
   }
 
->>>>>>> 67f9c333c3802e1a5379785482c9e29202dfd0ba
   /**
    * Gives a DOM element to insert in a website.
    * @param {Number} footprint  emission produced by the path.
@@ -73,13 +70,9 @@ class CruiseFootPrintCore {
    * @return {HTMLDivElement} HTML element to be added into site
    */
   getEmissionElementFromDuration(duration) {
-<<<<<<< HEAD
-    var emission = 234770 * duration;
-=======
     if(!cruiseEmissionData) cruiseEmissionData = 234770;
 
     var emission = cruiseEmissionData * duration;
->>>>>>> 67f9c333c3802e1a5379785482c9e29202dfd0ba
     return this.createHTMLElement(emission);
   }
 
@@ -99,8 +92,4 @@ class CruiseFootPrintCore {
   }
 }
 
-<<<<<<< HEAD
 var CarbonFootprintCore = CruiseFootPrintCore;
-=======
-var CarbonFootprintCore = CruiseFootPrintCore;
->>>>>>> 67f9c333c3802e1a5379785482c9e29202dfd0ba
