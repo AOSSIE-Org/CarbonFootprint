@@ -1,16 +1,15 @@
 class seahubCruiseManager {
   constructor(footprintCore, settingsProvider) {
     this.footprintCore = footprintCore;
+    this.footprintCore.storeCruiseEmissionData();
     this.settingsProvider = settingsProvider;
-    // this.dataSource = "seahub";
     this.validator = new CruiseValidator("seahub");
-    // this.footprintCore.storeCruiseEmissionData(this.dataSource);
-    // this.footprintCore.storeCruiseSpeedData(this.dataSource);
   }
 
   setStyle(emission) {
-    emission.style.fontSize = "2rem";
-    emission.style.color = "black";
+    emission.style.fontSize = "14px";
+    emission.style.border = "1px solid blue";
+    emission.style.padding = "3px";
     return emission;
   }
 
@@ -21,6 +20,7 @@ class seahubCruiseManager {
     }
   }
 
+<<<<<<< HEAD
   update() { 
     if (document.querySelectorAll(".results-table-group-title").length === 0)
       return;
@@ -53,6 +53,25 @@ class seahubCruiseManager {
       //     self.validator.querySelector(".ticket__time", row)
       //   );
       });
+=======
+  update() {
+    if (document.querySelectorAll(".results-table-group-content").length === 0) return;
+
+    var self = this;
+
+    this.validator.querySelectorAll(".results-table-group-content").forEach(row => {
+      if (row.getElementsByClassName("carbon").length !== 0) return;
+
+      var cruiseDuration = parseInt(
+        row.querySelector(".results-table-group-title").innerText.split(" ")[0]
+      );
+      
+      self.insertInDom(
+        self.footprintCore.getEmissionElementFromDuration(cruiseDuration),
+        self.validator.querySelector(".results-table-group-from-price", row)
+      );
+    });
+>>>>>>> 67f9c333c3802e1a5379785482c9e29202dfd0ba
   }
 }
 

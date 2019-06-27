@@ -51,7 +51,7 @@
       "expedia": {
         "active": true,
         "working": true,
-        "regex": "expedia\\.(.*)\\/"
+        "regex": "expedia\\.(.*)\\/Flights-Search"
       },
       "google": {
         "active": true,
@@ -66,7 +66,7 @@
       "kayak": {
         "active": true,
         "working": true,
-        "regex": "kayak\\.(.*)\\/"
+        "regex": "kayak\\.com\\/flights/.*"
       },
       "makemytrip": {
         "active": true,
@@ -337,7 +337,82 @@
       "orbitz": {
         "active": true,
         "working": true,
-        "regex": "https://www.orbitz.com/Cruise-Search*"
+        "regex": "orbitz\\.com/Cruise-Search\\/"
+      },
+      "expedia": {
+        "active": true,
+        "working": true,
+        "regex": "expedia\\.(.*)\\/Cruise-Search\\/"
+      },
+      "seahub": {
+        "active": true,
+        "working": true,
+        "regex": "seahub\\.com\\/app\\/0\\/cruise\\/0\\/selection\\.html\\/"
+      },
+      "priceline": {
+        "active": true,
+        "working": true,
+        "regex": "priceline\\.com\\/"
+      },
+      "tours4fun": {
+        "active": true,
+        "working": true,
+        "regex": "tours4fun\\.com\\/tours\\/.*\\/cruise\\/"
+      },
+      "celebritycruises": {
+        "active": true,
+        "working": true,
+        "regex": "celebritycruises\\.com\\/"
+      },
+      "silversea": {
+        "active": true,
+        "working": true,
+        "regex": "silversea\\.com\\/find-a-cruise\\/"
+      },
+      "cruisedirect": {
+        "active": true,
+        "working": true,
+        "regex": "cruisedirect\\.com\\/search-results\\/"
+      },
+      "cruisewatch": {
+        "active": true,
+        "working": true,
+        "regex": "cruisewatch\\.com\\/find\\/cruise"
+      },
+      "carnival": {
+        "active": true,
+        "working": true,
+        "regex": "carnival\\.com"
+      },
+      "cruise": {
+        "active": true,
+        "working": true,
+        "regex": "cruise\\.com"
+      },
+      "travelocity": {
+        "active": true,
+        "working": true,
+        "regex": "travelocity\\.com"
+      },
+      "cruisenation": {
+        "active": true,
+        "working": true,
+        "regex": "cruisenation\\.com"
+      },
+      "kayak": {
+        "active": true,
+        "working": true,
+        "regex": "kayak\\.com\\/cruises/.*"
+      },
+      "tirun": {
+        "active": true,
+        "working": true,
+        "regex": "tirun\\.com"
+      },
+      "tripadvisor": {
+        "active": true,
+        "working": true,
+        "regex": "tripadvisor\\.com\\/Cruises"
       }
     }
   }

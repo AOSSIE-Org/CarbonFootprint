@@ -2,3 +2,4 @@ node_modules
 Build/
 .DS_Store
 npm-debug.log
+.vscode/

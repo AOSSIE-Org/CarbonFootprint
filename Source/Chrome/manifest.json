@@ -19,7 +19,8 @@
     "core/resources/trainEmissions.json",
     "core/resources/buses.json",
     "core/resources/busesEmissions.json",
-    "core/resources/trains.json"
+    "core/resources/trains.json",
+    "core/resources/cruiseEmissions.json"
   ],
   "page_action": {
     "default_icon": "images/globe-64.png",
@@ -1003,40 +1004,40 @@
     },
     {
       "matches": [
-        "https://www.expedia.com/*",
-        "https://www.expedia.ca/*",
-        "https://www.expedia.co.in/*",
-        "https://www.expedia.com.ar/*",
-        "https://www.expedia.at/*",
-        "https://www.expedia.com.au/*",
-        "https://www.expedia.be/*",
-        "https://www.expedia.com.br/*",
-        "https://www.expedia.ch/*",
-        "https://www.expedia.dk/*",
-        "https://www.expedia.fi/*",
-        "https://www.expedia.fr/*",
-        "https://www.expedia.de/*",
-        "https://www.expedia.com.hk/*",
-        "https://www.expedia.co.id/*",
-        "https://www.expedia.ie/*",
-        "https://www.expedia.it/*",
-        "https://www.expedia.co.jp/*",
-        "https://www.expedia.co.kr/*",
-        "https://www.expedia.com.my/*",
-        "https://www.expedia.mx/*",
-        "https://www.expedia.nl/*",
-        "https://www.expedia.co.nz/*",
-        "https://www.expedia.no/*",
-        "https://www.expedia.com.ph/*",
-        "https://www.expedia.com.sg/*",
-        "https://www.expedia.es/*",
-        "https://www.expedia.se/*",
-        "https://www.expedia.com.tw/*",
-        "https://www.expedia.co.th/*",
-        "https://www.expedia.co.uk/*",
-        "https://www.expedia.com/*",
-        "https://www.expedia.com.vn/*",
-        "https://www.expedia.cn/*"
+        "https://www.expedia.com/Flights-Search*",
+        "https://www.expedia.ca/Flights-Search*",
+        "https://www.expedia.co.in/Flights-Search*",
+        "https://www.expedia.com.ar/Flights-Search*",
+        "https://www.expedia.at/Flights-Search*",
+        "https://www.expedia.com.au/Flights-Search*",
+        "https://www.expedia.be/Flights-Search*",
+        "https://www.expedia.com.br/Flights-Search*",
+        "https://www.expedia.ch/Flights-Search*",
+        "https://www.expedia.dk/Flights-Search*",
+        "https://www.expedia.fi/Flights-Search*",
+        "https://www.expedia.fr/Flights-Search*",
+        "https://www.expedia.de/Flights-Search*",
+        "https://www.expedia.com.hk/Flights-Search*",
+        "https://www.expedia.co.id/Flights-Search*",
+        "https://www.expedia.ie/Flights-Search*",
+        "https://www.expedia.it/Flights-Search*",
+        "https://www.expedia.co.jp/Flights-Search*",
+        "https://www.expedia.co.kr/Flights-Search*",
+        "https://www.expedia.com.my/Flights-Search*",
+        "https://www.expedia.mx/Flights-Search*",
+        "https://www.expedia.nl/Flights-Search*",
+        "https://www.expedia.co.nz/Flights-Search*",
+        "https://www.expedia.no/Flights-Search*",
+        "https://www.expedia.com.ph/Flights-Search*",
+        "https://www.expedia.com.sg/Flights-Search*",
+        "https://www.expedia.es/Flights-Search*",
+        "https://www.expedia.se/Flights-Search*",
+        "https://www.expedia.com.tw/Flights-Search*",
+        "https://www.expedia.co.th/Flights-Search*",
+        "https://www.expedia.co.uk/Flights-Search*",
+        "https://www.expedia.com/Flights-Search*",
+        "https://www.expedia.com.vn/Flights-Search*",
+        "https://www.expedia.cn/Flights-Search*"
       ],
       "css": ["core/css/flights.css"],
       "js": [
@@ -2122,9 +2123,50 @@
       "all_frames": true
     },
     {
+      "matches": ["https://www.orbitz.com/Cruise-Search*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/orbitz.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.expedia.com/Cruise-Search*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/expedia.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
       "matches": ["https://booking.seahub.com/app/0/cruise/0/selection.html"],
       "css": ["core/css/main.css"],
       "js": [
+        "core/CarbonFootprintCommon.js",
         "core/SettingsProviderCore.js",
         "core/settings/ChromeSettingsProvider.js",
         "core/helpers/ChromeHelper.js",
@@ -2141,7 +2183,7 @@
       "all_frames": true
     },
     {
-      "matches": ["https://www.orbitz.com/Cruise-Search*"],
+      "matches": ["https://cruises.priceline.com/*"],
       "css": ["core/css/main.css"],
       "js": [
         "core/CarbonFootprintCommon.js",
@@ -2154,7 +2196,247 @@
 
         "core/validator/cruiseValidator.js",
         "core/CruiseCarbonFootprintCore.js",
-        "core/cruises/orbitz.js",
+        "core/cruises/priceline.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.tours4fun.com/tours/*/cruise/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/tours4fun.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.celebritycruises.com/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/celebritycruises.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.silversea.com/find-a-cruise/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/silversea.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.cruisedirect.com/search-results/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/cruisedirect.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.cruisewatch.com/find/cruise"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/cruisewatch.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.carnival.com/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/carnival.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://cs.cruise.com/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/cruise.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.travelocity.com/Cruise-Search*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/travelocity.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.cruisenation.com/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/cruisenation.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.kayak.com/cruises/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/kayak.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["http://*.tirun.com/itinerary-list*", "https://*.tirun.com/itinerary-list*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/tirun.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.tripadvisor.com/Cruises*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/tripadvisor.js",
         "core/init.js"
       ],
       "run_at": "document_end",

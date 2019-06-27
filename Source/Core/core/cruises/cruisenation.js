@@ -1,14 +1,13 @@
-class orbitzCruiseManager {
+class cruisenationCruiseManager {
   constructor(footprintCore, settingsProvider) {
     this.footprintCore = footprintCore;
     this.footprintCore.storeCruiseEmissionData();
     this.settingsProvider = settingsProvider;
-    this.validator = new CruiseValidator("orbitz");
+    this.validator = new CruiseValidator("cruisenation");
   }
 
   setStyle(emission) {
-    emission.style.fontSize = "14px";
-    emission.style.border = "1px solid blue";
+    emission.style.fontSize = "15px";
     emission.style.padding = "3px";
     return emission;
   }
@@ -21,23 +20,28 @@ class orbitzCruiseManager {
   }
 
   update() {
-    if (document.querySelectorAll(".flex-content").length === 0) return;
+    if (document.querySelectorAll("article.search-result").length === 0) return;
 
     var self = this;
 
-    this.validator.querySelectorAll(".flex-content").forEach(row => {
+    this.validator.querySelectorAll("article.search-result").forEach(row => {
       if (row.getElementsByClassName("carbon").length !== 0) return;
 
       var cruiseDuration = parseInt(
-        row.querySelector(".title-on-ship-image").innerText.split(" ")[0]
+        row
+          .querySelector(
+            "div.product-info > div:nth-child(2) > span.product-info__departing-date"
+          )
+          .innerText.trim()
+          .split(" ")[0]
       );
-      
+
       self.insertInDom(
         self.footprintCore.getEmissionElementFromDuration(cruiseDuration),
-        self.validator.querySelector(".sailing-pricing-container-left", row)
+        self.validator.querySelector("div.product-info > div:nth-child(3)", row)
       );
     });
   }
 }
 
-var WebsiteManager = orbitzCruiseManager;
+var WebsiteManager = cruisenationCruiseManager;

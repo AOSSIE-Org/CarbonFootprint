@@ -1,9 +1,9 @@
-class orbitzCruiseManager {
+class expediaCruiseManager {
   constructor(footprintCore, settingsProvider) {
     this.footprintCore = footprintCore;
     this.footprintCore.storeCruiseEmissionData();
     this.settingsProvider = settingsProvider;
-    this.validator = new CruiseValidator("orbitz");
+    this.validator = new CruiseValidator("expedia");
   }
 
   setStyle(emission) {
@@ -40,4 +40,4 @@ class orbitzCruiseManager {
   }
 }
 
-var WebsiteManager = orbitzCruiseManager;
+var WebsiteManager = expediaCruiseManager;
