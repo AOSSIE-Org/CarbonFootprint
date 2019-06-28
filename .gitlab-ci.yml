@@ -4,8 +4,10 @@ cache:
   paths:
   - node_modules/
 
-test:
-  script:
+before_script:
     - yarn
     - npm run groupChrome
+
+test:
+  script:
     - xvfb-run npm test

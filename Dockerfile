@@ -1,4 +1,4 @@
-FROM node
+FROM node:10.15.1
 ENV mode production
 WORKDIR /usr/src/app
 RUN \
