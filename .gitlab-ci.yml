@@ -8,6 +8,10 @@ before_script:
     - yarn
     - npm run groupChrome
 
+uitest:
+  script:
+    - xvfb-run npm run uitest
+
 test:
   script:
-    - xvfb-run npm test
+    - npm test

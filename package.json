@@ -6,7 +6,8 @@
     "preset": "jest-puppeteer"
   },
   "scripts": {
-    "test": "export mode=testing && jest && gulp test",
+    "test": "gulp test",
+    "uitest": "export mode=testing && jest",
     "group": "gulp group",
     "groupFirefox": "gulp groupFirefox",
     "groupChrome": "gulp groupChrome",
