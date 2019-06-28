@@ -1,4 +1,4 @@
-image: canvadev/ci-docker-node-yarn-chrome-xvfb
+image: aayushdutt/carbonfootprint
 
 cache:
   paths:
@@ -7,4 +7,5 @@ cache:
 test:
   script:
     - yarn
-    - xvfb-run npm run test
+    - npm run groupChrome
+    - xvfb-run npm test

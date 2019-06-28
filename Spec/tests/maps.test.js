@@ -8,6 +8,7 @@ beforeAll(async () => {
   browser = await puppeteer.launch({
     headless: false, // extensions only supported in full chrome.
     args: [
+      '--no-sandbox',
       `--disable-extensions-except=${CRX_PATH}`,
       `--load-extension=${CRX_PATH}`
     ]
