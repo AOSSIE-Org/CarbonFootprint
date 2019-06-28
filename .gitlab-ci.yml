@@ -6,5 +6,5 @@ cache:
 
 test:
   script:
-    - npm install
+    - yarn
     - xvfb-run npm run test
