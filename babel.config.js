@@ -8,5 +8,6 @@ module.exports = function(api) {
     ]);
   }
   var presets = [["@babel/env", { modules: false }]];
+  if(process.env.mode === "testing") presets = [];
   return { plugins, presets };
 };
