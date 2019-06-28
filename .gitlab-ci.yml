@@ -1,12 +1,10 @@
-image: weltn24/up-docker-node-chrome-headless
+image: canvadev/ci-docker-node-yarn-chrome-xvfb
 
 cache:
   paths:
-    - node_modules/
-
-before_script:
-  - npm install
+  - node_modules/
 
 test:
   script:
-    - npm test
+    - npm install
+    - xvfb-run npm run test
