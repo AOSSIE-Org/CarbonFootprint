@@ -7,7 +7,7 @@
   },
   "scripts": {
     "test": "gulp test",
-    "uitest": "export mode=testing && jest",
+    "eetest": "export mode=testing && jest",
     "group": "gulp group",
     "groupFirefox": "gulp groupFirefox",
     "groupChrome": "gulp groupChrome",

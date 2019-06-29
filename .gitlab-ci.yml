@@ -6,11 +6,11 @@ cache:
 
 before_script:
     - yarn
-    - npm run groupChrome
 
-uitest:
+eetest:
   script:
-    - xvfb-run npm run uitest
+    - npm run groupChrome
+    - xvfb-run npm run eetest
 
 test:
   script:
