@@ -1,7 +1,6 @@
 const puppeteer = require("puppeteer");
 const CRX_PATH = "Build/Chrome";
 const mapsData = require("./maps.json")
-let page;
 let browser;
 
 beforeAll(async () => {
@@ -13,7 +12,9 @@ beforeAll(async () => {
       `--load-extension=${CRX_PATH}`
     ]
   });
-  page = await browser.newPage();
+
+  pages = await browser.pages();
+  pages[0].close();
 });
 
 afterAll(() => {
@@ -21,56 +22,44 @@ afterAll(() => {
 });
 
 
-mapsData.forEach(site => {
-  describe(site.name, () => {
-    const mapsUrl = site.url;
+test("Google Maps", async () => {
+  const data = mapsData.googlemaps;
+  let page = await browser.newPage();
+  await page.goto(data.url, {waitUntil: 'load', timeout: 0});
+  await page.waitFor('#carbon');
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  expect(emission).toBe(data.emission);
+  page.close();
+}, 17000);
 
-    test("a div with class carbon exists", async () => {
-      await page.goto(mapsUrl, {waitUntil: 'load', timeout: 0});
-      await page.waitForSelector(".carbon");
-      const carbonEl = await page.$eval(".carbon", el => (el ? true : false));
-      expect(carbonEl).toBe(true);
-    }, 170000);
-    
-    test("carbon div shows correct carbon emission data", async () => {
-      await page.waitForSelector(".carbon");
-      const emission = await page.evaluate(() => {
-        let data;
-        const dataEl = document.querySelector(".carbon");
-        return dataEl.innerText;
-      });
+test("Open Street Maps", async () => {
+  const data = mapsData.openstreetsmaps;
+  let page = await browser.newPage();
+  await page.goto(data.url, {waitUntil: 'load', timeout: 0});
+  await page.waitFor('#carbon');
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  expect(emission).toBe(data.emission);
+  page.close();
+}, 17000);
+
+test("We Go Maps", async () => {
+  const data = mapsData.wego;
+  let page = await browser.newPage();
+  await page.goto(data.url, {waitUntil: 'load', timeout: 0});
+  await page.waitFor('#carbon');
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  expect(emission).toBe(data.emission);
+  page.close();
+}, 17000);
+
+test("Yandex Maps", async () => {
+  const data = mapsData.yandex;
+  let page = await browser.newPage();
+  await page.goto(data.url, {waitUntil: 'load', timeout: 0});
+  await page.waitFor('#carbon');
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  expect(emission).toBe(data.emission);
+  page.close();
+}, 17000);
   
-      expect(emission).toBe(site.emission);
-    }, 17000);
-  });
-});
 
-
-
-
-
-
-
-
-// describe("Google Maps", () => {
-//   const mapsUrl =
-//     "https://www.google.com/maps/dir/19.8208305,85.821988/19.8147322,85.8603566/@19.812352,85.8333184,15z";
-  
-//   test("a div with class carbon exists", async () => {
-//     await page.goto(mapsUrl, {waitUntil: 'load', timeout: 0});
-//     await page.waitForSelector(".carbon");
-//     const carbonEl = await page.$eval(".carbon", el => (el ? true : false));
-//     expect(carbonEl).toBe(true);
-//   }, 170000);
-  
-//   test("carbon div shows correct carbon emission data", async () => {
-//     await page.waitForSelector(".carbon");
-//     const emission = await page.evaluate(() => {
-//       let data;
-//       const dataEl = document.querySelector(".carbon");
-//       return dataEl.innerText;
-//     });
-
-//     expect(emission).toBe("1.43 kg CO2");
-//   }, 17000);
-// });
