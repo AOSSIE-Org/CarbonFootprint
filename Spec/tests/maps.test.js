@@ -61,5 +61,31 @@ test("Yandex Maps", async () => {
   expect(emission).toBe(data.emission);
   page.close();
 }, 17000);
-  
 
+test("Bing Maps", async () => {
+  const data = mapsData.bing;
+  let page = await browser.newPage();
+  await page.goto(data.url, {waitUntil: 'load', timeout: 0});
+
+  // open directions panel
+  await page.waitForSelector('a.directionsIcon')
+  await page.click('a.directionsIcon')
+  //type source
+  await page.waitForSelector('#directionsPanelRoot > div > div.directionsInput > div.dirWaypoints > div > div > div:nth-child(1) > div > div.dirWp > input[type=text]')
+  await page.click('#directionsPanelRoot > div > div.directionsInput > div.dirWaypoints > div > div > div:nth-child(1) > div > div.dirWp > input[type=text]')
+  await page.keyboard.type('riyadh saudi arabia');
+  await page.keyboard.press('Enter');
+  //type destination
+  await page.waitForSelector('#directionsPanelRoot > div > div.directionsInput > div.dirWaypoints > div > div > div:nth-child(2) > div > div.dirWp > input[type=text]')
+  await page.click('#directionsPanelRoot > div > div.directionsInput > div.dirWaypoints > div > div > div:nth-child(2) > div > div.dirWp > input[type=text]')
+  await page.keyboard.type('dharma saudi arabia');
+  await page.keyboard.press('ArrowLeft');
+  //submit
+  await page.click('a.dirBtnGo.commonButton')
+  
+  await page.waitFor('#carbon');
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  expect(emission).toBe(data.emission);
+  page.close();
+}, 50000);
+  

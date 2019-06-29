@@ -14,5 +14,9 @@
   "yandex": {
     "url": "https://yandex.com/maps/?ll=30.471308%2C30.277377&mode=routes&rtext=30.750199%2C30.004669~30.249491%2C30.713081&rtt=auto&ruri=~&z=9.7",
     "emission": "58.7 kg CO2"
+  },
+  "bing" : {
+    "url": "https://www.bing.com/maps",
+    "emission": "176 g CO2"
   }
 }
