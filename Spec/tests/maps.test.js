@@ -28,7 +28,9 @@ test("Google Maps", async () => {
   await page.goto(data.url, {waitUntil: 'load', timeout: 0});
   await page.waitFor('#carbon');
   const emission = await page.$eval("#carbon", el => el.innerText)
-  expect(emission).toBe(data.emission);
+  const emissionFloat = parseFloat(emission)
+  console.log("Google Maps Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 17000);
 
@@ -38,7 +40,9 @@ test("Open Street Maps", async () => {
   await page.goto(data.url, {waitUntil: 'load', timeout: 0});
   await page.waitFor('#carbon');
   const emission = await page.$eval("#carbon", el => el.innerText)
-  expect(emission).toBe(data.emission);
+  const emissionFloat = parseFloat(emission)
+  console.log("Open Street Maps Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 17000);
 
@@ -48,7 +52,9 @@ test("We Go Maps", async () => {
   await page.goto(data.url, {waitUntil: 'load', timeout: 0});
   await page.waitFor('#carbon');
   const emission = await page.$eval("#carbon", el => el.innerText)
-  expect(emission).toBe(data.emission);
+  const emissionFloat = parseFloat(emission)
+  console.log("We Go Maps Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 17000);
 
@@ -58,7 +64,9 @@ test("Yandex Maps", async () => {
   await page.goto(data.url, {waitUntil: 'load', timeout: 0});
   await page.waitFor('#carbon');
   const emission = await page.$eval("#carbon", el => el.innerText)
-  expect(emission).toBe(data.emission);
+  const emissionFloat = parseFloat(emission)
+  console.log("Yandex Maps Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 17000);
 
@@ -85,7 +93,9 @@ test("Bing Maps", async () => {
   
   await page.waitFor('#carbon');
   const emission = await page.$eval("#carbon", el => el.innerText)
-  expect(emission).toBe(data.emission);
+  const emissionFloat = parseFloat(emission)
+  console.log("Bing Maps Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 50000);
   
