@@ -34,10 +34,25 @@ if(nextMonth <= 10) {
     nextMonth = '0' + nextMonth
 }
 
-test("Cleartrip Fligts", async () => {
-  const data = flightsData.cleartrip;
+// test("Cleartrip Fligts", async () => {
+//   const data = flightsData.cleartrip;
+//   let page = await browser.newPage();
+//   await page.goto(data.url + `01/${nextMonth}/${year}`, {waitUntil: 'load', timeout: 0});
+
+//   await page.waitFor('#carbon');
+//   const emission = await page.$eval("#carbon", el => el.innerText)
+//   const emissionFloat = parseFloat(emission)
+//   console.log("Bing Maps Emission: ", emissionFloat) 
+//   expect(emissionFloat).toBeGreaterThan(0);
+//   page.close();
+// }, 50000);
+
+
+test("Google Flights", async () => {
+    //extension not working on some websites
+  const data = flightsData.googleflights;
   let page = await browser.newPage();
-  await page.goto(data.url + `01/${nextMonth}/${year}`, {waitUntil: 'load', timeout: 0});
+  await page.goto(data.url + `${year}-${nextMonth}-01;c:INR;e:1;sd:1;t:f;tt:o` , {waitUntil: 'load', timeout: 0});
 
   await page.waitFor('#carbon');
   const emission = await page.$eval("#carbon", el => el.innerText)

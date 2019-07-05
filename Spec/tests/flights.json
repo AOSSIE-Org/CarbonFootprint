@@ -10,6 +10,9 @@
     },
     "makemytrip": {
         "url": "https://www.makemytrip.com/flight/search?tripType=O&paxType=A-1_C-0_I-0&intl=false&cabinClass=E&itinerary=DEL-BLR-" 
+    },
+    "googleflights": {
+        "url": "https://www.google.com/flights#flt=DEL.BLR." 
     }
   }
   
