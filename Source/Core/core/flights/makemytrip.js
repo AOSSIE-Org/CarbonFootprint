@@ -41,4 +41,4 @@ class makeMyTripManager {
   }
 }
 
-var WebsiteManager = skyscannerManager;
+var WebsiteManager = makeMyTripManager;

@@ -1,0 +1,15 @@
+{
+    "skyscanner": {
+      "url": "https://www.skyscanner.co.in/"
+    },
+    "cleartrip": {
+        "url": "https://www.cleartrip.com/flights/international/results?from=DEL&to=NYC&adults=1&childs=0&infants=0&class=Economy&airline=&carrier=&intl=y&depart_date=" 
+    },
+    "hipmunk": {
+        "url": "https://www.hipmunk.com/flights#f=New+Delhi,+India;t=New+York+City,+NY;is_search_for_business=false;d=" 
+    },
+    "makemytrip": {
+        "url": "https://www.makemytrip.com/flight/search?tripType=O&paxType=A-1_C-0_I-0&intl=false&cabinClass=E&itinerary=DEL-BLR-" 
+    }
+  }
+  

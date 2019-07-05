@@ -550,7 +550,7 @@
       "all_frames": true
     },
     {
-      "matches": ["https://www.makemytrip.com/air/*"],
+      "matches": ["https://www.makemytrip.com/flight/*"],
       "css": ["core/css/flights.css"],
       "js": [
         "core/helpers/flightDataHelper.js",
