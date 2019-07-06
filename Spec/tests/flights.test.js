@@ -188,8 +188,7 @@ test("United Flights", async () => { //working and tests passing
     page.close();
 }, 100000);
 
-test("Spice Jet", async () => { 
-    // extension is not working
+test("Spice Jet", async () => {
     const data = flightsData.spicejet;
     let page = await browser.newPage();
     await page.setViewport({

@@ -1,0 +1,15 @@
+{
+    "eurostar": {
+      "url": "https://booking.eurostar.com/uk-en/train-search?origin=7015400&destination=8727100&adult=1&outbound-date=|"
+    },
+    "trenitalia": {
+      "url": "https://www.trenitalia.com/"
+    },
+    "kayak": {
+      "url": "https://www.kayak.co.uk/trains/BER-MUC/|-12h?sort=depart_a"
+    },
+    "nationalrail": {
+      "url": "http://ojp.nationalrail.co.uk/service/timesandfares/London/Liverpool/|/2045/dep"
+    }
+  }
+  

@@ -1265,7 +1265,7 @@
       "all_frames": true
     },
     {
-      "matches": ["https://booking.eurostar.com/fr-fr/train-search/standard*"],
+      "matches": ["https://booking.eurostar.com/*"],
       "css": ["core/css/main.css"],
       "js": [
         "core/TrainsCarbonFootprintCore.js",
