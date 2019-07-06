@@ -22,6 +22,21 @@
     },
     "united": {
         "url": "https://www.united.com/en/us" 
+    },
+    "spicejet": {
+        "url": "https://book.spicejet.com/" 
+    },
+    "kayak": {
+        "url": "https://www.kayak.co.in/flights/DEL-BOM/|?sort=bestflight_a" 
+    },
+    "lufthansa": {
+        "url": "https://www.lufthansa.com/ee/en/homepage" 
+    },
+    "amadues": {
+        "url": "https://www.americanairlines.in/intl/in/index.jsp?locale=en_IN" 
+    },
+    "delta": {
+        "url": "https://www.delta.com/" 
     }
   }
   

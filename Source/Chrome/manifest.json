@@ -1084,6 +1084,7 @@
     {
       "matches": [
         "https://*.delta.com/air-shopping/findFlights.action*",
+        "https://*.delta.com/flight-search-2/search-results*",
         "https://*.delta.com/flight-search/search-results*"
       ],
       "css": ["core/css/flights.css"],
@@ -1129,7 +1130,9 @@
     {
       "matches": [
         "http://book.spicejet.com/Select.aspx*",
-        "http://book2.spicejet.com/Select.aspx"
+        "http://book2.spicejet.com/Select.aspx",
+        "https://book.spicejet.com/Select.aspx*",
+        "https://book2.spicejet.com/Select.aspx"
       ],
       "css": ["core/css/flights.css"],
       "js": [
