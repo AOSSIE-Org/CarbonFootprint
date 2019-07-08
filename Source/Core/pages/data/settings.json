@@ -413,6 +413,41 @@
         "active": true,
         "working": true,
         "regex": "tripadvisor\\.com\\/Cruises"
+      },
+      "royalcaribbean": {
+        "active": true,
+        "working": true,
+        "regex": "royalcaribbean\\.com\\/cruises"
+      },
+      "avoyatravel": {
+        "active": true,
+        "working": true,
+        "regex": "avoyatravel\\.com\\/cruises"
+      },
+      "ncl": {
+        "active": true,
+        "working": true,
+        "regex": "ncl\\.com"
+      },
+      "cruisesheet": {
+        "active": true,
+        "working": true,
+        "regex": "cruisesheet\\.com"
+      },
+      "cruisecomplete": {
+        "active": true,
+        "working": true,
+        "regex": "cruisecompete\\.com/searchresults\\.php/"
+      },
+      "directlinecruises": {
+        "active": true,
+        "working": true,
+        "regex": "directlinecruises\\.com/web/cruises/"
+      },
+      "americandiscountcruises": {
+        "active": true,
+        "working": true,
+        "regex": "americandiscountcruises\\.com/web/cruises/*"
       }
     }
   }
