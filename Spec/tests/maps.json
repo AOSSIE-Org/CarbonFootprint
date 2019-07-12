@@ -1,0 +1,22 @@
+{
+  "googlemaps": {
+    "url": "https://www.google.com/maps/dir/19.8208305,85.821988/19.8129801,85.8145098/@19.8160406,85.816139,16z/data=!4m2!4m1!3e0",
+    "emission": "434 g CO2"
+  },
+  "openstreetsmaps": {
+    "url": "https://www.openstreetmap.org/directions?engine=fossgis_osrm_car&route=25.5592%2C79.2797%3B25.5722%2C79.2982#map=16/25.5706/79.2919",
+    "emission": "562 g CO2"
+  },
+  "wego": {
+    "url": "https://wego.here.com/directions/mix/SH-206,-Mehkar-443301,-India:20.18858,76.52159/SH-206,-Mehkar-443301,-India:20.15349,76.55368?map=20.1707,76.53741,14,normal",
+    "emission": "1.43 kg CO2"
+  },
+  "yandex": {
+    "url": "https://yandex.com/maps/?ll=30.471308%2C30.277377&mode=routes&rtext=30.750199%2C30.004669~30.249491%2C30.713081&rtt=auto&ruri=~&z=9.7",
+    "emission": "58.7 kg CO2"
+  },
+  "bing" : {
+    "url": "https://www.bing.com/maps",
+    "emission": "176 g CO2"
+  }
+}
