@@ -1,11 +1,16 @@
-image: weltn24/up-docker-node-chrome-headless
+image: aayushdutt/carbonfootprint
 
 cache:
   paths:
-    - node_modules/
+  - node_modules/
 
 before_script:
-  - npm install
+    - yarn
+
+eetest:
+  script:
+    - npm run groupChrome
+    - xvfb-run npm run eetest
 
 test:
   script:
