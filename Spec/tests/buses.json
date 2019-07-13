@@ -1,0 +1,14 @@
+{
+    "megabus": {
+        "url": "https://us.megabus.com/journey-planner/journeys?days=1&departureDate=|&destinationId=123&originId=89&totalPassengers=1"
+    },
+    "flixbus": {
+        "url": "https://shop.flixbus.com/search?departureCity=27821&arrivalCity=27841&route=New+York%2C+NY-Washington%2C+D.C.&rideDate=|&adult=1&_locale=en_US"
+    },
+    "greyhound": {
+        "url": "https://www.greyhound.com/en/"
+    },
+    "peterpanbus": {
+        "url": "https://webstore.peterpanbus.com/ticketing/choose-routes.asp?start=&wg=1&t=1&ds=5055&as=5057&tfa=1&dd=|&rd="
+    }
+}
