@@ -6,7 +6,7 @@
         "url": "https://www.cleartrip.com/flights/international/results?from=DEL&to=NYC&adults=1&childs=0&infants=0&class=Economy&airline=&carrier=&intl=y&depart_date=|" 
     },
     "hipmunk": {
-        "url": "https://www.hipmunk.com/flights#f=New+Delhi,+India;t=New+York+City,+NY;is_search_for_business=false;d=|" 
+        "url": "https://www.hipmunk.com/flights#f=DEL;t=NYC;d=|;is_search_for_business=true" 
     },
     "makemytrip": {
         "url": "https://www.makemytrip.com/flight/search?tripType=O&paxType=A-1_C-0_I-0&intl=false&cabinClass=E&itinerary=DEL-BLR-|" 
@@ -37,6 +37,9 @@
     },
     "delta": {
         "url": "https://www.delta.com/" 
+    },
+    "priceline": {
+        "url": "https://www.priceline.com/m/fly/search/DEL-BLR-|/?cabin-class=ECO&num-adults=1&search-type=10" 
     }
   }
   
