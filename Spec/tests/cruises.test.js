@@ -2,6 +2,7 @@ const puppeteer = require("puppeteer");
 const CRX_PATH = "Build/Chrome";
 const cruisesData = require("./cruises.json")
 const {currMonth, currYear, today} = require("../helpers/dateHelper")
+let {blockImages} = require("../helpers/requestInterception")
 let browser;
 
 beforeAll(async () => {
@@ -11,7 +12,12 @@ beforeAll(async () => {
       '--no-sandbox',
       `--disable-extensions-except=${CRX_PATH}`,
       `--load-extension=${CRX_PATH}`
-    ]
+    ],
+    defaultViewport: {
+      width: 1300,
+      height: 900,
+      deviceScaleFactor: 1,
+     }
   });
   
   pages = await browser.pages();
@@ -172,11 +178,6 @@ test("kayak Cruise", async () => {
   // website is blocking bots
   const data = cruisesData.kayak;
   let page = await browser.newPage();
-  await page.setViewport({
-    width: 1000,
-    height: 800,
-    deviceScaleFactor: 1,
-});
   await page.goto(data.url.split("|").join(`${currYear}-${currMonth}`) , {waitUntil: 'load', timeout: 0});
 
   await page.waitFor('#carbon');
@@ -199,4 +200,21 @@ test("tirun Cruise", async () => {
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 50000);
+
+test("seahub Cruise", async () => {
+  const data = cruisesData.seahub;
+  let page = await browser.newPage();
+  await blockImages(page)
+  await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
+  await page.waitFor("input#jbtSearchBarSubmitInput")
+  await page.click("input#jbtSearchBarSubmitInput")
+  await page.waitForSelector('span[data-text-mobile="Date"]', {timeout: 700000})
+
+  await page.waitFor('#carbon');
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("seahub Emission: ", emission) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 70000);
 

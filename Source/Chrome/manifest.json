@@ -1083,9 +1083,7 @@
     },
     {
       "matches": [
-        "https://*.delta.com/air-shopping/findFlights.action*",
-        "https://*.delta.com/flight-search-2/search-results*",
-        "https://*.delta.com/flight-search/search-results*"
+        "https://www.delta.com/flight-search/search-results?*"
       ],
       "css": ["core/css/flights.css"],
       "js": [

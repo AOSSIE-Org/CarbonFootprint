@@ -10,7 +10,12 @@ beforeAll(async () => {
       '--no-sandbox',
       `--disable-extensions-except=${CRX_PATH}`,
       `--load-extension=${CRX_PATH}`
-    ]
+    ],
+    defaultViewport: {
+      width: 1000,
+      height: 800,
+      deviceScaleFactor: 1,
+     }
   });
   
   pages = await browser.pages();
@@ -42,12 +47,14 @@ if(nextMonth <= 10) {
 
 // --------------TESTS---------------------
 test("Sky Scanner", async () => {
-    // Extension not working
+    // Doesn't allow bots
     const data = flightsData.skyscanner;
     let page = await browser.newPage();
+    await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36');
+
     await page.goto(data.url.split('|').join(`${year%100}${nextMonth}01`) , {waitUntil: 'load', timeout: 0});
   
-    await page.waitFor('#carbon');
+    await page.waitFor('#carbon', {timeout: "50000"});
     const emission = await page.$eval("#carbon", el => el.innerText)
     const emissionFloat = parseFloat(emission)
     console.log("Sky Scanner Emission: ", emission) 
@@ -69,7 +76,6 @@ test("Cleartrip Fligts", async () => { //working and tests passing
 }, 50000);
 
 test("Hipmunk Flights", async () => {
-    //Extension is Not working
     const data = flightsData.hipmunk;
     let page = await browser.newPage();
     await page.goto(data.url.split('|').join(`${year}-${nextMonth}-01`), {waitUntil: 'load', timeout: 0});
@@ -97,7 +103,6 @@ test("Makemytrip Fligts", async () => {
 }, 50000);
 
 test("Google Flights", async () => {
-    //extension not working on some websites
   const data = flightsData.googleflights;
   let page = await browser.newPage();
   await page.goto(data.url.split('|').join(`${year}-${nextMonth}-01;`) , {waitUntil: 'load', timeout: 0});
@@ -140,11 +145,6 @@ test("Tripadvisor Flights", async () => {
 test("United Flights", async () => { //working and tests passing
     const data = flightsData.united;
     let page = await browser.newPage();
-    await page.setViewport({
-        width: 1000,
-        height: 800,
-        deviceScaleFactor: 1,
-    });
     await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
     
     // ---simulate human interaction---
@@ -191,11 +191,6 @@ test("United Flights", async () => { //working and tests passing
 test("Spice Jet", async () => {
     const data = flightsData.spicejet;
     let page = await browser.newPage();
-    await page.setViewport({
-        width: 1000,
-        height: 800,
-        deviceScaleFactor: 1,
-    });
     await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
     
     // ---simulate human interaction---
@@ -296,10 +291,13 @@ test("Delta", async () => {
   // extension is not working
   const data = flightsData.delta;
   let page = await browser.newPage();
-  await page.setViewport({
-      width: 1000,
-      height: 800,
-      deviceScaleFactor: 1,
+  await page.setRequestInterception(true);
+  page.on('request', (request) => {
+      if (['image', 'font'].indexOf(request.resourceType()) !== -1) {
+          request.abort();
+      } else {
+          request.continue();
+      }
   });
   await page.goto(data.url , {waitUntil: 'load', timeout: 0});
   
@@ -336,8 +334,10 @@ test("Delta", async () => {
   await page.click(dateLabelSelector)
   await page.waitForSelector(dateSelector)
   await page.click(dateSelector)
-
+  
   await page.click(submitButtonSelector)
+  await page.waitForSelector('table.flightResultTableHolder')
+  await page.reload();
   
   // ----perform test----
   await page.waitFor('#carbon');

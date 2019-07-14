@@ -9,7 +9,7 @@ class skyscannerManager {
   getList() {
     var rawList = document.getElementsByClassName("day-list-item");
     if (rawList.length) {
-      var seatType = this.validator.getByClass("search-summary-info")[0]
+      var seatType = document.querySelector('p[data-e2e="search-summary-info"]')
         .innerHTML;
       if (seatType.indexOf("Economy") >= 0) {
         console.log(seatType.indexOf("Economy"));

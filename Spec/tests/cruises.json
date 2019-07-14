@@ -37,5 +37,9 @@
     },
     "tirun": {
         "url": "https://www.tirun.com/itinerary-list?"
+    },
+    "seahub": {
+        "url": "https://www.seahub.com/"
     }
+    
 }

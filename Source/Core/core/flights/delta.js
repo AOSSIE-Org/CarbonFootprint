@@ -3,6 +3,7 @@ class deltaManager {
     this.core = footprintCore;
     this.settingsProvider = settingsProvider;
     this.subtree = true;
+    this.childList = true;
     this.validator = new FlightsValidator("delta");
   }
 

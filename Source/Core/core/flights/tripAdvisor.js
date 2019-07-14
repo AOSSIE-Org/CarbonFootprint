@@ -8,12 +8,12 @@ class tripAdvisorManager {
   }
 
   getList() {
-    var rawList = document.getElementsByClassName("outerItineraryWrapper");
+    var rawList = document.getElementsByClassName("flights-search-results-itinerary-card-FlightItineraryCard__container--3yCEY");
     console.log("raw list");
     console.log(rawList);
     var processedList = [];
     if(rawList.length){
-      var seatType = this.validator.getByClass("travelersAndCos")[0].innerHTML;
+      var seatType = this.validator.getByClass("flights-cos-pax-picker-CosPaxPicker__cosText--3ZL-B")[0].innerHTML;
       if(seatType.indexOf("Economy") >= 0){
         console.log(seatType.indexOf("Economy"));
         this.core.setSeatType("economy");
@@ -60,7 +60,7 @@ class tripAdvisorManager {
   insertInDom(processedList) {
     insertIn = [];
     if(processedList.length > 0){
-      insertIn = document.getElementsByClassName("mainFlightInfo");
+      insertIn = document.getElementsByClassName("flights-search-results-itinerary-card-components-RightCTAColumn__rightColumn--UzYbV ");
     }
     if(processedList.length == insertIn.length){
       for(var x = 0, i = insertIn.length; x < i; x++){

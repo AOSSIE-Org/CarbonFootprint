@@ -6,7 +6,7 @@ class makeMyTripManager {
   }
 
   getList() {
-    var rawList = document.getElementsByClassName("card-main");
+    var rawList = document.getElementsByClassName("fli-list");
     console.log("raw list");
     console.log(rawList);
       // var stops = rawList.getElementsByClassName("leg-stops-station");
@@ -15,7 +15,7 @@ class makeMyTripManager {
       var processedList = [];
     //console.log(rawList);
       for(var x = 0, i = rawList.length; x < i; x++){
-          stops = (rawList[x].getElementsByClassName('leg-stops-station')[0].innerText.length)? rawList[x].getElementsByClassName('leg-stops-station')[0].innerText.split(",").join("").split(" "): [];
+          stops = (rawList[x].getElementsByClassName('fli-stops-desc')[0].innerText.length)? rawList[x].getElementsByClassName('fli-stops-desc')[0].innerText.split(",").join("").split(" "): [];
       processedList.push({
         depart: rawList[x].childNodes[1].childNodes[0].childNodes[0].childNodes[1].innerHTML,
         arrive: rawList[x].childNodes[1].childNodes[2].childNodes[0].childNodes[1].innerHTML,
