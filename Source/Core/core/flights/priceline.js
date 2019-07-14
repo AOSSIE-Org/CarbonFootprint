@@ -14,7 +14,7 @@ class pricelineManager {
 
     getList() {
         console.log("Hey Priceline!");
-        var rawList =  document.querySelectorAll('li.pcln1-retail-flight.card-style');
+        var rawList =  document.querySelectorAll('li.pcln1-retail-flight');
         console.log("raw list");
         console.log(rawList);
         var processedList = [];
@@ -57,7 +57,7 @@ class pricelineManager {
 
     insertInDom(processedList) {
       if(processedList.length){
-        var checkOption = document.querySelectorAll('li.pcln1-retail-flight.card-style');
+        var checkOption = document.querySelectorAll('li.pcln1-retail-flight');
         var insertIn = [];
         console.log(checkOption);
         console.log(processedList);
