@@ -40,6 +40,11 @@
     },
     "seahub": {
         "url": "https://www.seahub.com/"
-    }
-    
+    },
+    "tripadvisor": {
+        "url": "https://www.tripadvisor.com/Cruises-g150768-Mexico-Cruises"
+    },
+    "cruisenation": {
+        "url": "https://www.cruisenation.com/"
+    }    
 }

@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const CRX_PATH = "Build/Chrome";
 const cruisesData = require("./cruises.json")
-const {currMonth, currYear, today} = require("../helpers/dateHelper")
+const {currMonth, currYear, today, currMonthName} = require("../helpers/dateHelper")
 let {blockImages} = require("../helpers/requestInterception")
 let browser;
 
@@ -218,3 +218,41 @@ test("seahub Cruise", async () => {
   page.close();
 }, 70000);
 
+test("tripadvisor Cruise", async () => {
+  const data = cruisesData.tripadvisor;
+  let page = await browser.newPage();
+  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+
+  await page.waitFor('#carbon');
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("tripadvisor Emission: ", emission) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 50000);
+
+test("cruisenation Cruise", async () => {
+  const data = cruisesData.cruisenation;
+  let page = await browser.newPage();
+  await blockImages(page)
+  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+  
+  const dateLabelSelector = 'label[for="search-bar__form--monthyear"]'
+  const monthSelector = 'li[aria-selected="false"]'
+  const searchButton = 'button#home-search-btn-tracking';
+  await page.waitForSelector(dateLabelSelector)
+  
+  await page.click(dateLabelSelector)
+  
+  await page.keyboard.press("ArrowDown")
+  await page.keyboard.press("Enter")
+
+  await page.click(searchButton)
+
+  await page.waitFor('#carbon', {timeout: 90000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("cruisenation Emission: ", emission) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 90000);

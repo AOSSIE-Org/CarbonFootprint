@@ -4,6 +4,7 @@ class tripadvisorCruiseManager {
     this.footprintCore.storeCruiseEmissionData();
     this.settingsProvider = settingsProvider;
     this.validator = new CruiseValidator("tripadvisor");
+    this.subtree = true;
   }
 
   setStyle(emission) {
@@ -39,7 +40,7 @@ class tripadvisorCruiseManager {
         var cruiseDuration = parseInt(
           row
             .querySelector(
-              ".cruises-cruises-list-results-Title__titleLink--1lCkJ.false"
+              ".cruises-cruises-list-results-Title__titleContainer--2iIDf"
             )
             .innerText.trim()
             .split(" ")[0]
