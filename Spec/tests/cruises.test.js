@@ -249,7 +249,7 @@ test("cruisenation Cruise", async () => {
 }, 120000);
 
 
----------Extension not working-------------
+// ---------Extension not working-------------
 
 // test("cruisewatch Cruise", async () => {
 //   // Message port closed before it was recieved on puppeteer

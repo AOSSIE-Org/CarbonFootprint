@@ -10,7 +10,12 @@ beforeAll(async () => {
       '--no-sandbox',
       `--disable-extensions-except=${CRX_PATH}`,
       `--load-extension=${CRX_PATH}`
-    ]
+    ],
+    defaultViewport: {
+      width: 1000,
+      height: 800,
+      deviceScaleFactor: 1,
+     }
   });
   
   pages = await browser.pages();
@@ -51,7 +56,7 @@ const sleep = (milliseconds) => {
 test("Megabus", async () => {
     const data = busesData.megabus;
     let page = await browser.newPage();
-    await page.goto(data.url.split('|').join(`${currYear}-${currMonth}-${today}`) , {waitUntil: 'load', timeout: 0});
+    await page.goto(data.url.split('|').join(`${currYear}-${currMonth}-${today}`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
     await page.waitFor('#carbon');
     const emission = await page.$eval("#carbon", el => el.innerText)

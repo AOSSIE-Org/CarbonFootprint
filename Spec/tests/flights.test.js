@@ -13,8 +13,8 @@ beforeAll(async () => {
       `--load-extension=${CRX_PATH}`
     ],
     defaultViewport: {
-      width: 1000,
-      height: 800,
+      width: 1300,
+      height: 600,
       deviceScaleFactor: 1,
      }
   });

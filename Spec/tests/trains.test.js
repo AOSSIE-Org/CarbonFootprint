@@ -61,8 +61,8 @@ test("Trenitalia", async () => { //working, tests passing
     let page = await browser.newPage();
     await blockImages(page)
     await page.setViewport({
-      width: 1080,
-      height: 800,
+      width: 1200,
+      height: 700,
       deviceScaleFactor: 1,
     });
     await page.goto(data.url, {waitUntil: 'load', timeout: 0});
@@ -99,13 +99,13 @@ test("Trenitalia", async () => { //working, tests passing
     await page.click(submitButton)
 
     // ---------- PERFORM TESTS-------------
-    await page.waitFor('#carbon', {timeout: 70000});
+    await page.waitFor('#carbon', {timeout: 100000});
     const emission = await page.$eval("#carbon", el => el.innerText)
     const emissionFloat = parseFloat(emission)
     console.log("Trenitalia Emission: ", emissionFloat) 
     expect(emissionFloat).toBeGreaterThan(0);
     page.close();
-}, 100000);
+}, 120000);
 
 test("Kayak Train", async () => { // working, tests passing
   const data = trainsData.kayak;

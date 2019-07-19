@@ -8,7 +8,7 @@ class tripAdvisorManager {
   }
 
   getList() {
-    var rawList = document.getElementsByClassName("flights-search-results-itinerary-card-FlightItineraryCard__container--3yCEY");
+    var rawList = document.getElementsByClassName("flights-search-results-itinerary-card-components-OneWayInfo__container--47EGv");
     console.log("raw list");
     console.log(rawList);
     var processedList = [];
@@ -25,7 +25,7 @@ class tripAdvisorManager {
       }
     }
     for(var x = 0, i = rawList.length; x < i; x++){
-      flights = this.validator.getByClass(".flights-search-results-itinerary-card-components-OneWayInfo__odAirline--EXFOh", rawList[x]);
+      flights = this.validator.getByClass("flights-search-results-itinerary-card-components-OneWayInfo__odAirline--EXFOh", rawList[x]); //deoart and arrive
       rawStops = rawList[x].getElementsByClassName("flights-search-results-itinerary-card-components-OneWayInfo__stops--1wF5n");
       console.log("----raw stops----");
       console.log(rawStops);
