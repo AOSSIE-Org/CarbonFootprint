@@ -1263,32 +1263,8 @@
       "all_frames": true
     },
     {
-      "matches": ["https://booking.eurostar.com/*"],
-      "css": ["core/css/main.css"],
-      "js": [
-        "core/TrainsCarbonFootprintCore.js",
-        "core/SettingsProviderCore.js",
-        "core/settings/ChromeSettingsProvider.js",
-        "core/helpers/ChromeHelper.js",
-        "core/validator/raven.min.js",
-        "core/validator/basicValidator.js",
-        "core/validator/trainsValidator.js",
-        "core/validator/validatorServer.js",
-        "core/CarbonFootprintCommon.js",
-        "core/trains/eurostar.js",
-        "core/init.js"
-      ],
-      "run_at": "document_end",
-      "all_frames": true
-    },
-    {
       "matches": [
-        "https://booking.eurostar.com/nl-nl/train-search/standard*",
-        "https://booking.eurostar.com/be-en/train-search/standard*",
-        "https://booking.eurostar.com/be-fr/train-search/standard*",
-        "https://booking.eurostar.com/be-nl/train-search/standard*",
-        "https://booking.eurostar.com/uk-en/train-search/standard*",
-        "https://booking.eurostar.com/rw-en/train-search/standard*"
+        "https://booking.eurostar.com/*"
       ],
       "css": ["core/css/main.css"],
       "js": [
