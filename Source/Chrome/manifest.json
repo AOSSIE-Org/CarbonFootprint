@@ -2418,6 +2418,146 @@
       ],
       "run_at": "document_end",
       "all_frames": true
+    },
+    {
+      "matches": ["https://secure.royalcaribbean.com/cruises/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/royalcaribbean.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.avoyatravel.com/cruises/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/avoyatravel.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.ncl.com/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/ncl.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://cruisesheet.com/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/cruisesheet.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.cruisecompete.com/searchresults.php/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/cruisecomplete.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://book.directlinecruises.com/web/cruises/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/directlinecruises.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://deals.americandiscountcruises.com/web/cruises/*"],
+      "css": ["core/css/main.css"],
+      "js": [
+        "core/CarbonFootprintCommon.js",
+        "core/SettingsProviderCore.js",
+        "core/settings/ChromeSettingsProvider.js",
+        "core/helpers/ChromeHelper.js",
+        "core/validator/raven.min.js",
+        "core/validator/basicValidator.js",
+        "core/validator/validatorServer.js",
+
+        "core/validator/cruiseValidator.js",
+        "core/CruiseCarbonFootprintCore.js",
+        "core/cruises/americandiscountcruises.js",
+        "core/init.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
     }
   ],
   "icons": {
