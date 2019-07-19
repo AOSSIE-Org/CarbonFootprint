@@ -60,33 +60,33 @@ test("Sky Scanner", async () => {
     console.log("Sky Scanner Emission: ", emission) 
     expect(emissionFloat).toBeGreaterThan(0);
     page.close();
-}, 50000);
+}, 70000);
 
 test("Cleartrip Fligts", async () => { //working and tests passing
   const data = flightsData.cleartrip;
   let page = await browser.newPage();
   await page.goto(data.url.split('|').join(`01/${nextMonth}/${year}`) , {waitUntil: 'load', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("Cleartrip Fligts Emission: ", emission) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 50000);
+}, 70000);
 
 test("Hipmunk Flights", async () => {
     const data = flightsData.hipmunk;
     let page = await browser.newPage();
     await page.goto(data.url.split('|').join(`${year}-${nextMonth}-01`), {waitUntil: 'load', timeout: 0});
   
-    await page.waitFor('#carbon');
+    await page.waitFor('#carbon', {timeout: 50000});
     const emission = await page.$eval("#carbon", el => el.innerText)
     const emissionFloat = parseFloat(emission)
     console.log("Hipmunk Emission: ", emission) 
     expect(emissionFloat).toBeGreaterThan(0);
     page.close();
-  }, 50000);
+  }, 70000);
 
 test("Makemytrip Fligts", async () => {
     //extension not working
@@ -94,39 +94,39 @@ test("Makemytrip Fligts", async () => {
   let page = await browser.newPage();
   await page.goto(data.url.split('|').join(`01/${nextMonth}/${year}`), {waitUntil: 'load', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("Makemytrip Emission: ", emission) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 50000);
+}, 70000);
 
 test("Google Flights", async () => {
   const data = flightsData.googleflights;
   let page = await browser.newPage();
   await page.goto(data.url.split('|').join(`${year}-${nextMonth}-01;`) , {waitUntil: 'load', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("Google Flights Emission: ", emission) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 50000);
+}, 70000);
 
 test("Expedia Flights", async () => { // working and tests passing
   const data = flightsData.expedia;
   let page = await browser.newPage();
   await page.goto(data.url.split('|').join(`${nextMonth}%2F01%2F${year}`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("Expedia Flights Emission: ", emission) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 50000);
+}, 70000);
 
 test("Tripadvisor Flights", async () => {
     // Extension not working
@@ -134,13 +134,13 @@ test("Tripadvisor Flights", async () => {
     let page = await browser.newPage();
     await page.goto(data.url.split('|').join(`${year}${nextMonth}01`) , {waitUntil: 'domcontentloaded', timeout: 0});
   
-    await page.waitFor('#carbon');
+    await page.waitFor('#carbon', {timeout: 50000});
     const emission = await page.$eval("#carbon", el => el.innerText)
     const emissionFloat = parseFloat(emission)
     console.log("Tripadvisor Flights Emission: ", emission) 
     expect(emissionFloat).toBeGreaterThan(0);
     page.close();
-}, 50000);
+}, 70000);
 
 test("United Flights", async () => { //working and tests passing
     const data = flightsData.united;
@@ -180,7 +180,7 @@ test("United Flights", async () => { //working and tests passing
     await page.click(submitButtonSelector)
     
     // ----perform test----
-    await page.waitFor('#carbon');
+    await page.waitFor('#carbon', {timeout: 50000});
     const emission = await page.$eval("#carbon", el => el.innerText)
     const emissionFloat = parseFloat(emission)
     console.log("United Flights Emission: ", emission) 
@@ -218,7 +218,7 @@ test("Spice Jet", async () => {
     await page.click(submitButtonSelector)
     
     // ----perform test----
-    await page.waitFor('#carbon');
+    await page.waitFor('#carbon', {timeout: 50000});
     const emission = await page.$eval("#carbon", el => el.innerText)
     const emissionFloat = parseFloat(emission)
     console.log("Spice Jet Emission: ", emission) 
@@ -232,13 +232,13 @@ test("Kayak Flights", async () => {
   let page = await browser.newPage();
   await page.goto(data.url.split('|').join(`${year}-${nextMonth}-01`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("Kayak Flights Emission: ", emission) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 50000);
+}, 70000);
 
 
 test("Amadues", async () => { // tests passing
@@ -277,13 +277,13 @@ test("Amadues", async () => { // tests passing
   await page.click(continueButtonSelector)
 
   // -----------PERFORM TESTS------------------------
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("Amadues Emission: ", emission) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 50000);
+}, 70000);
 
 
 
@@ -340,7 +340,7 @@ test("Delta", async () => {
   await page.reload();
   
   // ----perform test----
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("Delta Emission: ", emission) 
@@ -354,13 +354,13 @@ test("priceline Fligts", async () => { //working and tests passing
   let page = await browser.newPage();
   await page.goto(data.url.split('|').join(`${year}${nextMonth}01`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("priceline Fligts Emission: ", emission) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 50000);
+}, 70000);
 
 // test("Lufthansa Flights", async () => { 
 //   //Extension not working

@@ -61,7 +61,7 @@ test("Megabus", async () => {
     page.close();
 }, 50000);
 
-test("Flixbus", async () => {
+test("flixbus", async () => {
     //Extension not working
     const data = busesData.flixbus;
     let page = await browser.newPage();

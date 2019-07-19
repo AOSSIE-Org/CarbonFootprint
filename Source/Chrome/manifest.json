@@ -1773,7 +1773,7 @@
       "all_frames": true
     },
     {
-      "matches": ["https://www.easternbus.com/search-bus/*"],
+      "matches": ["https://shop.flixbus.com/search*"],
       "css": ["core/css/main.css"],
       "js": [
         "core/BusCarbonFootprintCore.js",
@@ -1785,7 +1785,7 @@
         "core/validator/busesValidator.js",
         "core/validator/validatorServer.js",
         "core/CarbonFootprintCommon.js",
-        "core/buses/easternbus.js",
+        "core/buses/flixbus.js",
         "core/init.js"
       ],
       "run_at": "document_end",

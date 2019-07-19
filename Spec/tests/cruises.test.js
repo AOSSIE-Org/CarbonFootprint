@@ -14,7 +14,7 @@ beforeAll(async () => {
       `--load-extension=${CRX_PATH}`
     ],
     defaultViewport: {
-      width: 1300,
+      width: 1600,
       height: 900,
       deviceScaleFactor: 1,
      }
@@ -127,7 +127,7 @@ test("cruisewatch Cruise", async () => {
   let page = await browser.newPage();
   await page.goto(data.url , {waitUntil: 'load', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("cruisewatch Emission: ", emission) 
@@ -180,7 +180,7 @@ test("kayak Cruise", async () => {
   let page = await browser.newPage();
   await page.goto(data.url.split("|").join(`${currYear}-${currMonth}`) , {waitUntil: 'load', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("kayak Emission: ", emission) 
@@ -193,13 +193,13 @@ test("tirun Cruise", async () => {
   let page = await browser.newPage();
   await page.goto(data.url , {waitUntil: 'load', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("tirun Emission: ", emission) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 50000);
+}, 70000);
 
 test("seahub Cruise", async () => {
   const data = cruisesData.seahub;

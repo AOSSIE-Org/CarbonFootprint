@@ -42,18 +42,18 @@ if(nextMonth <= 10) {
 
 // --------------TESTS---------------------
 test("Eurostar", async () => {
-    // Extension not working
+    // Working tests passing
     const data = trainsData.eurostar;
     let page = await browser.newPage();
     await page.goto(data.url.split('|').join(`${year}-${nextMonth}-01`) , {waitUntil: 'load', timeout: 0});
   
-    await page.waitFor('#carbon');
+    await page.waitFor('#carbon', {timeout: 50000});
     const emission = await page.$eval("#carbon", el => el.innerText)
     const emissionFloat = parseFloat(emission)
     console.log("Eurostar Emission: ", emissionFloat) 
     expect(emissionFloat).toBeGreaterThan(0);
     page.close();
-}, 50000);
+}, 70000);
 
 test("Trenitalia", async () => { //working, tests passing
     const data = trainsData.trenitalia;
@@ -97,13 +97,13 @@ test("Trenitalia", async () => { //working, tests passing
     await page.click(submitButton)
 
     // ---------- PERFORM TESTS-------------
-    await page.waitFor('#carbon');
+    await page.waitFor('#carbon', {timeout: 50000});
     const emission = await page.$eval("#carbon", el => el.innerText)
     const emissionFloat = parseFloat(emission)
     console.log("Trenitalia Emission: ", emissionFloat) 
     expect(emissionFloat).toBeGreaterThan(0);
     page.close();
-}, 50000);
+}, 70000);
 
 test("Kayak Train", async () => { // working, tests passing
   const data = trainsData.kayak;
@@ -119,23 +119,23 @@ test("Kayak Train", async () => { // working, tests passing
     await page.click(gdprCloseButtonv2)
   } catch {}
   
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("Kayak Emission: ", emissionFloat) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 500000);
+}, 70000);
 
 test("National Rail", async () => { //working tests passing
   const data = trainsData.nationalrail;
   let page = await browser.newPage();
   await page.goto(data.url.split('|').join(`01${nextMonth}${year%100}`) , {waitUntil: 'load', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("National Rail Emission: ", emissionFloat) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 50000);
+}, 70000);
