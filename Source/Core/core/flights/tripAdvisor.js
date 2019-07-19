@@ -25,26 +25,26 @@ class tripAdvisorManager {
       }
     }
     for(var x = 0, i = rawList.length; x < i; x++){
-      flights = this.validator.getByClass("segmentDescriptionWithDiagram", rawList[x]);
-      rawStops = rawList[x].getElementsByClassName("segmentDetail");
+      flights = this.validator.getByClass(".flights-search-results-itinerary-card-components-OneWayInfo__odAirline--EXFOh", rawList[x]);
+      rawStops = rawList[x].getElementsByClassName("flights-search-results-itinerary-card-components-OneWayInfo__stops--1wF5n");
       console.log("----raw stops----");
       console.log(rawStops);
       for(var y = 0, j = flights.length; y < j; y++){
         processedList.push({
-          depart: this.validator.getByClass("departureDescription", flights[y])[0].innerText.split(" ")[0],
-          arrive: this.validator.getByClass("arrivalDescription", flights[y])[0].innerText.split(" ")[0],
+          depart: this.validator.querySelectorAll("span", flights[y])[0].innerText.split(" ")[0],
+          arrive: this.validator.querySelectorAll("span", flights[y])[0].innerText.split(" ")[0],
           stops: [],
           aircraft: "A380", //hardcoded for now
           updated: false
         });
         if(rawStops.length){
-          var legs = this.validator.getByClass("legDescription", rawStops[y]);
+          var legs = this.validator.querySelectorAll("span", rawStops[y]);
           var aircrafts = [];
           var stops = [];
           for(z = 0, k = legs.length; z < k; z++){
-            var info = this.validator.getChildNode([2, 0], legs[z]);
+            var info = legs[z]
             aircrafts.push(info.innerText);
-            stops.push(this.validator.getByClass("endpointAirport", info)[0].innerText.split(" ")[0]);
+            stops.push(info.innerText.split(" ")[0]);
           }
           stops.pop();
           processedList[processedList.length - 1].stops = stops;

@@ -34,7 +34,8 @@ afterAll(() => {
 test("Orbitz", async () => {
   const data = cruisesData.orbitz;
   let page = await browser.newPage();
-  await page.goto(data.url.split('|').join(`${currYear}-${currMonth}-${today}`) , {waitUntil: 'load', timeout: 0});
+  await blockImages(page)
+  await page.goto(data.url.split('|').join(`${currYear}-${currMonth}-${today}`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon');
   const emission = await page.$eval("#carbon", el => el.innerText)
@@ -60,9 +61,9 @@ test("Expedia Cruise", async () => {
 test("Priceline Cruise", async () => {
   const data = cruisesData.priceline;
   let page = await browser.newPage();
-  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+  await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("Priceline Emission: ", emission) 
@@ -73,7 +74,7 @@ test("Priceline Cruise", async () => {
 test("Tours4Fun Cruise", async () => {
   const data = cruisesData.tours4fun;
   let page = await browser.newPage();
-  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+  await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon');
   const emission = await page.$eval("#carbon", el => el.innerText)
@@ -86,20 +87,21 @@ test("Tours4Fun Cruise", async () => {
 test("Celebritycruises Cruise", async () => {
   const data = cruisesData.celebritycruises;
   let page = await browser.newPage();
+  await blockImages(page)
   await page.goto(data.url , {waitUntil: 'load', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 70000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("Celebritycruises Emission: ", emission) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 50000);
+}, 100000);
 
 test("silversea Cruise", async () => {
   const data = cruisesData.silversea;
   let page = await browser.newPage();
-  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+  await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon');
   const emission = await page.$eval("#carbon", el => el.innerText)
@@ -112,41 +114,30 @@ test("silversea Cruise", async () => {
 test("cruisedirect Cruise", async () => {
   const data = cruisesData.cruisedirect;
   let page = await browser.newPage();
-  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+  await blockImages(page)
+  await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("cruisedirect Emission: ", emission) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 50000);
-
-test("cruisewatch Cruise", async () => {
-  const data = cruisesData.cruisewatch;
-  let page = await browser.newPage();
-  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
-
-  await page.waitFor('#carbon', {timeout: 50000});
-  const emission = await page.$eval("#carbon", el => el.innerText)
-  const emissionFloat = parseFloat(emission)
-  console.log("cruisewatch Emission: ", emission) 
-  expect(emissionFloat).toBeGreaterThan(0);
-  page.close();
-}, 50000);
+}, 70000);
 
 test("carnival Cruise", async () => {
   const data = cruisesData.carnival;
   let page = await browser.newPage();
-  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+  await blockImages(page)
+  await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("carnival Emission: ", emission) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 50000);
+}, 70000);
 
 test("cruisedotcom Cruise", async () => {
   const data = cruisesData.cruisedotcom;
@@ -164,9 +155,9 @@ test("cruisedotcom Cruise", async () => {
 test("travelocity Cruise", async () => {
   const data = cruisesData.travelocity;
   let page = await browser.newPage();
-  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+  await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
 
-  await page.waitFor('#carbon');
+  await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("travelocity Emission: ", emission) 
@@ -178,7 +169,7 @@ test("kayak Cruise", async () => {
   // website is blocking bots
   const data = cruisesData.kayak;
   let page = await browser.newPage();
-  await page.goto(data.url.split("|").join(`${currYear}-${currMonth}`) , {waitUntil: 'load', timeout: 0});
+  await page.goto(data.url.split("|").join(`${currYear}-${currMonth}`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
@@ -221,7 +212,7 @@ test("seahub Cruise", async () => {
 test("tripadvisor Cruise", async () => {
   const data = cruisesData.tripadvisor;
   let page = await browser.newPage();
-  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+  await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon');
   const emission = await page.$eval("#carbon", el => el.innerText)
@@ -249,10 +240,27 @@ test("cruisenation Cruise", async () => {
 
   await page.click(searchButton)
 
-  await page.waitFor('#carbon', {timeout: 90000});
+  await page.waitFor('#carbon', {timeout: 100000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("cruisenation Emission: ", emission) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 90000);
+}, 120000);
+
+
+---------Extension not working-------------
+
+// test("cruisewatch Cruise", async () => {
+//   // Message port closed before it was recieved on puppeteer
+//   const data = cruisesData.cruisewatch;
+//   let page = await browser.newPage();
+//   await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+
+//   await page.waitFor('#carbon', {timeout: 50000});
+//   const emission = await page.$eval("#carbon", el => el.innerText)
+//   const emissionFloat = parseFloat(emission)
+//   console.log("cruisewatch Emission: ", emission) 
+//   expect(emissionFloat).toBeGreaterThan(0);
+//   page.close();
+// }, 50000);

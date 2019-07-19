@@ -1,6 +1,7 @@
 const puppeteer = require("puppeteer");
 const CRX_PATH = "Build/Chrome";
 const trainsData = require("./trains.json")
+const {blockImages} = require("../helpers/requestInterception")
 let browser;
 
 beforeAll(async () => {
@@ -58,6 +59,7 @@ test("Eurostar", async () => {
 test("Trenitalia", async () => { //working, tests passing
     const data = trainsData.trenitalia;
     let page = await browser.newPage();
+    await blockImages(page)
     await page.setViewport({
       width: 1080,
       height: 800,
@@ -77,7 +79,7 @@ test("Trenitalia", async () => { //working, tests passing
     var submitButton = 'button[title="Cerca"]'
 
     // ---- HUMAN INTERACTION --------
-    await page.waitForSelector(departureLabel)
+    await page.waitForSelector(departureLabel, {timeout: 70000})
     await page.click(departureLabel)
     await page.keyboard.type('Vene');
     await page.waitForSelector(departure)
@@ -97,13 +99,13 @@ test("Trenitalia", async () => { //working, tests passing
     await page.click(submitButton)
 
     // ---------- PERFORM TESTS-------------
-    await page.waitFor('#carbon', {timeout: 50000});
+    await page.waitFor('#carbon', {timeout: 70000});
     const emission = await page.$eval("#carbon", el => el.innerText)
     const emissionFloat = parseFloat(emission)
     console.log("Trenitalia Emission: ", emissionFloat) 
     expect(emissionFloat).toBeGreaterThan(0);
     page.close();
-}, 70000);
+}, 100000);
 
 test("Kayak Train", async () => { // working, tests passing
   const data = trainsData.kayak;
