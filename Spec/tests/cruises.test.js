@@ -165,20 +165,6 @@ test("travelocity Cruise", async () => {
   page.close();
 }, 50000);
 
-test("kayak Cruise", async () => {
-  // website is blocking bots
-  const data = cruisesData.kayak;
-  let page = await browser.newPage();
-  await page.goto(data.url.split("|").join(`${currYear}-${currMonth}`) , {waitUntil: 'domcontentloaded', timeout: 0});
-
-  await page.waitFor('#carbon', {timeout: 50000});
-  const emission = await page.$eval("#carbon", el => el.innerText)
-  const emissionFloat = parseFloat(emission)
-  console.log("kayak Emission: ", emission) 
-  expect(emissionFloat).toBeGreaterThan(0);
-  page.close();
-}, 50000);
-
 test("tirun Cruise", async () => {
   const data = cruisesData.tirun;
   let page = await browser.newPage();
@@ -261,6 +247,22 @@ test("cruisenation Cruise", async () => {
 //   const emission = await page.$eval("#carbon", el => el.innerText)
 //   const emissionFloat = parseFloat(emission)
 //   console.log("cruisewatch Emission: ", emission) 
+//   expect(emissionFloat).toBeGreaterThan(0);
+//   page.close();
+// }, 50000);
+
+
+// -------------------BLOCKING BOTS-------------------------
+// test("kayak Cruise", async () => {
+//   // website is blocking bots
+//   const data = cruisesData.kayak;
+//   let page = await browser.newPage();
+//   await page.goto(data.url.split("|").join(`${currYear}-${currMonth}`) , {waitUntil: 'domcontentloaded', timeout: 0});
+
+//   await page.waitFor('#carbon', {timeout: 50000});
+//   const emission = await page.$eval("#carbon", el => el.innerText)
+//   const emissionFloat = parseFloat(emission)
+//   console.log("kayak Emission: ", emission) 
 //   expect(emissionFloat).toBeGreaterThan(0);
 //   page.close();
 // }, 50000);
