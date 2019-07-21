@@ -1,6 +1,9 @@
 const puppeteer = require("puppeteer");
 const CRX_PATH = "Build/Chrome";
 const mapsData = require("./maps.json")
+const {DATE, currMonth, today, currYear, nextMonth, 
+  yearForNextMonth, nextMonthName, currMonthName, sleep} = require("../helpers/dateHelper")
+const {blockImages} = require('../helpers/requestInterception')
 let browser;
 
 beforeAll(async () => {
