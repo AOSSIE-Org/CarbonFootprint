@@ -1,0 +1,26 @@
+{
+	"amadues": {
+		"url": "https://www.americanairlines.in/intl/in/index.jsp?locale=en_IN"
+	},
+	"delta": {
+		"url": "https://www.delta.com/"
+	},
+	"lufthansa": {
+		"url": "https://www.lufthansa.com/ee/en/homepage"
+	},
+	"makemytrip": {
+		"url": "https://www.makemytrip.com/flight/search?tripType=O&paxType=A-1_C-0_I-0&intl=false&cabinClass=E&itinerary=DEL-BLR-|"
+	},
+	"priceline": {
+		"url": "https://www.priceline.com/m/fly/search/DEL-BLR-|/?cabin-class=ECO&num-adults=1&search-type=10"
+	},
+	"skyscanner": {
+		"url": "https://www.skyscanner.co.in/transport/flights/del/nyca/|"
+	},
+	"spicejet": {
+		"url": "https://book.spicejet.com/"
+	},
+	"united": {
+		"url": "https://www.united.com/en/us"
+	}
+}

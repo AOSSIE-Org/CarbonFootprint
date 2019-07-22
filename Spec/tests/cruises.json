@@ -1,0 +1,44 @@
+{
+	"carnival": {
+		"url": "https://www.carnival.com/#?layout=grid&numAdults=2&pageNumber=1&pageSize=8&showBest=true&sort=fromprice&useSuggestions=true"
+	},
+	"celebritycruises": {
+		"url": "https://www.celebritycruises.com/itinerary-search"
+	},
+	"cruisedirect": {
+		"url": "https://www.cruisedirect.com/search-results"
+	},
+	"cruisedotcom": {
+		"url": "https://cs.cruise.com/cs/forms/CruiseResultPage.aspx?skin=1&phone=888-333-3116&pin=&mon=9%2f1%2f2019&nr=y&did=-1"
+	},
+	"cruisenation": {
+		"url": "https://www.cruisenation.com/"
+	},
+	"expedia": {
+		"url": "https://www.expedia.com/Cruise-Search?adultCount=1&destination=europe&earliest-departure-date=|"
+	},
+	"orbitz": {
+		"url": "https://www.orbitz.com/Cruise-Search?adultCount=2&destination=caribbean&earliest-departure-date=|"
+	},
+	"priceline": {
+		"url": "https://cruises.priceline.com/results.do?IncludeSeniorRates=false&Month=&days=&operator=&places=&shoppingZipCode=&sort_by=7"
+	},
+	"seahub": {
+		"url": "https://www.seahub.com/"
+	},
+	"silversea": {
+		"url": "https://www.silversea.com/find-a-cruise/cruise-results.html"
+	},
+	"tirun": {
+		"url": "https://www.tirun.com/itinerary-list?"
+	},
+	"tours4fun": {
+		"url": "https://www.tours4fun.com/tours/caribbean/cruise/"
+	},
+	"travelocity": {
+		"url": "https://www.travelocity.com/Cruise-Search?destination=caribbean&_xpid=11905%7C1&adultCount=2"
+	},
+	"tripadvisor": {
+		"url": "https://www.tripadvisor.com/Cruises-g150768-Mexico-Cruises"
+	}
+}

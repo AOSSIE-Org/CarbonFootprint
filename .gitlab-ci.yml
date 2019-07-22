@@ -10,7 +10,8 @@ before_script:
 eetest:
   script:
     - npm run groupChrome
-    - xvfb-run npm run eetest
+    - export environment=CI
+    - xvfb-run --server-args="-screen 0, 1024x768x24" npm run eetest
 
 test:
   script:

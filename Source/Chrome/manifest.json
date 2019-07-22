@@ -550,7 +550,7 @@
       "all_frames": true
     },
     {
-      "matches": ["https://www.makemytrip.com/air/*"],
+      "matches": ["https://www.makemytrip.com/flight/*"],
       "css": ["core/css/flights.css"],
       "js": [
         "core/helpers/flightDataHelper.js",
@@ -1083,8 +1083,7 @@
     },
     {
       "matches": [
-        "https://*.delta.com/air-shopping/findFlights.action*",
-        "https://*.delta.com/flight-search/search-results*"
+        "https://www.delta.com/flight-search/search-results?*"
       ],
       "css": ["core/css/flights.css"],
       "js": [
@@ -1129,7 +1128,9 @@
     {
       "matches": [
         "http://book.spicejet.com/Select.aspx*",
-        "http://book2.spicejet.com/Select.aspx"
+        "http://book2.spicejet.com/Select.aspx",
+        "https://book.spicejet.com/Select.aspx*",
+        "https://book2.spicejet.com/Select.aspx"
       ],
       "css": ["core/css/flights.css"],
       "js": [
@@ -1262,32 +1263,8 @@
       "all_frames": true
     },
     {
-      "matches": ["https://booking.eurostar.com/fr-fr/train-search/standard*"],
-      "css": ["core/css/main.css"],
-      "js": [
-        "core/TrainsCarbonFootprintCore.js",
-        "core/SettingsProviderCore.js",
-        "core/settings/ChromeSettingsProvider.js",
-        "core/helpers/ChromeHelper.js",
-        "core/validator/raven.min.js",
-        "core/validator/basicValidator.js",
-        "core/validator/trainsValidator.js",
-        "core/validator/validatorServer.js",
-        "core/CarbonFootprintCommon.js",
-        "core/trains/eurostar.js",
-        "core/init.js"
-      ],
-      "run_at": "document_end",
-      "all_frames": true
-    },
-    {
       "matches": [
-        "https://booking.eurostar.com/nl-nl/train-search/standard*",
-        "https://booking.eurostar.com/be-en/train-search/standard*",
-        "https://booking.eurostar.com/be-fr/train-search/standard*",
-        "https://booking.eurostar.com/be-nl/train-search/standard*",
-        "https://booking.eurostar.com/uk-en/train-search/standard*",
-        "https://booking.eurostar.com/rw-en/train-search/standard*"
+        "https://booking.eurostar.com/*"
       ],
       "css": ["core/css/main.css"],
       "js": [
@@ -1796,7 +1773,7 @@
       "all_frames": true
     },
     {
-      "matches": ["https://www.easternbus.com/search-bus/*"],
+      "matches": ["https://shop.flixbus.com/search*"],
       "css": ["core/css/main.css"],
       "js": [
         "core/BusCarbonFootprintCore.js",
@@ -1808,7 +1785,7 @@
         "core/validator/busesValidator.js",
         "core/validator/validatorServer.js",
         "core/CarbonFootprintCommon.js",
-        "core/buses/easternbus.js",
+        "core/buses/flixbus.js",
         "core/init.js"
       ],
       "run_at": "document_end",

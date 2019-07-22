@@ -8,6 +8,8 @@
   "scripts": {
     "test": "gulp test",
     "eetest": "export mode=testing && jest",
+    "eetest-ci": "export mode=testing environment=CI && jest",
+    "eetest-nonci": "export mode=testing environment=noncionly && jest",
     "group": "gulp group",
     "groupFirefox": "gulp groupFirefox",
     "groupChrome": "gulp groupChrome",

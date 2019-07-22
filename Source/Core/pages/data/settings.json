@@ -260,10 +260,10 @@
         "working": true,
         "regex": "us\\.megabus\\.com/journey-planner/journeys.*"
       },
-      "easternbus": {
+      "flixbus": {
         "active": true,
         "working": true,
-        "regex": "easternbus\\.com/search-bus/.*"
+        "regex": "shop\\.flixbus\\.com/search*"
       },
       "greyhound": {
         "active": true,
