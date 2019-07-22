@@ -4,7 +4,7 @@ class easternBusManager {
     this.settingsProvider = settingsProvider;
     this.dataSource = "america";
     this.subtree = "true";
-    this.validator = new BusValidator("easternbus");
+    this.validator = new BusValidator("flixbus");
     this.footprintCore.storeBusEmissionData(this.dataSource);
     this.footprintCore.storeBusSpeedData(this.dataSource);
   }
@@ -25,16 +25,18 @@ class easternBusManager {
   }
 
   update() {
-    if (!document.getElementById("schedule_selector")) return;
+    // if (!document.getElementById("schedule_selector")) return;
+
     this.validator
-      .querySelectorAll("#schedule_selector .schedule_stripe")
+      .querySelectorAll(".result-date-container > div > div >div.ride--unbooked")
       .forEach(row => {
         timeOutRequired = false;
         if (row.getElementsByClassName("carbon").length !== 0) return;
         var busDurationArray = this.validator
-          .querySelector("span[sid=durationTime]", row)
+          .querySelector('.duration.ride__duration.ride__duration-messages:nth-of-type(1)', row)
           .textContent.trim()
           .split(" ");
+          console.log("duration array", busDurationArray)
         var busDuration;
         if (busDurationArray.length === 2)
           busDuration =
@@ -45,9 +47,11 @@ class easternBusManager {
             busDuration = parseInt(busDurationArray[0], 10) / 60;
           else busDuration = parseInt(busDurationArray[0], 10);
         }
+
+        console.log(busDuration)
         this.insertInDom(
           this.footprintCore.getEmissionElementFromDuration(busDuration),
-          this.validator.querySelector(".time", row)
+          this.validator.querySelector(".dept-arr", row)
         );
       });
   }

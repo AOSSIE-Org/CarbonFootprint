@@ -97,6 +97,7 @@ if (background.isChrome) {
           tabId: sender.tab.id, title: 'Carbon Footprint'
         });
       }
+      return undefined
     }
   );
 

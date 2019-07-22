@@ -6,7 +6,7 @@ class makeMyTripManager {
   }
 
   getList() {
-    var rawList = document.getElementsByClassName("card-main");
+    var rawList = document.getElementsByClassName("fli-list");
     console.log("raw list");
     console.log(rawList);
       // var stops = rawList.getElementsByClassName("leg-stops-station");
@@ -15,10 +15,10 @@ class makeMyTripManager {
       var processedList = [];
     //console.log(rawList);
       for(var x = 0, i = rawList.length; x < i; x++){
-          stops = (rawList[x].getElementsByClassName('leg-stops-station')[0].innerText.length)? rawList[x].getElementsByClassName('leg-stops-station')[0].innerText.split(",").join("").split(" "): [];
+          stops = (rawList[x].getElementsByClassName('fli-stops-desc')[0].innerText.length)? rawList[x].getElementsByClassName('fli-stops-desc')[0].innerText.split(",").join("").split(" "): [];
       processedList.push({
-        depart: rawList[x].childNodes[1].childNodes[0].childNodes[0].childNodes[1].innerHTML,
-        arrive: rawList[x].childNodes[1].childNodes[2].childNodes[0].childNodes[1].innerHTML,
+        depart: rawList[x].querySelector('dept-city').innerHTML,
+        arrive: rawList[x].querySelector('arrival-city').innerHTML,
         stops,
         aircraft: "A380" //hardcoded for now
       });
@@ -29,16 +29,12 @@ class makeMyTripManager {
   }
 
   insertInDom(processedList) {
-    insertIn = document.getElementsByClassName("card-main");
+    insertIn = document.getElementsByClassName("fli-list");
     for(var x = 0, i = insertIn.length; x < i; x++){
-      if(insertIn[x].childNodes[1].childNodes.length <= 4 ||
-         insertIn[x].childNodes[1].childNodes[4].className == "leg-operator" &&
-         insertIn[x].childNodes[1].childNodes.length <= 5){
-           insertIn[x].childNodes[1].appendChild(core.createHTMLElement(processedList[x].co2Emission));
-      }
-      //console.log(insertIn[x].childNodes[1].childNodes[1]);
+       
+      insertIn[x].querySelector('.dept-options-section').appendChild(core.createHTMLElement(processedList[x].co2Emission));
     }
   }
 }
 
-var WebsiteManager = skyscannerManager;
+var WebsiteManager = makeMyTripManager;

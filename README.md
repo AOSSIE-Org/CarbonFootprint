@@ -37,6 +37,15 @@ Building and Using Beta Versions
 
 * for safari, load folder with extension `.safariextension` into _Extension Builder_ `Develop -> Show Extension Builder`. To show _Develop_ menu go to `Safari -> Preferences -> Advanced`. Change extension metadata as required from the _Extension Builder_. To package the extension for distribution, get an extension certificate from Apple.
 
+
+Testing
+--------------------------------
+* run `npm test` to run unit tests.
+* run `npm eetest` to run all E2E tests.
+* run `npm-nonci` to run E2E tests for websites which blocks bot or where the extension is not functional
+* run `npm eetest-ci` to run E2E tests where extensions and tests are working as expected
+
+
 Licenses
 --------
 

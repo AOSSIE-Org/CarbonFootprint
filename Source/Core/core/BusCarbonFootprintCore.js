@@ -91,7 +91,6 @@ class BusFootPrintCore {
     var e = document.createElement("div");
     var knowMoreUrl = this.helper.getFilePath("pages/knowMore.html");
     e.setAttribute("id", "carbon-footprint-label");
-    debugger;
     e.innerHTML =
       "<a href=" +
       knowMoreUrl +

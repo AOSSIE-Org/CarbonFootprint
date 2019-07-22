@@ -3,6 +3,7 @@ class seahubCruiseManager {
     this.footprintCore = footprintCore;
     this.footprintCore.storeCruiseEmissionData();
     this.settingsProvider = settingsProvider;
+    this.subtree = true;
     this.validator = new CruiseValidator("seahub");
   }
 
@@ -14,6 +15,7 @@ class seahubCruiseManager {
   }
 
   insertInDom(emission, element) {
+    debugger;
     emission = this.setStyle(emission);
     if (element.getElementsByClassName("carbon").length === 0) {
       element.appendChild(emission);
@@ -21,6 +23,7 @@ class seahubCruiseManager {
   }
 
   update() {
+    debugger;
     if (document.querySelectorAll(".results-table-group-content").length === 0) return;
 
     var self = this;
@@ -31,7 +34,8 @@ class seahubCruiseManager {
       var cruiseDuration = parseInt(
         row.querySelector(".results-table-group-title").innerText.split(" ")[0]
       );
-      
+      debugger
+      console.log("inserting")
       self.insertInDom(
         self.footprintCore.getEmissionElementFromDuration(cruiseDuration),
         self.validator.querySelector(".results-table-group-from-price", row)

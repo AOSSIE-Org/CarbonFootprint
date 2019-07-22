@@ -1,0 +1,8 @@
+{
+    "cruisewatch": {
+        "url": "https://www.cruisewatch.com/find/cruise"
+    },
+    "kayak": {
+        "url": "https://www.kayak.com/cruises/|?sort=rank_a"
+    }
+}

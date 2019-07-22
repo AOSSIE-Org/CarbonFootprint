@@ -1,0 +1,23 @@
+{
+	"cleartrip": {
+		"url": "https://www.cleartrip.com/flights/international/results?from=DEL&to=NYC&adults=1&childs=0&infants=0&class=Economy&airline=&carrier=&intl=y&depart_date=|"
+	},
+	"expedia": {
+		"url": "https://www.expedia.com/Flights-Search?flight-type=on&mode=search&trip=oneway&leg1=from%3ADelhi%2C+India+%28DEL-Indira+Gandhi+Intl.%29%2Cto%3ANew+York%2C+NY+%28JFK-John+F.+Kennedy+Intl.%29%2Cdeparture%3A08%2F01%2F2019TANYT&passengers=children%3A0%2Cadults%3A1%2Cseniors%3A0%2Cinfantinlap%3AY&fareCalendarPrice=819&starDate=|"
+	},
+	"googleflights": {
+		"url": "https://www.google.com/flights#flt=DEL.BLR.|c:INR;e:1;sd:1;t:f;tt:o"
+	},
+	"hipmunk": {
+		"url": "https://www.hipmunk.com/flights#f=DEL;t=NYC;d=|;is_search_for_business=true"
+	},
+	"kayak": {
+		"url": "https://www.kayak.co.in/flights/DEL-BOM/|?sort=bestflight_a"
+	},
+    "spicejet": {
+        "url": "https://book.spicejet.com/" 
+    },
+	"tripadvisor": {
+		"url": "https://www.tripadvisor.com/CheapFlightsSearchResults-g297628-a_airport0.DEL-a_airport1.BLR-a_cos.0-a_date0.|-a_date1.|-a_formImp.4e13bbee__2D__a433__2D__47d8__2D__8545__2D__fd1b8e2f85d0__2E__3788-a_nearby0.no-a_nearby1.no-a_nonstop.no-a_pax0.a-a_travelers.1-Bengaluru_Bangalore_District_Karnataka.html"
+	}
+}
