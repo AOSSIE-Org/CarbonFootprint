@@ -32,15 +32,15 @@ afterAll(() => {
 test("Megabus", async () => {
     const data = busesData.megabus;
     let page = await browser.newPage();
-    await page.goto(data.url.split('|').join(`${currYear}-${currMonth}-${today}`) , {waitUntil: 'domcontentloaded', timeout: 0});
+    await page.goto(data.url.split('|').join(`${currYear}-${currMonth}-${today}`) , {waitUntil: 'load', timeout: 0});
 
-    await page.waitFor('#carbon');
+    await page.waitFor('#carbon', {timeout: 50000});
     const emission = await page.$eval("#carbon", el => el.innerText)
     const emissionFloat = parseFloat(emission)
     console.log("Megabus Emission: ", emission) 
     expect(emissionFloat).toBeGreaterThan(0);
     page.close();
-}, 50000);
+}, 70000);
 
 test("flixbus", async () => {
     const data = busesData.flixbus;

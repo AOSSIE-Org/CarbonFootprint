@@ -25,15 +25,17 @@ class megabusBusManager {
     if (document.querySelectorAll(".ticket").length === 0) return;
     this.validator.querySelectorAll(".ticket").forEach(row => {
       if (row.getElementsByClassName("carbon").length !== 0) return;
-      debugger;
+      
       var busDurationArray = this.validator
         .querySelector(".ticket__summary__text", row)
         .textContent.trim()
         .split(" ");
+      if(busDurationArray[1] === ',') busDurationArray[1] = 0;
+      
       var busDuration =
-        parseInt(busDurationArray[0], 10) +
-        parseInt(busDurationArray[1], 10) / 60;
-      debugger;
+      parseInt(busDurationArray[0], 10) +
+      parseInt(busDurationArray[1], 10) / 60;
+      
       this.insertInDom(
         this.footprintCore.getEmissionElementFromDuration(busDuration),
         this.validator.querySelector(".ticket__time", row)
