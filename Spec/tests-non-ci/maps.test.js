@@ -65,3 +65,15 @@ test("waze Maps", async () => {
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 70000);
+
+test("viamichelin Maps", async () => {
+  const data = mapsData.viamichelin;
+  let page = await browser.newPage();
+  await page.goto(data.url, {waitUntil: 'load', timeout: 0});
+  await page.waitFor('#carbon', {timeout: 50000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("viamichelin Maps Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 70000);
