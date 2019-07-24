@@ -118,3 +118,89 @@ test("Gpeterpanbus", async () => {
     expect(emissionFloat).toBeGreaterThan(0);
     page.close();
   }, 100000);
+
+//   test("Murrays Buses", async () => { 
+  // // Test not working, can't copy human data. due to visible stuff
+
+//     const data = busesData.murrays;
+//     let page = await browser.newPage();
+//     await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+    
+//     // ---simulate human interaction---
+//     var originLabelSelector = '#ddOrigin'
+//     var originSelector = 'option[value="JOLI"]'
+  
+//     var destinationLabelSelector = '#ddDestination'
+//     var destinationSelector = 'option[value="EDDY"]'
+
+//     var oneWaySelector = 'input[value="OneWay"]'
+    
+//     var dateLabelSelector = 'input[name="DepartureDate"]'
+//     var submitButtonSelector = '#btnContinue'
+    
+//     await page.waitForSelector(originLabelSelector)
+//     await sleep(1000)
+//     await page.click(originLabelSelector)
+
+//     await page.waitForSelector(originSelector)
+//     await page.click(originSelector)
+    
+//     await page.click(destinationLabelSelector)
+//     await sleep(1000)
+//     await page.waitForSelector(destinationSelector)
+//     await page.click(destinationSelector)
+    
+//     await page.click(oneWaySelector)
+
+//     await page.click(dateLabelSelector)
+//     await page.keyboard.type(`01/${nextMonth}/${yearForNextMonth}`);
+//     await page.keyboard.press('Enter');
+//     await page.click(submitButtonSelector)
+    
+//     // ----perform test----
+//     await page.waitFor('#carbon',  { timeout: 70000, visible: true });
+//     const emission = await page.$eval("#carbon", el => el.innerText)
+//     const emissionFloat = parseFloat(emission)
+//     console.log("Murrays Buses Emission: ", emission) 
+//     expect(emissionFloat).toBeGreaterThan(0);
+//     page.close();
+// }, 100000);
+
+  test("washny", async () => { 
+  // Test not working, can't copy human data. due to visible stuff
+
+    const data = busesData.washny;
+    let page = await browser.newPage();
+    await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+    
+    // ---simulate human interaction---
+    var oneWaySelector = 'input[onclick="document.getElementById(\'hide_show_return\').style.display = \'none\'"]'
+
+    var originLabelSelector = 'select[name="area_id"]'
+  
+    var dateLabelSelector = '#datepicker'
+    var dateSelector = '.ui-datepicker-group.ui-datepicker-group-last tbody td[class=" "]'
+    var submitButtonSelector = '.home_reserv_box_button input[type="image"]'
+    
+    await page.waitForSelector(oneWaySelector)
+    await page.click(oneWaySelector)
+    
+    await page.click(originLabelSelector)
+    await page.keyboard.press('ArrowDown');
+    await page.keyboard.press('Enter');
+    await page.click(dateLabelSelector)
+    await sleep(2000)
+    await page.click(dateSelector)
+    await sleep(1000)
+    
+    await page.waitForSelector(submitButtonSelector)
+    await page.click(submitButtonSelector)
+    // ----perform test----
+    await page.waitFor('#carbon',  { timeout: 70000, visible: true });
+    const emission = await page.$eval("#carbon", el => el.innerText)
+    const emissionFloat = parseFloat(emission)
+    console.log("washny Buses Emission: ", emission) 
+    expect(emissionFloat).toBeGreaterThan(0);
+    page.close();
+}, 100000);
+
