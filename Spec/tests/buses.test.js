@@ -100,7 +100,7 @@ test("Greyhound Buses", async () => {
     page.close();
 }, 100000);
 
-test("Gpeterpanbus", async () => { 
+test("peterpanbus", async () => { 
     const data = busesData.peterpanbus;
     let page = await browser.newPage();
     await page.setViewport({
@@ -114,7 +114,7 @@ test("Gpeterpanbus", async () => {
     await page.waitFor('#carbon', {timeout: 70000});
     const emission = await page.$eval("#carbon", el => el.innerText)
     const emissionFloat = parseFloat(emission)
-    console.log("Peterpanbus Buses Emission: ", emission) 
+    console.log("peterpanbus Buses Emission: ", emission) 
     expect(emissionFloat).toBeGreaterThan(0);
     page.close();
   }, 100000);
@@ -246,6 +246,25 @@ test("nationalexpress", async () => {
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("nationalexpress Buses Emission: ", emission) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 100000);
+
+test("firstgroup", async () => { 
+  const data = busesData.firstgroup;
+  let page = await browser.newPage();
+  await page.setViewport({
+      width: 1000,
+      height: 800,
+      deviceScaleFactor: 1,
+  });
+  await page.goto(data.url.split('|').join(`${yearForNextMonth}-${nextMonth}-01`) , {waitUntil: 'load', timeout: 0});
+  
+  // ----perform test----
+  await page.waitFor('#carbon', {timeout: 70000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("firstgroup Buses Emission: ", emission) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 100000);

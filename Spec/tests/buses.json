@@ -19,5 +19,8 @@
     },
     "nationalexpress": {
         "url": "https://www.nationalexpress.com/en"
+    },
+    "firstgroup": {
+        "url": "https://www.firstgroup.com/journey-planner/?from=London%20NW1%202DU,%20UK&flat=51.528099&flng=-0.1331763000000592&to=Heathrow%20Airport%20(LHR),%20Longford%20TW6,%20UK&tlat=51.4700223&tlng=-0.4542954999999438&date=|&hr=01&min=30&modes=foot&modes=bus"
     }
 }
