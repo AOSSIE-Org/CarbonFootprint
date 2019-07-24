@@ -1,5 +1,8 @@
 {
   "mapquest" : {
     "url": "https://www.mapquest.com/directions/from/us/ne-282094976/to/us/nc/carolina-beach"
+  },
+  "waze" : {
+    "url": "https://www.waze.com/livemap"
   }
 }
