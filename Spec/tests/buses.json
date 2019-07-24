@@ -16,5 +16,8 @@
     },
     "washny": {
         "url": "https://www.washny.com/reservations-1.php"
+    },
+    "nationalexpress": {
+        "url": "https://www.nationalexpress.com/en"
     }
 }

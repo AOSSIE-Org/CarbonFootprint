@@ -204,3 +204,48 @@ test("Gpeterpanbus", async () => {
     page.close();
 }, 100000);
 
+test("nationalexpress", async () => { 
+  const data = busesData.nationalexpress;
+  let page = await browser.newPage();
+  await page.setViewport({
+      width: 1800,
+      height: 800,
+      deviceScaleFactor: 1,
+  });
+  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+
+  var originLabelSelector = '#fromStation'
+  var originSelector = 'ul.plannerForm--nearby-stops li'
+
+  var destinationLabelSelector = '#toStation'
+  var destinationSelector = 'ul.js--plannerForm--station-to-search-results li'
+
+  var dateLabelSelector = '#departDate'
+  var dateSelector = 'table.ui-datepicker-calendar tbody tr +tr+tr+tr+tr td.undefined'
+  var submitButtonSelector = '#jpSubmit'
+
+  await page.waitForSelector(originLabelSelector)
+  await page.click(originLabelSelector)
+  await page.keyboard.type("london victoria")
+  await page.waitForSelector(originSelector)
+  await page.click(originSelector)
+  
+  await page.click(destinationLabelSelector)
+  await page.keyboard.type("london golders")
+  await page.waitForSelector(destinationSelector)
+  await page.click(destinationSelector)
+  
+  await page.click(dateLabelSelector)
+  await page.waitForSelector(dateSelector)
+  await page.click(dateSelector)
+
+  await page.click(submitButtonSelector)
+  
+  // ----perform test----
+  await page.waitFor('#carbon', {timeout: 70000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("nationalexpress Buses Emission: ", emission) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 100000);
