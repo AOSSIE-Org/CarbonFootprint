@@ -1,5 +1,11 @@
 {
     "nationalexpress": {
         "url": "https://www.nationalexpress.com/en"
-    }
+    },
+    "boltbus": {
+        "url": "https://www.boltbus.com/"
+    },    
+    "ourbus": {
+        "url": "https://www.ourbus.com/"
+    }    
 }

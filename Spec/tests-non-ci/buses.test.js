@@ -1,6 +1,9 @@
 const puppeteer = require("puppeteer");
 const CRX_PATH = "Build/Chrome";
 const busesData = require("./buses.json")
+const {blockImages} = require('../helpers/requestInterception')
+const {DATE, currMonth, today, currYear, nextMonth, 
+  yearForNextMonth, nextMonthName, currMonthName, sleep} = require("../helpers/dateHelper")
 let browser;
 
 beforeAll(async () => {
@@ -25,32 +28,6 @@ beforeAll(async () => {
 afterAll(() => {
   browser.close();
 });
-
-// Get current Month and Year
-var currDate = new Date()
-var currMonth = currDate.getMonth() + 1;
-var today = currDate.getDate();
-if(today < 10) today = '0' + today;
-var currYear = currDate.getFullYear();
-var nextMonth = currDate.getMonth() + 2;
-var year = currDate.getFullYear();
-var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-];
-
-if(nextMonth === 13) {
-    nextMonth = 1;
-    year += 1;
-}
-var nextMonthName = monthNames[nextMonth - 1]
-if(nextMonth <= 10) {
-    // pad Month with 0. (8 -> 08)
-    nextMonth = '0' + nextMonth
-}
-
-const sleep = (milliseconds) => {
-    return new Promise(resolve => setTimeout(resolve, milliseconds))
-}
 
 test("nationalexpress", async () => { 
   const data = busesData.nationalexpress;
@@ -97,3 +74,103 @@ test("nationalexpress", async () => {
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 100000);
+
+
+test("boltbus", async () => { 
+  const data = busesData.boltbus;
+  let page = await browser.newPage();
+  await page.setViewport({
+      width: 1800,
+      height: 800,
+      deviceScaleFactor: 1,
+  });
+  await blockImages(page);
+  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+
+  var originLabelSelector = '#origin'
+  var originSelector = 'option[value="358"]'
+
+  var destinationLabelSelector = '#destination'
+  var destinationSelector = '#destination option[value="192"]'
+
+  var dateLabelSelector = '#datepicker-from' //07/31/2019
+  var submitButtonSelector = 'button.search-btn'
+  const frames = await page.frames();
+  frames.forEach(el => {
+    console.log(el.url());
+  })
+  const iframe = frames.find(f => f.url() === 'https://store.boltbus.com/fare-finder?redirect=https://www.boltbus.com/bus-ticket-search');
+
+  await iframe.waitForSelector(originLabelSelector)
+  await iframe.click(originLabelSelector)
+  await iframe.waitForSelector(originSelector, {visible: true})
+  await iframe.click(originSelector)
+  
+  await iframe.waitForSelector(destinationLabelSelector)
+  await iframe.click(destinationLabelSelector)
+  await iframe.waitForSelector(destinationSelector)
+  await iframe.click(destinationSelector)
+  
+  await iframe.click(dateLabelSelector)
+  await iframe.keyboard.type(`${nextMonth}/01/${yearForNextMonth}`)
+
+  await iframe.click(submitButtonSelector)
+  
+  // ----perform test----
+  await page.waitFor('#carbon', {timeout: 70000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("boltbus Buses Emission: ", emission) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 100000);
+
+
+test("ourbus", async () => { 
+  const data = busesData.ourbus;
+  let page = await browser.newPage();
+  await page.setViewport({
+      width: 1800,
+      height: 800,
+      deviceScaleFactor: 1,
+  });
+  await blockImages(page);
+  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+
+  var originLabelSelector = '#source'
+  var originSelector = '#myDropdown'
+
+  var destinationLabelSelector = '#destination'
+  var destinationSelector = '#_myDropdown'
+
+  var dateLabelSelector = '#longdatepickerDepart' //07/31/2019
+  var dateSelector = 'table.table-condensed tbody td[class="day"]:nth-last-of-type(1)'
+  var submitButtonSelector = '.redign_book_tckt_btn'
+
+  await page.waitForSelector(originLabelSelector)
+  await page.click(originLabelSelector)
+  await page.keyboard.type("Boston")
+  await page.waitForSelector(originSelector)
+  await page.click(originSelector)
+  
+  await page.waitForSelector(destinationLabelSelector)
+  await page.click(destinationLabelSelector)
+  await page.keyboard.type("New York")
+  await page.waitForSelector(destinationSelector)
+  await page.click(destinationSelector)
+  
+  await page.click(dateLabelSelector)
+  await page.click(dateSelector)
+  
+
+  await page.click(submitButtonSelector)
+  
+  // ----perform test----
+  await page.waitFor('#carbon', {timeout: 70000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("ourbus Buses Emission: ", emission) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 100000);
+
