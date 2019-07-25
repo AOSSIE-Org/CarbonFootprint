@@ -119,52 +119,53 @@ test("peterpanbus", async () => {
     page.close();
   }, 100000);
 
-//   test("Murrays Buses", async () => { 
-  // // Test not working, can't copy human data. due to visible stuff
+  test("Murrays Buses", async () => { 
+  // Test not working, can't copy human data. due to visible stuff
 
-//     const data = busesData.murrays;
-//     let page = await browser.newPage();
-//     await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+    const data = busesData.murrays;
+    let page = await browser.newPage();
+    await page.goto(data.url , {waitUntil: 'load', timeout: 0});
     
-//     // ---simulate human interaction---
-//     var originLabelSelector = '#ddOrigin'
-//     var originSelector = 'option[value="JOLI"]'
+    // ---simulate human interaction---
+    var originLabelSelector = '#ddOrigin'
+    var originSelector = 'option[value="JOLI"]'
   
-//     var destinationLabelSelector = '#ddDestination'
-//     var destinationSelector = 'option[value="EDDY"]'
+    var destinationLabelSelector = '#ddDestination'
+    var destinationSelector = 'option[value="EDDY"]'
 
-//     var oneWaySelector = 'input[value="OneWay"]'
+    var oneWaySelector = 'input[value="OneWay"]'
     
-//     var dateLabelSelector = 'input[name="DepartureDate"]'
-//     var submitButtonSelector = '#btnContinue'
+    var dateLabelSelector = 'input[name="DepartureDate"]'
+    var passSelector = '.lnks a + a'
+    var submitButtonSelector = '#btnContinue'
     
-//     await page.waitForSelector(originLabelSelector)
-//     await sleep(1000)
-//     await page.click(originLabelSelector)
+    await page.waitForSelector(originLabelSelector)
+    await page.click(originLabelSelector)
+    await sleep(1000)
+    await page.keyboard.press("ArrowDown")
+    await page.keyboard.press("Enter")
+    
+    await page.click(destinationLabelSelector)
+    await sleep(1000)
+    await page.keyboard.press("ArrowDown")
+    await page.keyboard.press("Enter")
+    await page.click(oneWaySelector)
+    
+    await page.click(dateLabelSelector)
+    await page.keyboard.type(`01/${nextMonth}/${yearForNextMonth}`);
+    await page.keyboard.press('Enter');
 
-//     await page.waitForSelector(originSelector)
-//     await page.click(originSelector)
+    await page.click(passSelector)
+    await page.click(submitButtonSelector)
     
-//     await page.click(destinationLabelSelector)
-//     await sleep(1000)
-//     await page.waitForSelector(destinationSelector)
-//     await page.click(destinationSelector)
-    
-//     await page.click(oneWaySelector)
-
-//     await page.click(dateLabelSelector)
-//     await page.keyboard.type(`01/${nextMonth}/${yearForNextMonth}`);
-//     await page.keyboard.press('Enter');
-//     await page.click(submitButtonSelector)
-    
-//     // ----perform test----
-//     await page.waitFor('#carbon',  { timeout: 70000, visible: true });
-//     const emission = await page.$eval("#carbon", el => el.innerText)
-//     const emissionFloat = parseFloat(emission)
-//     console.log("Murrays Buses Emission: ", emission) 
-//     expect(emissionFloat).toBeGreaterThan(0);
-//     page.close();
-// }, 100000);
+    // ----perform test----
+    await page.waitFor('#carbon',  { timeout: 70000, visible: true });
+    const emission = await page.$eval("#carbon", el => el.innerText)
+    const emissionFloat = parseFloat(emission)
+    console.log("Murrays Buses Emission: ", emission) 
+    expect(emissionFloat).toBeGreaterThan(0);
+    page.close();
+}, 100000);
 
   test("washny", async () => { 
   // Test not working, can't copy human data. due to visible stuff
