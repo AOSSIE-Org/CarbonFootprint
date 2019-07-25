@@ -94,40 +94,9 @@ test("boltbus", async () => {
     deviceScaleFactor: 1
   });
   await blockImages(page);
-  await page.goto(data.url, { waitUntil: "load", timeout: 0 });
-
-  var originLabelSelector = "#origin";
-  var originSelector = 'option[value="358"]';
-
-  var destinationLabelSelector = "#destination";
-  var destinationSelector = '#destination option[value="192"]';
-
-  var dateLabelSelector = "#datepicker-from"; //07/31/2019
-  var submitButtonSelector = "button.search-btn";
-  const frames = await page.frames();
-  frames.forEach(el => {
-    console.log(el.url());
-  });
-  const iframe = frames.find(
-    f =>
-      f.url() ===
-      "https://store.boltbus.com/fare-finder?redirect=https://www.boltbus.com/bus-ticket-search"
-  );
-
-  await iframe.waitForSelector(originLabelSelector);
-  await iframe.click(originLabelSelector);
-  await iframe.waitForSelector(originSelector, { visible: true });
-  await iframe.click(originSelector);
-
-  await iframe.waitForSelector(destinationLabelSelector);
-  await iframe.click(destinationLabelSelector);
-  await iframe.waitForSelector(destinationSelector);
-  await iframe.click(destinationSelector);
-
-  await iframe.click(dateLabelSelector);
-  await iframe.keyboard.type(`${nextMonth}/01/${yearForNextMonth}`);
-
-  await iframe.click(submitButtonSelector);
+  var query = `t=1&d=10&a=2055&tfa=1&ada=0&dd=${nextMonth}%2F01%2F${yearForNextMonth}&rd=`
+  var b64 = Buffer.from(query).toString('base64')
+  await page.goto(data.url.split('|').join(b64), { waitUntil: "load", timeout: 0 });
 
   // ----perform test----
   await page.waitFor("#carbon", { timeout: 70000 });

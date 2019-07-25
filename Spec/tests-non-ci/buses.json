@@ -3,7 +3,7 @@
         "url": "https://www.nationalexpress.com/en"
     },
     "boltbus": {
-        "url": "https://www.boltbus.com/"
+        "url": "https://www.boltbus.com/bus-ticket-search/?query=|&consumer=null"
     },    
     "ourbus": {
         "url": "https://www.ourbus.com/"
