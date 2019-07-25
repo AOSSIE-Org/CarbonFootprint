@@ -7,5 +7,8 @@
     },    
     "ourbus": {
         "url": "https://www.ourbus.com/"
+    },
+    "traveline": {
+        "url": "https://www.traveline.info/"
     }    
 }
