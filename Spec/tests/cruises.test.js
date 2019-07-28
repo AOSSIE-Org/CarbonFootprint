@@ -152,32 +152,6 @@ test("cruisedotcom Cruise", async () => {
   page.close();
 }, 50000);
 
-test("travelocity Cruise", async () => {
-  const data = cruisesData.travelocity;
-  let page = await browser.newPage();
-  await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
-
-  await page.waitFor('#carbon', {timeout: 50000});
-  const emission = await page.$eval("#carbon", el => el.innerText)
-  const emissionFloat = parseFloat(emission)
-  console.log("travelocity Emission: ", emission) 
-  expect(emissionFloat).toBeGreaterThan(0);
-  page.close();
-}, 50000);
-
-test("tirun Cruise", async () => {
-  const data = cruisesData.tirun;
-  let page = await browser.newPage();
-  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
-
-  await page.waitFor('#carbon', {timeout: 50000});
-  const emission = await page.$eval("#carbon", el => el.innerText)
-  const emissionFloat = parseFloat(emission)
-  console.log("tirun Emission: ", emission) 
-  expect(emissionFloat).toBeGreaterThan(0);
-  page.close();
-}, 70000);
-
 test("seahub Cruise", async () => {
   const data = cruisesData.seahub;
   let page = await browser.newPage();
