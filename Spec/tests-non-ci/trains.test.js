@@ -328,3 +328,17 @@ test("viarail", async () => {
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 70000);
+
+test("wanderu", async () => { 
+  // Extension not working
+    const data = trainsData.wanderu;
+    const page = await browser.newPage();
+    await page.goto(data.url.split('|').join(`${yearForNextMonth}-${nextMonth}-01`) , {waitUntil: 'load', timeout: 0});
+  
+    await page.waitFor('#carbon', {timeout: 50000});
+    const emission = await page.$eval("#carbon", el => el.innerText)
+    const emissionFloat = parseFloat(emission)
+    console.log("wanderu Emission: ", emissionFloat) 
+    expect(emissionFloat).toBeGreaterThan(0);
+    page.close();
+  }, 70000);
