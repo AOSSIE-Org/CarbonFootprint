@@ -15,8 +15,8 @@ beforeAll(async () => {
       `--load-extension=${CRX_PATH}`
     ],
     defaultViewport: {
-      width: 1300,
-      height: 1900,
+      width: 1400,
+      height: 900,
       deviceScaleFactor: 1,
      }
   });
@@ -224,3 +224,49 @@ test("redspottedhanky", async () => {
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 70000);
+
+test("raileurope", async () => {
+  const data = trainsData.raileurope;
+  const page = await browser.newPage();
+  // await blockImages(page);
+  await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
+
+  const fromInputSelector = 'input.js-origincity'
+  const fromSelector = 'li.ui-menu-item'
+  const toInputSelector = 'input.js-destinationcity'
+  const toSelector = 'li.ui-menu-item'
+  const oneWaySelector = 'label[for="ptpform-oneway"]'
+  const dateLabelSelector = 'input.js-departuredate'
+  const dateSelector = 'table.ui-datepicker-calendar tbody tr:nth-last-of-type(1) td:nth-last-of-type(1)'
+  const anytimeSelector = 'a.js-hourpickany'
+  
+  const searchButtonSelector = 'button.js-ptpform-submit.form-submit.btn-cta'
+  
+  await page.click(oneWaySelector)
+  await page.click(fromInputSelector)
+  await page.keyboard.type('London')
+  // await page.waitForSelector(fromSelector)
+  // await page.click(fromSelector)
+  
+  await page.click(toInputSelector)
+  await page.keyboard.type('Liverpool')
+  // await page.waitForSelector(toSelector)
+  // await page.click(toSelector)
+  
+  
+  await page.click(dateLabelSelector)
+  await page.click(dateSelector)
+  await sleep(1000)
+  // await page.click(anytimeSelector)
+
+
+  await page.click(searchButtonSelector)
+  await page.click(searchButtonSelector)
+
+  await page.waitFor('#carbon', {timeout: 70000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("raileurope Rail Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 170000);
