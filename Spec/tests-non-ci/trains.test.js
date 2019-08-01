@@ -118,3 +118,46 @@ test("virgintrains", async () => {
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 70000);
+
+
+test("sj", async () => { 
+// temporary server error
+  const data = trainsData.sj;
+  const page = await browser.newPage();
+  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+
+  await page.waitFor('#carbon', {timeout: 50000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("sj Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 70000);
+
+test("southernrailway", async () => { 
+// Extension not working
+  const data = trainsData.southernrailway;
+  const page = await browser.newPage();
+  await page.goto(data.url.split('|').join(`${yearForNextMonth}-${nextMonth}-01`) , {waitUntil: 'load', timeout: 0});
+
+  await page.waitFor('#carbon', {timeout: 50000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("southernrailway Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 70000);
+
+test("transportnsw", async () => { 
+// Extension not working
+  const data = trainsData.transportnsw;
+  const page = await browser.newPage();
+  await page.goto(data.url.split('|').join(`${yearForNextMonth}-${nextMonth}-01`) , {waitUntil: 'load', timeout: 0});
+
+  await page.waitFor('#carbon', {timeout: 50000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("transportnsw Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 70000);

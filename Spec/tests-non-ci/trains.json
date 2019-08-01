@@ -4,6 +4,15 @@
     },
     "virgintrains": {
       "url": "https://www.virgintrains.co.uk/"
+    },
+    "sj": {
+      "url": "https://www.sj.se/#/tidtabell/Berlin%2520Hbf/Stockholm%2520Central/enkel/avgang//avgang//VU--///0//"
+    },
+    "southernrailway": {
+      "url": "https://ticket.southernrailway.com/journeys-grid/WTN/LST/|T13:00//1/0/"
+    },
+    "transportnsw": {
+      "url": "https://transportnsw.info/regional-bookings/select-trip?from=SYD&to=DBO&dateTime=|T00:00:00&P_0_PT=A"
     }
 }
   
