@@ -2,6 +2,8 @@ const puppeteer = require("puppeteer");
 const CRX_PATH = "Build/Chrome";
 const trainsData = require("./trains.json")
 const {blockImages} = require("../helpers/requestInterception")
+const {DATE, currMonth, today, currYear, nextMonth, 
+  yearForNextMonth, nextMonthName, currMonthName, sleep} = require("../helpers/dateHelper")
 let browser;
 
 beforeAll(async () => {
@@ -11,7 +13,12 @@ beforeAll(async () => {
       '--no-sandbox',
       `--disable-extensions-except=${CRX_PATH}`,
       `--load-extension=${CRX_PATH}`
-    ]
+    ],
+    defaultViewport: {
+      width: 1300,
+      height: 1900,
+      deviceScaleFactor: 1,
+     }
   });
   
   pages = await browser.pages();
@@ -21,24 +28,6 @@ beforeAll(async () => {
 afterAll(() => {
   browser.close();
 });
-
-// Get current Month and Year
-var currDate = new Date()
-var nextMonth = currDate.getMonth() + 2;
-var year = currDate.getFullYear();
-var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-];
-
-if(nextMonth === 13) {
-    nextMonth = 1;
-    year += 1;
-}
-var nextMonthName = monthNames[nextMonth - 1]
-if(nextMonth <= 10) {
-    // pad Month with 0. (8 -> 08)
-    nextMonth = '0' + nextMonth
-}
 
 
 test("Trenitalia", async () => { 
@@ -81,7 +70,7 @@ test("Trenitalia", async () => {
   for (let i = 0; i < dateValue.length; i++) {
       await page.keyboard.press('Backspace');
   }
-  await page.keyboard.type(`01-${nextMonth}-${year}`);
+  await page.keyboard.type(`01-${nextMonth}-${yearForNextMonth}`);
   await page.click(submitButton)
 
   // ---------- PERFORM TESTS-------------
@@ -92,3 +81,40 @@ test("Trenitalia", async () => {
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 120000);
+
+test("virgintrains", async () => {
+  //extension not working
+  const data = trainsData.virgintrains;
+  const page = await browser.newPage();
+  // await blockImages(page);
+  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+
+  const fromInputSelector = '#FromStation_77ba2960-f400-4f88-b019-161c61bba1cd'
+  const toInputSelector = '#ToStation_77ba2960-f400-4f88-b019-161c61bba1cd'
+  const dateLabelSelector = 'button[title="Select date"]'
+  const dateSelector = 'table.ui-datepicker-calendar tbody tr:nth-last-of-type(1) td[class=" "]'
+  const oneWaySelector = 'label[for="optionOneWay_77ba2960-f400-4f88-b019-161c61bba1cd"]'
+  
+  const searchButtonSelector = 'button.btn.btn-submit'
+  
+  await page.click(fromInputSelector)
+  await page.keyboard.type('London')
+  await page.keyboard.press('Enter')
+  
+  await page.click(toInputSelector)
+  await page.keyboard.type('Castleton (Manchester')
+  await page.keyboard.press('Enter')
+
+  await page.click(dateLabelSelector)
+  await page.click(dateSelector)
+  await page.click(oneWaySelector)
+  await page.waitForSelector(searchButtonSelector)
+  await page.click(searchButtonSelector)
+
+  await page.waitFor('#carbon', {timeout: 50000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("virgintrains Rail Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 70000);

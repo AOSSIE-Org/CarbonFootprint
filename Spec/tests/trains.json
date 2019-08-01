@@ -13,6 +13,9 @@
     },
     "italotreno": {
       "url": "https://biglietti.italotreno.it/Booking_Acquisto_Ricerca.aspx"
+    },
+    "amtrak": {
+      "url": "https://tickets.amtrak.com/itd/amtrak"
     }
   }
   

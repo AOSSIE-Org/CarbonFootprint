@@ -1,6 +1,9 @@
 {
     "trenitalia": {
       "url": "https://www.trenitalia.com/"
+    },
+    "virgintrains": {
+      "url": "https://www.virgintrains.co.uk/"
     }
 }
   

@@ -16,7 +16,7 @@ beforeAll(async () => {
     ],
     defaultViewport: {
       width: 1300,
-      height: 900,
+      height: 1900,
       deviceScaleFactor: 1,
      }
   });
@@ -142,7 +142,6 @@ test("italotreno", async () => {
   await page.click(dateLabelNextSelector)
   await page.click(dateSelector)
   await page.waitForSelector(searchButtonSelector)
-  await sleep(1000)
   await page.click(searchButtonSelector)
 
   await page.waitFor('#carbon', {timeout: 50000});
@@ -152,3 +151,41 @@ test("italotreno", async () => {
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 70000);
+
+
+// test("amtrak", async () => {
+//   const data = trainsData.amtrak;
+//   const page = await browser.newPage();
+//   await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+
+//   const fromInputSelector = '#departs'
+//   const toInputSelector = '#arrives'
+//   const dateLabelSelector = '#wdfdate1'
+//   const dateSelector = `span.k-in-month`
+//   console.log(dateSelector)
+  
+//   const searchButtonSelector = 'farefinder_done'
+  
+//   await page.click(fromInputSelector)
+//   await page.keyboard.type('NY')
+//   await page.keyboard.press('Enter')
+  
+//   await page.click(toInputSelector)
+//   await page.keyboard.type('WAS')
+//   await page.keyboard.press('Enter')
+
+//   await page.click(dateLabelSelector)
+//   await sleep(2000)
+//   await page.waitForSelector(dateSelector)
+//   await page.click(dateSelector)
+//   await page.waitForSelector(searchButtonSelector)
+//   await page.click(searchButtonSelector)
+
+//   await page.waitFor('#carbon', {timeout: 50000});
+//   const emission = await page.$eval("#carbon", el => el.innerText)
+//   const emissionFloat = parseFloat(emission)
+//   console.log("amtrak Rail Emission: ", emissionFloat) 
+//   expect(emissionFloat).toBeGreaterThan(0);
+//   page.close();
+// }, 70000);
+
