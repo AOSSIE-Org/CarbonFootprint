@@ -16,6 +16,9 @@
     },
     "thetrainline": {
       "url": "https://www.thetrainline.com/book/results?origin=2144c4ddc11461cf9b03af198933e8df&destination=9db3c53335d19fbba8351a86de4fc776&outwardDate=|T17%3A15%3A00&outwardDateType=departAfter&journeySearchType=single&passengers%5B%5D=1989-08-01&selectedOutward=9CpsLkC1Q0g%3D%3AePinTm6hz3Y%3D"
+    },
+    "transwa": {
+      "url": "https://secure.transwa.wa.gov.au/bookingsexpress.aspx?departure=MDH&destination=BUY&departuredate=|&oneway=TRUE"
     }
 }
   

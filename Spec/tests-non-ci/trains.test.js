@@ -175,3 +175,17 @@ test("thetrainline", async () => {
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 70000);
+
+test("transwa", async () => { 
+// Extension not working
+  const data = trainsData.transwa;
+  const page = await browser.newPage();
+  await page.goto(data.url.split('|').join(`1+${nextMonthName}+${yearForNextMonth}`) , {waitUntil: 'load', timeout: 0});
+
+  await page.waitFor('#carbon', {timeout: 50000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("transwa Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 70000);
