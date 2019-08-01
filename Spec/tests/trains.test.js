@@ -78,15 +78,52 @@ test("Kayak Train", async () => { // working, tests passing
   page.close();
 }, 70000);
 
-test("National Rail", async () => { //working tests passing
+test("National Rail", async () => { 
   const data = trainsData.nationalrail;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url.split('|').join(`01${nextMonth}${year%100}`) , {waitUntil: 'load', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("National Rail Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 70000);
+
+test("bahn", async () => {
+  const data = trainsData.bahn;
+  const page = await browser.newPage();
+  await page.goto(data.url.split('|').join(`01${nextMonth}${year%100}`) , {waitUntil: 'load', timeout: 0});
+
+  const fromInputSelector = '#locS0'
+  const fromSelector = '#suggestionCon div'
+  
+  const toInputSelector = '#locZ0'
+  const toSelector = '#suggestionCon div'
+
+  const dateLabelSelector = '#callink0'
+  const dateSelector = '#callink0_row_4 td.enabled'
+  const searchButtonSelector = '#searchConnectionButton'
+
+  await page.click(fromInputSelector)
+  await page.keyboard.type('berl')
+  await page.waitFor(fromSelector)
+  await page.click(fromSelector)
+
+  await page.click(toInputSelector)
+  await page.keyboard.type('frankf')
+  await page.waitFor(toSelector)
+  await page.click(toSelector)
+
+  await page.click(dateLabelSelector)
+  await page.click(dateSelector)
+  await page.click(searchButtonSelector)
+
+  await page.waitFor('#carbon', {timeout: 50000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("bahn Rail Emission: ", emissionFloat) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 70000);
