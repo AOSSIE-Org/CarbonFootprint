@@ -10,6 +10,9 @@
     },
     "bahn": {
       "url": "https://reiseauskunft.bahn.de/bin/query.exe/dn?ld=43240&country=DEU&protocol=https:&seqnr=1&ident=8e.020276240.1564644009&rt=1&OK#focus"
+    },
+    "italotreno": {
+      "url": "https://biglietti.italotreno.it/Booking_Acquisto_Ricerca.aspx"
     }
   }
   
