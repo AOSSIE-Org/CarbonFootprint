@@ -19,6 +19,9 @@
     },
     "transwa": {
       "url": "https://secure.transwa.wa.gov.au/bookingsexpress.aspx?departure=MDH&destination=BUY&departuredate=|&oneway=TRUE"
+    },
+    "lyria": {
+      "url": "https://www.tgv-lyria.com/redirect?orig=booking&url=https%3A%2F%2Fwww.oui.sncf%2Fvsc%2Ftrain-ticket%2F%3F%26VIA_CITY_CHECK%26DIRECT_TRAVEL_CHECK%3D1%26ORIGIN_CITY%3DParis%2520Gare%2520de%2520Lyon%26DESTINATION_CITY%3DBelfort%2520Montbeliard%2520TGV%26TRAVEL_TYPE%3DAS%26COMFORT_CLASS%3D2%26OUTWARD_DATE%3D|%26OUTWARD_TIME%3D6%26INWARD_DATE%3D%26INWARD_TIME%3D%26nbPassengersForTravel%3D1%26PASSENGER_1%3DADULT%26action%253AsearchTravelLaunchTrain%3DR%25C3%25A9servez"
     }
 }
   
