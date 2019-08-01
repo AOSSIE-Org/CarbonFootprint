@@ -243,3 +243,41 @@ test("oui", async () => {
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 70000);
+
+
+test("beurope", async () => {
+  //extension not working and blocking bots by recaptcha
+  const data = trainsData.beurope;
+  const page = await browser.newPage();
+  // await blockImages(page);
+  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+
+  const fromInputSelector = '#departure-station'
+  const toInputSelector = '#return-station'
+  const onewaySelector = '#travel-type label + label'
+  const dateLabelSelector = '#departure-date'
+  const dateSelector = '.pika-lendar+.pika-lendar tbody tr td:not(.is-empty)'
+  
+  const searchButtonSelector = '#QsmSearch'
+  
+  await page.click(fromInputSelector)
+  await page.keyboard.type('Paris')
+  await sleep(3000)
+  await page.keyboard.press('Enter')
+  
+  await page.click(toInputSelector)
+  await page.keyboard.type('Amsterdam')
+  await sleep(3000)
+  await page.keyboard.press('Enter')
+
+  await page.click(dateLabelSelector)
+  await page.click(dateSelector)
+  await page.click(searchButtonSelector)
+
+  await page.waitFor('#carbon', {timeout: 50000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("beurope Rail Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 70000);
