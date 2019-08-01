@@ -270,3 +270,40 @@ test("raileurope", async () => {
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 170000);
+
+
+test("trainose", async () => {
+  const data = trainsData.trainose;
+  const page = await browser.newPage();
+  // await blockImages(page);
+  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+
+  const fromInputSelector = '.chosen-container'
+  const toInputSelector = '.chosen-container:nth-of-type(2)'
+  const dateLabelSelector = 'input[name="date"]'
+  const dateSelector = '#ui-datepicker-div tbody tr:nth-last-of-type(1) td'
+  
+  const searchButtonSelector = '.button.button-blue'
+  
+  await page.click(fromInputSelector)
+  await page.keyboard.press('ArrowDown')
+  await page.keyboard.press('Enter')
+  
+  await page.click(toInputSelector)
+  await page.keyboard.press('ArrowDown')
+  await page.keyboard.press('ArrowDown')
+  await page.keyboard.press('Enter')
+    
+  await page.click(dateLabelSelector)
+  await page.click(dateSelector)
+
+  await page.click(searchButtonSelector)
+  await page.click(searchButtonSelector)
+
+  await page.waitFor('#carbon', {timeout: 70000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("trainose Rail Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 170000);

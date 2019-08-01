@@ -281,3 +281,50 @@ test("beurope", async () => {
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 70000);
+
+
+test("viarail", async () => {
+  //extension not working 
+  const data = trainsData.viarail;
+  const page = await browser.newPage();
+  // await blockImages(page);
+  await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
+
+  const fromInputSelector = '#cmbStationsFrom'
+  const toInputSelector = '#cmbStationsTo'
+  const onewaySelector = 'label.ui-checkboxradio-label + label.ui-checkboxradio-label'
+  const dateLabelSelector = '#txtDateFrom'
+  
+  const searchButtonSelector = '#Gtm_Retail_Search_SearchBtn'
+  
+  await page.click(fromInputSelector)
+  await page.keyboard.type('DARTMOUTH')
+  await sleep(3000)
+  await page.keyboard.press('Enter')
+  
+  await page.click(toInputSelector)
+  await page.keyboard.type('HALIFAX')
+  await sleep(3000)
+  await page.keyboard.press('Enter')
+  await page.click(onewaySelector)
+  
+  await page.click(dateLabelSelector)
+  await page.click(dateLabelSelector)
+  await page.click(dateLabelSelector)
+  await page.keyboard.press('Backspace');
+  // const dateValue = await page.$eval(dateLabelSelector, el => el.value);
+  // for (let i = 0; i < dateValue.length; i++) {
+  //     await page.keyboard.press('Delete');
+  // }
+  await page.keyboard.type(`${nextMonth}/01/${yearForNextMonth}`)
+  await page.keyboard.press('Enter')
+  
+  await page.click(searchButtonSelector)
+
+  await page.waitFor('#carbon', {timeout: 50000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("viarail Rail Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 70000);
