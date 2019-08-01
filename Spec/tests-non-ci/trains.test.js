@@ -203,3 +203,43 @@ test("lyria", async () => {
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 70000);
+
+test("oui", async () => {
+  //extension not working
+  const data = trainsData.oui;
+  const page = await browser.newPage();
+  // await blockImages(page);
+  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+
+  const surveyNoSelector = '#survey-no'
+  const fromInputSelector = '#vsb-origin-train-launch'
+  const toInputSelector = '#vsb-destination-train-launch'
+  const dateLabelSelector = '.vsb-date-summary.vsb-date-summary--as'
+  const dateSelector = `#train-launch-d-01-${nextMonth}-${yearForNextMonth}`
+  const submitDateSelector = '#vsb-departure-train-launch-modal-submit'
+  
+  const searchButtonSelector = '#vsb-booking-train-launch-submit'
+  
+  // await page.click(surveyNoSelector)
+  await page.click(fromInputSelector)
+  await page.keyboard.type('Paris')
+  await sleep(3000)
+  await page.keyboard.press('Enter')
+  
+  await page.click(toInputSelector)
+  await page.keyboard.type('Marse')
+  await sleep(3000)
+  await page.keyboard.press('Enter')
+
+  await page.click(dateLabelSelector)
+  await page.click(dateSelector)
+  await page.click(submitDateSelector)
+  await page.click(searchButtonSelector)
+
+  await page.waitFor('#carbon', {timeout: 50000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("oui Rail Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 70000);
