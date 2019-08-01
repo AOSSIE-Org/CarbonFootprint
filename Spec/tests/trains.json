@@ -16,6 +16,9 @@
     },
     "amtrak": {
       "url": "https://tickets.amtrak.com/itd/amtrak"
+    },
+    "redspottedhanky": {
+      "url": "http://www.redspottedhanky.com/"
     }
   }
   
