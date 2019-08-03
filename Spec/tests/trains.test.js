@@ -34,7 +34,7 @@ afterAll(() => {
 test("Eurostar", async () => {
     // Working tests passing
     const data = trainsData.eurostar;
-    let page = await browser.newPage();
+    const page = await browser.newPage();
     await page.goto(data.url.split('|').join(`${yearForNextMonth}-${nextMonth}-01`) , {waitUntil: 'load', timeout: 0});
   
     await page.waitFor('#carbon', {timeout: 50000});
@@ -47,7 +47,7 @@ test("Eurostar", async () => {
 
 test("Kayak Train", async () => { // working, tests passing
   const data = trainsData.kayak;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url.split('|').join(`${yearForNextMonth}-${nextMonth}-01`) , {waitUntil: 'load', timeout: 0});
   var gdprCloseButton = '.Common-Gdpr-CookieConsent button'
   var gdprCloseButtonv2 = '.Common-Gdpr-CookieConsentV2 button'

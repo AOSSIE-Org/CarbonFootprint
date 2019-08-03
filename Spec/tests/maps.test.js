@@ -27,7 +27,7 @@ afterAll(() => {
 
 test("Google Maps", async () => {
   const data = mapsData.googlemaps;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url, {waitUntil: 'load', timeout: 0});
   await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
@@ -39,7 +39,7 @@ test("Google Maps", async () => {
 
 test("Open Street Maps", async () => {
   const data = mapsData.openstreetsmaps;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url, {waitUntil: 'load', timeout: 0});
   await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
@@ -51,7 +51,7 @@ test("Open Street Maps", async () => {
 
 test("We Go Maps", async () => {
   const data = mapsData.wego;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url, {waitUntil: 'load', timeout: 0});
   await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
@@ -63,7 +63,7 @@ test("We Go Maps", async () => {
 
 test("Yandex Maps", async () => {
   const data = mapsData.yandex;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url, {waitUntil: 'load', timeout: 0});
   await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
@@ -75,7 +75,7 @@ test("Yandex Maps", async () => {
 
 test("Bing Maps", async () => {
   const data = mapsData.bing;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url, {waitUntil: 'load', timeout: 0});
 
   // open directions panel

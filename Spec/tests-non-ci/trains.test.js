@@ -33,7 +33,7 @@ afterAll(() => {
 test("Trenitalia", async () => { 
   // message port was closed before a message was recieved
   const data = trainsData.trenitalia;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await blockImages(page)
   await page.setViewport({
     width: 1200,

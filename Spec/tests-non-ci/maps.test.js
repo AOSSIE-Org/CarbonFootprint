@@ -24,7 +24,7 @@ afterAll(() => {
 
 test("mapquest Maps", async () => {
   const data = mapsData.mapquest;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url, {waitUntil: 'load', timeout: 0});
   await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
@@ -36,7 +36,7 @@ test("mapquest Maps", async () => {
 
 test("waze Maps", async () => {
   const data = mapsData.waze;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url, {waitUntil: 'load', timeout: 0});
   const destLabelSelector = '.wm-search.theme-default.is-editable.is-blank'
   const destSelector = 'li[data-value="ChIJiQHsW0m3j4ARm69rRkrUF3w"]'
@@ -68,7 +68,7 @@ test("waze Maps", async () => {
 
 test("viamichelin Maps", async () => {
   const data = mapsData.viamichelin;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url, {waitUntil: 'load', timeout: 0});
   await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)

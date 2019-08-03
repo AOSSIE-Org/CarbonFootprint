@@ -40,7 +40,7 @@ afterAll(() => {
 
 test("nationalexpress", async () => {
   const data = busesData.nationalexpress;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.setViewport({
     width: 1800,
     height: 800,
@@ -87,7 +87,7 @@ test("nationalexpress", async () => {
 
 test("boltbus", async () => {
   const data = busesData.boltbus;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.setViewport({
     width: 1800,
     height: 800,
@@ -109,7 +109,7 @@ test("boltbus", async () => {
 
 test("ourbus", async () => {
   const data = busesData.ourbus;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.setViewport({
     width: 1800,
     height: 800,
@@ -157,7 +157,7 @@ test("ourbus", async () => {
 
 test("traveline", async () => {
   const data = busesData.traveline;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.setViewport({
     width: 1800,
     height: 800,

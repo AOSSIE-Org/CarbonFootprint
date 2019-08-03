@@ -33,7 +33,7 @@ afterAll(() => {
 // --------------TESTS---------------------
 test("Orbitz", async () => {
   const data = cruisesData.orbitz;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await blockImages(page)
   await page.goto(data.url.split('|').join(`${currYear}-${currMonth}-${today}`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
@@ -47,7 +47,7 @@ test("Orbitz", async () => {
 
 test("Expedia Cruise", async () => {
   const data = cruisesData.expedia;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url.split('|').join(`${currYear}-${currMonth}-${today}`) , {waitUntil: 'load', timeout: 0});
 
   await page.waitFor('#carbon');
@@ -60,7 +60,7 @@ test("Expedia Cruise", async () => {
 
 test("Priceline Cruise", async () => {
   const data = cruisesData.priceline;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
@@ -73,7 +73,7 @@ test("Priceline Cruise", async () => {
 
 test("Tours4Fun Cruise", async () => {
   const data = cruisesData.tours4fun;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon');
@@ -86,7 +86,7 @@ test("Tours4Fun Cruise", async () => {
 
 test("Celebritycruises Cruise", async () => {
   const data = cruisesData.celebritycruises;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await blockImages(page)
   await page.goto(data.url , {waitUntil: 'load', timeout: 0});
 
@@ -100,7 +100,7 @@ test("Celebritycruises Cruise", async () => {
 
 test("silversea Cruise", async () => {
   const data = cruisesData.silversea;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon');
@@ -113,7 +113,7 @@ test("silversea Cruise", async () => {
 
 test("cruisedirect Cruise", async () => {
   const data = cruisesData.cruisedirect;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await blockImages(page)
   await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
 
@@ -127,7 +127,7 @@ test("cruisedirect Cruise", async () => {
 
 test("carnival Cruise", async () => {
   const data = cruisesData.carnival;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await blockImages(page)
   await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
 
@@ -141,7 +141,7 @@ test("carnival Cruise", async () => {
 
 test("cruisedotcom Cruise", async () => {
   const data = cruisesData.cruisedotcom;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url , {waitUntil: 'load', timeout: 0});
 
   await page.waitFor('#carbon');
@@ -154,7 +154,7 @@ test("cruisedotcom Cruise", async () => {
 
 test("seahub Cruise", async () => {
   const data = cruisesData.seahub;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await blockImages(page)
   await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
   await page.waitFor("input#jbtSearchBarSubmitInput")
@@ -171,7 +171,7 @@ test("seahub Cruise", async () => {
 
 test("tripadvisor Cruise", async () => {
   const data = cruisesData.tripadvisor;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon');
@@ -184,7 +184,7 @@ test("tripadvisor Cruise", async () => {
 
 test("cruisenation Cruise", async () => {
   const data = cruisesData.cruisenation;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await blockImages(page)
   await page.goto(data.url , {waitUntil: 'load', timeout: 0});
   

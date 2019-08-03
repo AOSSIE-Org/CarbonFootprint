@@ -7,7 +7,7 @@ module.exports = {
     "no-debugger": 0
   },
   parserOptions: {
-    ecmaVersion: 6
+    ecmaVersion: 8
   },
   env: {
     browser: true

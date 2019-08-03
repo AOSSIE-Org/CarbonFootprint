@@ -32,7 +32,7 @@ afterAll(() => {
 // --------------TESTS---------------------
 test("Cleartrip Fligts", async () => { //working and tests passing
   const data = flightsData.cleartrip;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url.split('|').join(`01/${nextMonth}/${yearForNextMonth}`) , {waitUntil: 'load', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
@@ -45,7 +45,7 @@ test("Cleartrip Fligts", async () => { //working and tests passing
 
 test("Hipmunk Flights", async () => {
     const data = flightsData.hipmunk;
-    let page = await browser.newPage();
+    const page = await browser.newPage();
     await page.goto(data.url.split('|').join(`${yearForNextMonth}-${nextMonth}-01`), {waitUntil: 'load', timeout: 0});
   
     await page.waitFor('#carbon', {timeout: 50000});
@@ -60,7 +60,7 @@ test("Hipmunk Flights", async () => {
 
 test("Google Flights", async () => {
   const data = flightsData.googleflights;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url.split('|').join(`${yearForNextMonth}-${nextMonth}-01;`) , {waitUntil: 'load', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
@@ -73,7 +73,7 @@ test("Google Flights", async () => {
 
 test("Expedia Flights", async () => { // working and tests passing
   const data = flightsData.expedia;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url.split('|').join(`${nextMonth}%2F01%2F${yearForNextMonth}`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
@@ -86,7 +86,7 @@ test("Expedia Flights", async () => { // working and tests passing
 
 test("Spice Jet", async () => {
     const data = flightsData.spicejet;
-    let page = await browser.newPage();
+    const page = await browser.newPage();
     await blockImages(page)
     await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
     
@@ -125,7 +125,7 @@ test("Spice Jet", async () => {
 
 test("Kayak Flights", async () => {
   const data = flightsData.kayak;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url.split('|').join(`${yearForNextMonth}-${nextMonth}-01`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
@@ -138,7 +138,7 @@ test("Kayak Flights", async () => {
 
 test("Tripadvisor Flights", async () => {
   const data = flightsData.tripadvisor;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url.split('|').join(`${yearForNextMonth}${nextMonth}01`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});

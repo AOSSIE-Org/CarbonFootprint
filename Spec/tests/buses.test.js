@@ -31,7 +31,7 @@ afterAll(() => {
 // --------------TESTS---------------------
 test("Megabus", async () => {
     const data = busesData.megabus;
-    let page = await browser.newPage();
+    const page = await browser.newPage();
     await page.goto(data.url.split('|').join(`${currYear}-${currMonth}-${today}`) , {waitUntil: 'load', timeout: 0});
 
     await page.waitFor('#carbon', {timeout: 50000});
@@ -44,7 +44,7 @@ test("Megabus", async () => {
 
 test("flixbus", async () => {
     const data = busesData.flixbus;
-    let page = await browser.newPage();
+    const page = await browser.newPage();
     await page.goto(data.url.split('|').join(`${today}.${currMonth}.${currYear}`) , {waitUntil: 'load', timeout: 0});
 
     await page.waitFor('#carbon');
@@ -57,7 +57,7 @@ test("flixbus", async () => {
 
 test("Greyhound Buses", async () => { 
     const data = busesData.greyhound;
-    let page = await browser.newPage();
+    const page = await browser.newPage();
     await page.setViewport({
         width: 1000,
         height: 800,
@@ -102,7 +102,7 @@ test("Greyhound Buses", async () => {
 
 test("peterpanbus", async () => { 
     const data = busesData.peterpanbus;
-    let page = await browser.newPage();
+    const page = await browser.newPage();
     await page.setViewport({
         width: 1000,
         height: 800,
@@ -123,7 +123,7 @@ test("peterpanbus", async () => {
   // Test not working, can't copy human data. due to visible stuff
 
     const data = busesData.murrays;
-    let page = await browser.newPage();
+    const page = await browser.newPage();
     await page.goto(data.url , {waitUntil: 'load', timeout: 0});
     
     // ---simulate human interaction---
@@ -171,7 +171,7 @@ test("peterpanbus", async () => {
   // Test not working, can't copy human data. due to visible stuff
 
     const data = busesData.washny;
-    let page = await browser.newPage();
+    const page = await browser.newPage();
     await page.goto(data.url , {waitUntil: 'load', timeout: 0});
     
     // ---simulate human interaction---
@@ -208,7 +208,7 @@ test("peterpanbus", async () => {
 
 test("firstgroup", async () => { 
   const data = busesData.firstgroup;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.setViewport({
       width: 1000,
       height: 800,

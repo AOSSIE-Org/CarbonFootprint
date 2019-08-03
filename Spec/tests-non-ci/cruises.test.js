@@ -35,7 +35,7 @@ afterAll(() => {
 test("cruisewatch Cruise", async () => {
   // Message port closed before it was recieved on puppeteer
   const data = cruisesData.cruisewatch;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url , {waitUntil: 'load', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
@@ -49,7 +49,7 @@ test("cruisewatch Cruise", async () => {
 test("travelocity Cruise", async () => {
   // Message port closed before it was recieved on puppeteer
   const data = cruisesData.travelocity;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
@@ -63,7 +63,7 @@ test("travelocity Cruise", async () => {
 test("tirun Cruise", async () => {
   //Website Server Error
   const data = cruisesData.tirun;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url , {waitUntil: 'load', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
@@ -78,7 +78,7 @@ test("tirun Cruise", async () => {
 test("kayak Cruise", async () => {
   // website is blocking bots
   const data = cruisesData.kayak;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url.split("|").join(`${currYear}-${currMonth}`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});

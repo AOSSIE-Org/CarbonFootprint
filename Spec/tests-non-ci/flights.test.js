@@ -1,7 +1,9 @@
 const puppeteer = require("puppeteer");
 const CRX_PATH = "Build/Chrome";
 const flightsData = require("./flights.json")
-const {blockImages} = require('../helpers/requestInterception')
+const {blockImages} = require("../helpers/requestInterception")
+const {DATE, currMonth, today, currYear, nextMonth, 
+  yearForNextMonth, nextMonthName, currMonthName, sleep} = require("../helpers/dateHelper")
 let browser;
 
 beforeAll(async () => {
@@ -26,25 +28,6 @@ beforeAll(async () => {
 afterAll(() => {
   browser.close();
 });
-
-// Get current Month and Year
-var currDate = new Date()
-var nextMonth = currDate.getMonth() + 2;
-var year = currDate.getFullYear();
-var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-];
-
-if(nextMonth === 13) {
-    nextMonth = 1;
-    year += 1;
-}
-var nextMonthName = monthNames[nextMonth - 1]
-if(nextMonth <= 10) {
-    // pad Month with 0. (8 -> 08)
-    nextMonth = '0' + nextMonth
-}
-
 
 // ====================BLOCKING BOTS==============================
 test("United Flights", async () => { //working and tests passing
@@ -122,7 +105,7 @@ test("Amadues", async () => { // tests passing
   for (let i = 0; i < dateValue.length; i++) {
     await page.keyboard.press('Backspace');
   }
-  await page.keyboard.type(`01/${nextMonth}/${year}`);
+  await page.keyboard.type(`01/${nextMonth}/${yearForNextMonth}`);
   await page.keyboard.press('Enter');
   await page.click(submitButtonSelector)
   
@@ -144,7 +127,7 @@ test("Sky Scanner", async () => {
   let page = await browser.newPage();
   await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36');
 
-  await page.goto(data.url.split('|').join(`${year%100}${nextMonth}01`) , {waitUntil: 'load', timeout: 0});
+  await page.goto(data.url.split('|').join(`${yearForNextMonth%100}${nextMonth}01`) , {waitUntil: 'load', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: "50000"});
   const emission = await page.$eval("#carbon", el => el.innerText)
@@ -157,7 +140,7 @@ test("Sky Scanner", async () => {
 test("priceline Fligts", async () => { //working and tests passing
   const data = flightsData.priceline;
   let page = await browser.newPage();
-  await page.goto(data.url.split('|').join(`${year}${nextMonth}01`) , {waitUntil: 'domcontentloaded', timeout: 0});
+  await page.goto(data.url.split('|').join(`${yearForNextMonth}${nextMonth}01`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
@@ -174,7 +157,7 @@ test("Makemytrip Fligts", async () => {
   //extension not working (no flight codes)
 const data = flightsData.makemytrip;
 let page = await browser.newPage();
-await page.goto(data.url.split('|').join(`01/${nextMonth}/${year}`), {waitUntil: 'load', timeout: 0});
+await page.goto(data.url.split('|').join(`01/${nextMonth}/${yearForNextMonth}`), {waitUntil: 'load', timeout: 0});
 
 await page.waitFor('#carbon', {timeout: 50000});
 const emission = await page.$eval("#carbon", el => el.innerText)
