@@ -217,13 +217,13 @@ test("redspottedhanky", async () => {
 
   await page.click(searchButtonSelector)
 
-  await page.waitFor('#carbon', {timeout: 50000});
+  await page.waitFor('#carbon', {timeout: 150000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("redspottedhanky Rail Emission: ", emissionFloat) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 70000);
+}, 170000);
 
 test("raileurope", async () => {
   const data = trainsData.raileurope;
