@@ -74,7 +74,7 @@ test("Google Flights", async () => {
 test("Expedia Flights", async () => { // working and tests passing
   const data = flightsData.expedia;
   const page = await browser.newPage();
-  await page.goto(data.url.split('|').join(`${nextMonth}%2F01%2F${yearForNextMonth}`) , {waitUntil: 'domcontentloaded', timeout: 0});
+  await page.goto(data.url.split('|').join(`01%2F${nextMonth}%2F${yearForNextMonth}`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
