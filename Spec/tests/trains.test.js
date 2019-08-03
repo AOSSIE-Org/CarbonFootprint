@@ -54,10 +54,10 @@ test("Kayak Train", async () => { // working, tests passing
 
   try{
     await page.click(gdprCloseButton)
-  } catch {}
+  } catch(err) {}
   try{
     await page.click(gdprCloseButtonv2)
-  } catch {}
+  } catch(err) {}
   
   await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
