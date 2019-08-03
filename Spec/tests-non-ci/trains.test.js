@@ -342,3 +342,44 @@ test("wanderu", async () => {
     expect(emissionFloat).toBeGreaterThan(0);
     page.close();
   }, 70000);
+
+
+test("irctc", async () => {
+  //extension not working 
+  const data = trainsData.irctc;
+  const page = await browser.newPage();
+  // await blockImages(page);
+  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+
+  const fromInputSelector = 'input[placeholder="From*"]'
+  const toInputSelector = 'input[placeholder="To*"]'
+  const dateLabelSelector = 'input[placeholder="Journey Date(dd-mm-yyyy)*"]'
+  
+  const searchButtonSelector = 'button.search_btn'
+  
+  await page.click(fromInputSelector)
+  await page.keyboard.type('Mumbai')
+  await sleep(1000)
+  await page.keyboard.press('Enter')
+  
+  await page.click(toInputSelector)
+  await page.keyboard.type('BENGALURU')
+  await sleep(1000)
+  await page.keyboard.press('Enter')
+  
+  await page.click(dateLabelSelector)
+  const dateValue = await page.$eval(dateLabelSelector, el => el.value);
+  for (let i = 0; i < dateValue.length; i++) {
+      await page.keyboard.press('Backspace');
+  }
+  await page.keyboard.type(`01-${nextMonth}-${yearForNextMonth}`)
+  await sleep(1000)
+  await page.keyboard.press('Enter')
+  
+  await page.waitFor('#carbon', {timeout: 50000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("irctc Rail Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 70000);

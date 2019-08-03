@@ -34,6 +34,9 @@
     },
     "wanderu": {
       "url": "https://www.wanderu.com/en-us/depart/London%2C%20UK/Liverpool%2C%20UK/|/?cur=USD&dpid=ChIJt2BwZIrfekgRAW4XP28E3EI&opid=ChIJdd4hrwug2EcRmSrV3Vo6llI"
+    },
+    "irctc": {
+      "url": "https://www.irctc.co.in/nget/train-search"
     }
 }
   
