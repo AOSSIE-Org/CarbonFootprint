@@ -49,8 +49,8 @@ test("Kayak Train", async () => { // working, tests passing
   const data = trainsData.kayak;
   const page = await browser.newPage();
   await page.goto(data.url.split('|').join(`${yearForNextMonth}-${nextMonth}-01`) , {waitUntil: 'load', timeout: 0});
-  var gdprCloseButton = '.Common-Gdpr-CookieConsent button'
-  var gdprCloseButtonv2 = '.Common-Gdpr-CookieConsentV2 button'
+  const gdprCloseButton = '.Common-Gdpr-CookieConsent button'
+  const gdprCloseButtonv2 = '.Common-Gdpr-CookieConsentV2 button'
 
   try{
     await page.click(gdprCloseButton)

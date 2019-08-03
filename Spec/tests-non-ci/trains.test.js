@@ -44,14 +44,14 @@ test("Trenitalia", async () => {
 
   // -----------SELECTORS-------------
   
-  var departureLabel = 'input[name="departureStation"]'
-  var departure = 'ul.ui-autocomplete li'
+  const departureLabel = 'input[name="departureStation"]'
+  const departure = 'ul.ui-autocomplete li'
   
-  var arrivalLabel = 'input[name="arrivalStation"]'
-  var arrival = 'ul.ui-autocomplete#ui-id-2 li'
+  const arrivalLabel = 'input[name="arrivalStation"]'
+  const arrival = 'ul.ui-autocomplete#ui-id-2 li'
   
-  var dateLabel = 'input[name="departureDate"]'
-  var submitButton = 'button[title="Cerca"]'
+  const dateLabel = 'input[name="departureDate"]'
+  const submitButton = 'button[title="Cerca"]'
 
   // ---- HUMAN INTERACTION --------
   await page.waitForSelector(departureLabel, {timeout: 70000})

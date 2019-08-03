@@ -66,14 +66,14 @@ test("Greyhound Buses", async () => {
     await page.goto(data.url , {waitUntil: 'load', timeout: 0});
     
     // ---simulate human interaction---
-    var originLabelSelector = '#fromLocation'
-    var originSelector = 'li[aria-label="New York, NY : Bus stop located in New York"]'
+    const originLabelSelector = '#fromLocation'
+    const originSelector = 'li[aria-label="New York, NY : Bus stop located in New York"]'
   
-    var destinationLabelSelector = '#toLocation'
-    var destinationSelector = '#ui-id-2 li.ui-menu-item'
+    const destinationLabelSelector = '#toLocation'
+    const destinationSelector = '#ui-id-2 li.ui-menu-item'
     
-    var dateLabelSelector = '#datepicker-from'
-    var submitButtonSelector = '#fare-search-btn'
+    const dateLabelSelector = '#datepicker-from'
+    const submitButtonSelector = '#fare-search-btn'
     
     await page.waitForSelector(originLabelSelector)
     await page.click(originLabelSelector)
@@ -127,17 +127,17 @@ test("peterpanbus", async () => {
     await page.goto(data.url , {waitUntil: 'load', timeout: 0});
     
     // ---simulate human interaction---
-    var originLabelSelector = '#ddOrigin'
-    var originSelector = 'option[value="JOLI"]'
+    const originLabelSelector = '#ddOrigin'
+    const originSelector = 'option[value="JOLI"]'
   
-    var destinationLabelSelector = '#ddDestination'
-    var destinationSelector = 'option[value="EDDY"]'
+    const destinationLabelSelector = '#ddDestination'
+    const destinationSelector = 'option[value="EDDY"]'
 
-    var oneWaySelector = 'input[value="OneWay"]'
+    const oneWaySelector = 'input[value="OneWay"]'
     
-    var dateLabelSelector = 'input[name="DepartureDate"]'
-    var passSelector = '.lnks a + a'
-    var submitButtonSelector = '#btnContinue'
+    const dateLabelSelector = 'input[name="DepartureDate"]'
+    const passSelector = '.lnks a + a'
+    const submitButtonSelector = '#btnContinue'
     
     await page.waitForSelector(originLabelSelector)
     await page.click(originLabelSelector)
@@ -175,13 +175,13 @@ test("peterpanbus", async () => {
     await page.goto(data.url , {waitUntil: 'load', timeout: 0});
     
     // ---simulate human interaction---
-    var oneWaySelector = 'input[onclick="document.getElementById(\'hide_show_return\').style.display = \'none\'"]'
+    const oneWaySelector = 'input[onclick="document.getElementById(\'hide_show_return\').style.display = \'none\'"]'
 
-    var originLabelSelector = 'select[name="area_id"]'
+    const originLabelSelector = 'select[name="area_id"]'
   
-    var dateLabelSelector = '#datepicker'
-    var dateSelector = '.ui-datepicker-group.ui-datepicker-group-last tbody td[class=" "]'
-    var submitButtonSelector = '.home_reserv_box_button input[type="image"]'
+    const dateLabelSelector = '#datepicker'
+    const dateSelector = '.ui-datepicker-group.ui-datepicker-group-last tbody td[class=" "]'
+    const submitButtonSelector = '.home_reserv_box_button input[type="image"]'
     
     await page.waitForSelector(oneWaySelector)
     await page.click(oneWaySelector)

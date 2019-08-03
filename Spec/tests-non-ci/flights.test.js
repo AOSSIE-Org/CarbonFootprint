@@ -37,13 +37,13 @@ test("United Flights", async () => { //working and tests passing
   await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
   
   // ---simulate human interaction---
-  var onewaySelector = 'label[for="oneway"]'
-  var originSelector = 'input#bookFlightOriginInput'
-  var originLabelSelector = 'button[aria-label="Delhi, IN (DEL)"]'
-  var destinationSelector = 'input#bookFlightDestinationInput'
-  var destinationLabelSelector = 'button[aria-label="New York, NY, US (NYC - All Airports)"]'
-  var dateSelector = 'input#DepartDate'
-  var submitButtonSelector = 'form#bookFlightForm button[type="submit"]'
+  const onewaySelector = 'label[for="oneway"]'
+  const originSelector = 'input#bookFlightOriginInput'
+  const originLabelSelector = 'button[aria-label="Delhi, IN (DEL)"]'
+  const destinationSelector = 'input#bookFlightDestinationInput'
+  const destinationLabelSelector = 'button[aria-label="New York, NY, US (NYC - All Airports)"]'
+  const dateSelector = 'input#DepartDate'
+  const submitButtonSelector = 'form#bookFlightForm button[type="submit"]'
   
   await page.waitForSelector(onewaySelector)
   await page.click(onewaySelector)
@@ -83,12 +83,12 @@ test("Amadues", async () => { // tests passing
   await page.goto(data.url, {waitUntil: 'load', timeout: 0});
 
   // -------SELECTORS-------------
-  var onewaySelector = 'label[for="flightSearchForm.tripType.oneWay"]';
-  var originLabelSelector = 'input[id="reservationFlightSearchForm.originAirport"]';
-  var destinationLabelSelector = 'input[id="reservationFlightSearchForm.destinationAirport"]';
-  var dateLabelSelector = 'input[id="aa-leavingOn"]';
-  var submitButtonSelector = 'input[type="submit"]'
-  var continueButtonSelector = "a#CLARbtnSearch";
+  const onewaySelector = 'label[for="flightSearchForm.tripType.oneWay"]';
+  const originLabelSelector = 'input[id="reservationFlightSearchForm.originAirport"]';
+  const destinationLabelSelector = 'input[id="reservationFlightSearchForm.destinationAirport"]';
+  const dateLabelSelector = 'input[id="aa-leavingOn"]';
+  const submitButtonSelector = 'input[type="submit"]'
+  const continueButtonSelector = "a#CLARbtnSearch";
 
   // ----------HUMAN INTERACTION---------------
   await page.waitForSelector(onewaySelector)
@@ -183,19 +183,19 @@ test("Delta", async () => {
   await page.goto(data.url , {waitUntil: 'load', timeout: 0});
   
   // ---simulate human interaction---
-  var originLabelSelector = 'a#fromAirportName'
-  var originSelector = 'li.airport-list'
+  const originLabelSelector = 'a#fromAirportName'
+  const originSelector = 'li.airport-list'
 
-  var destinationLabelSelector = 'a#toAirportName'
-  var destinationSelector = 'li.airport-list'
+  const destinationLabelSelector = 'a#toAirportName'
+  const destinationSelector = 'li.airport-list'
   
-  var onewayLabelSelector = 'span[aria-owns="selectTripType-desc"]'
-  var onewaySelector = 'li[data="1"]'
+  const onewayLabelSelector = 'span[aria-owns="selectTripType-desc"]'
+  const onewaySelector = 'li[data="1"]'
   
-  var dateLabelSelector = 'input.calendarInput'
-  var dateSelector = '.dl-datepicker-group.dl-datepicker-group-1 tbody tr + tr td a'
+  const dateLabelSelector = 'input.calendarInput'
+  const dateSelector = '.dl-datepicker-group.dl-datepicker-group-1 tbody tr + tr td a'
   
-  var submitButtonSelector = 'button[type="submit"]'
+  const submitButtonSelector = 'button[type="submit"]'
   
   await page.waitForSelector(originLabelSelector)
   await page.click(originLabelSelector)
@@ -242,19 +242,19 @@ test("Delta", async () => {
 //   await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
   
 //   // ---simulate human interaction---
-//   var confirmCookieSelector = 'button.cm-selectSpecific'
+//   const confirmCookieSelector = 'button.cm-selectSpecific'
 
-//   var originLabelSelector = 'input[placeholder="From"]'
-//   var originSelector = 'div.airport-text-code'
+//   const originLabelSelector = 'input[placeholder="From"]'
+//   const originSelector = 'div.airport-text-code'
   
-//   var destinationLabelSelector = 'input[placeholder="To"]'
-//   var destinationSelector = 'div.airport-text-code'
+//   const destinationLabelSelector = 'input[placeholder="To"]'
+//   const destinationSelector = 'div.airport-text-code'
 //   // Chhatrapati Shivaji Maharaj International
 
-//   var onewaySelector = 'input[name="isOneWay"]'
-//   var dateLabelSelector = 'input[placeholder="Departure date"]'
-//   var dateSelector = 'div + div.CalendarMonthGrid_month__horizontal.CalendarMonthGrid_month__horizontal_1 + div tr td[role="button"]'
-//   var submitButtonSelector = 'button[type="submit"]'
+//   const onewaySelector = 'input[name="isOneWay"]'
+//   const dateLabelSelector = 'input[placeholder="Departure date"]'
+//   const dateSelector = 'div + div.CalendarMonthGrid_month__horizontal.CalendarMonthGrid_month__horizontal_1 + div tr td[role="button"]'
+//   const submitButtonSelector = 'button[type="submit"]'
   
 //   console.log("waiting for button")
 //   await page.waitForSelector(confirmCookieSelector)

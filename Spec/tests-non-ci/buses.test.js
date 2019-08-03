@@ -48,16 +48,16 @@ test("nationalexpress", async () => {
   });
   await page.goto(data.url, { waitUntil: "load", timeout: 0 });
 
-  var originLabelSelector = "#fromStation";
-  var originSelector = "ul.plannerForm--nearby-stops li";
+  const originLabelSelector = "#fromStation";
+  const originSelector = "ul.plannerForm--nearby-stops li";
 
-  var destinationLabelSelector = "#toStation";
-  var destinationSelector = "ul.js--plannerForm--station-to-search-results li";
+  const destinationLabelSelector = "#toStation";
+  const destinationSelector = "ul.js--plannerForm--station-to-search-results li";
 
-  var dateLabelSelector = "#departDate";
-  var dateSelector =
+  const dateLabelSelector = "#departDate";
+  const dateSelector =
     "table.ui-datepicker-calendar tbody tr +tr+tr+tr+tr td.undefined";
-  var submitButtonSelector = "#jpSubmit";
+  const submitButtonSelector = "#jpSubmit";
 
   await page.waitForSelector(originLabelSelector);
   await page.click(originLabelSelector);
@@ -94,8 +94,8 @@ test("boltbus", async () => {
     deviceScaleFactor: 1
   });
   await blockImages(page);
-  var query = `t=1&d=10&a=2055&tfa=1&ada=0&dd=${nextMonth}%2F01%2F${yearForNextMonth}&rd=`
-  var b64 = Buffer.from(query).toString('base64')
+  const query = `t=1&d=10&a=2055&tfa=1&ada=0&dd=${nextMonth}%2F01%2F${yearForNextMonth}&rd=`
+  const b64 = Buffer.from(query).toString('base64')
   await page.goto(data.url.split('|').join(b64), { waitUntil: "load", timeout: 0 });
 
   // ----perform test----
@@ -118,16 +118,16 @@ test("ourbus", async () => {
   await blockImages(page);
   await page.goto(data.url, { waitUntil: "load", timeout: 0 });
 
-  var originLabelSelector = "#source";
-  var originSelector = "#myDropdown";
+  const originLabelSelector = "#source";
+  const originSelector = "#myDropdown";
 
-  var destinationLabelSelector = "#destination";
-  var destinationSelector = "#_myDropdown";
+  const destinationLabelSelector = "#destination";
+  const destinationSelector = "#_myDropdown";
 
-  var dateLabelSelector = "#longdatepickerDepart"; //07/31/2019
-  var dateSelector =
+  const dateLabelSelector = "#longdatepickerDepart"; //07/31/2019
+  const dateSelector =
     'table.table-condensed tbody td[class="day"]:nth-last-of-type(1)';
-  var submitButtonSelector = ".redign_book_tckt_btn";
+  const submitButtonSelector = ".redign_book_tckt_btn";
 
   await page.waitForSelector(originLabelSelector);
   await page.click(originLabelSelector);
@@ -166,10 +166,10 @@ test("traveline", async () => {
   await blockImages(page);
   await page.goto(data.url, { waitUntil: "load", timeout: 0 });
 
-  var originLabelSelector = "#origin";
-  var originSelector = 'li[aria-label="Boston Bus Station. This is a locality. This is result 1 of 100."]'
-  var destSelector = 'li[aria-label="New York (N Yorks), North Yorkshire. This is a National Public Transport Gazetteer locality. This is result 1 of 100."]'
-  var submitButtonSelector = "#submitText";
+  const originLabelSelector = "#origin";
+  const originSelector = 'li[aria-label="Boston Bus Station. This is a locality. This is result 1 of 100."]'
+  const destSelector = 'li[aria-label="New York (N Yorks), North Yorkshire. This is a National Public Transport Gazetteer locality. This is result 1 of 100."]'
+  const submitButtonSelector = "#submitText";
 
   await page.waitForSelector(originLabelSelector);
   await page.click(originLabelSelector);

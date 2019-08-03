@@ -91,16 +91,16 @@ test("Spice Jet", async () => {
     await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
     
     // ---simulate human interaction---
-    var originLabelSelector = 'input#ControlGroupSearchView_AvailabilitySearchInputSearchVieworiginStation1_CTXT'
-    var originSelector = 'a[value="DEL"]'  // Delhi
+    const originLabelSelector = 'input#ControlGroupSearchView_AvailabilitySearchInputSearchVieworiginStation1_CTXT'
+    const originSelector = 'a[value="DEL"]'  // Delhi
     
-    var destinationLabelSelector = 'input#ControlGroupSearchView_AvailabilitySearchInputSearchViewdestinationStation1_CTXT'
-    var destinationSelector = '.destination div#glsControlGroupSearchView_AvailabilitySearchInputSearchViewdestinationStation1_CTNR a[value="BOM"]' // Bombay
+    const destinationLabelSelector = 'input#ControlGroupSearchView_AvailabilitySearchInputSearchViewdestinationStation1_CTXT'
+    const destinationSelector = '.destination div#glsControlGroupSearchView_AvailabilitySearchInputSearchViewdestinationStation1_CTNR a[value="BOM"]' // Bombay
     
-    var dateLabelSelector = 'input.custom_date_pic'
-    var dateSelector = 'div.ui-datepicker-group.ui-datepicker-group-last tbody tr td a' 
+    const dateLabelSelector = 'input.custom_date_pic'
+    const dateSelector = 'div.ui-datepicker-group.ui-datepicker-group-last tbody tr td a' 
     
-    var submitButtonSelector = 'input.bookbtn'
+    const submitButtonSelector = 'input.bookbtn'
     
     await page.waitForSelector(originLabelSelector, {timeout: 70000})
     await page.click(originLabelSelector)
