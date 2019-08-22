@@ -40,6 +40,9 @@
     },
     "goibibo": {
       "url": "https://www.goibibo.com/trains/results?src=NDLS&dst=KYN&date=|&class=All&srcname=New%20Delhi%20Railway%20Station&dstname=Kalyan%20Junction"
+    },
+    "redspottedhanky": {
+      "url": "http://www.redspottedhanky.com/"
     }
 }
   

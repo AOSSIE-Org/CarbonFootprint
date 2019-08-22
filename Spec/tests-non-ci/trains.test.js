@@ -399,3 +399,40 @@ test("goibibo", async () => {
     expect(emissionFloat).toBeGreaterThan(0);
     page.close();
 }, 70000);
+
+test("redspottedhanky", async () => {
+  const data = trainsData.redspottedhanky;
+  const page = await browser.newPage();
+  await blockImages(page);
+  await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
+
+  const fromInputSelector = '#lcOrigin'
+  const toInputSelector = '#lcDestination'
+  const oneWaySelector = '#rdoOneWay'
+  const dateLabelSelector = '#outwardDate'
+  
+  const searchButtonSelector = '#btnSearch'
+  
+  await page.click(fromInputSelector)
+  await page.keyboard.type('London')
+  await sleep(1000)
+  await page.keyboard.press('Enter')
+  
+  await page.click(toInputSelector)
+  await page.keyboard.type('Liverpool')
+  await sleep(1000)
+  await page.keyboard.press('Enter')
+  await page.click(oneWaySelector)
+  
+  await page.click(dateLabelSelector)
+  await page.click(oneWaySelector)
+
+  await page.click(searchButtonSelector)
+
+  await page.waitFor('#carbon', {timeout: 150000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("redspottedhanky Rail Emission: ", emissionFloat) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 170000);
