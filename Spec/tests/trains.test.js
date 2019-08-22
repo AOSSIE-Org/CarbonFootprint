@@ -109,13 +109,13 @@ test("bahn", async () => {
   await page.click(dateSelector)
   await page.click(searchButtonSelector)
 
-  await page.waitFor('#carbon', {timeout: 50000});
+  await page.waitFor('#carbon', {timeout: 70000});
   const emission = await page.$eval("#carbon", el => el.innerText)
   const emissionFloat = parseFloat(emission)
   console.log("bahn Rail Emission: ", emissionFloat) 
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
-}, 70000);
+}, 100000);
 
 test("italotreno", async () => {
   const data = trainsData.italotreno;

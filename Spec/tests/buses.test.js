@@ -47,13 +47,13 @@ test("flixbus", async () => {
     const page = await browser.newPage();
     await page.goto(data.url.split('|').join(`${today}.${currMonth}.${currYear}`) , {waitUntil: 'load', timeout: 0});
 
-    await page.waitFor('#carbon');
+    await page.waitFor('#carbon', {timeout: 70000});
     const emission = await page.$eval("#carbon", el => el.innerText)
     const emissionFloat = parseFloat(emission)
     console.log("Flixbus Emission: ", emission) 
     expect(emissionFloat).toBeGreaterThan(0);
     page.close();
-}, 50000);
+}, 100000);
 
 test("Greyhound Buses", async () => { 
     const data = busesData.greyhound;
