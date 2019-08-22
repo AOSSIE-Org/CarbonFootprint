@@ -95,6 +95,7 @@ test("bahn", async () => {
   const dateSelector = '#callink0_row_4 td.enabled'
   const searchButtonSelector = '#searchConnectionButton'
 
+  await page.waitFor(fromInputSelector)
   await page.click(fromInputSelector)
   await page.keyboard.type('berl')
   await page.waitFor(fromSelector)
@@ -102,6 +103,7 @@ test("bahn", async () => {
 
   await page.click(toInputSelector)
   await page.keyboard.type('frankf')
+  await sleep(3000)
   await page.waitFor(toSelector)
   await page.click(toSelector)
 
