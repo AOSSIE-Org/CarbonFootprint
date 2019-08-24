@@ -33,20 +33,12 @@ class easternBusManager {
         timeOutRequired = false;
         if (row.getElementsByClassName("carbon").length !== 0) return;
         var busDurationArray = this.validator
-          .querySelector('.duration.ride__duration.ride__duration-messages:nth-of-type(1)', row)
-          .textContent.trim()
-          .split(" ");
+          .querySelector('#results-group-container-direct div.col-xs-12.duration.ride__duration.ride__duration-messages', row)
+          .innerText.trim().split(':')
+          
           console.log("duration array", busDurationArray)
-        var busDuration;
-        if (busDurationArray.length === 2)
-          busDuration =
-            parseInt(busDurationArray[0], 10) +
-            parseInt(busDurationArray[1], 10) / 60;
-        else {
-          if (busDurationArray[0].indexOf("h") === -1)
-            busDuration = parseInt(busDurationArray[0], 10) / 60;
-          else busDuration = parseInt(busDurationArray[0], 10);
-        }
+        var busDuration =
+          parseInt(busDurationArray[0], 10) + parseInt(busDurationArray[1], 10)/60;
 
         console.log(busDuration)
         this.insertInDom(

@@ -48,7 +48,7 @@ test("Orbitz", async () => {
 test("Expedia Cruise", async () => {
   const data = cruisesData.expedia;
   const page = await browser.newPage();
-  await page.goto(data.url.split('|').join(`${currYear}-${currMonth}-${today}`) , {waitUntil: 'load', timeout: 0});
+  await page.goto(data.url.split('|').join(`${currYear}-${currMonth}-${today}`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon');
   const emission = await page.$eval("#carbon", el => el.innerText)
