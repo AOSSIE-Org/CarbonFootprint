@@ -4,10 +4,11 @@ module.exports = {
     "no-console": 0,
     "no-undef": 0,
     "no-unused-vars": 0,
-    "no-debugger": 0
+    "no-debugger": 0,
+    "no-empty": 0
   },
   parserOptions: {
-    ecmaVersion: 6
+    ecmaVersion: 8
   },
   env: {
     browser: true

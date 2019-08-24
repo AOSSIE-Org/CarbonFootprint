@@ -1,1 +1,15 @@
-{}
+{
+  "mapquest" : {
+    "url": "https://www.mapquest.com/directions/from/us/ne-282094976/to/us/nc/carolina-beach"
+  },
+  "waze" : {
+    "url": "https://www.waze.com/livemap"
+  },
+  "viamichelin" : {
+    "url": "https://www.viamichelin.com/web/Routes?departure=California%20ST%2C%20Mountain%20View%2C%20United%20States&arrival=N%20California%20AVE%2C%20Palo%20Alto%2C%20United%20States"
+  },  
+  "bing" : {
+    "url": "https://www.bing.com/maps",
+    "emission": "176 g CO2"
+  }
+}

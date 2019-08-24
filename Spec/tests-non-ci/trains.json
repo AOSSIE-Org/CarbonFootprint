@@ -1,6 +1,48 @@
 {
     "trenitalia": {
       "url": "https://www.trenitalia.com/"
+    },
+    "virgintrains": {
+      "url": "https://www.virgintrains.co.uk/"
+    },
+    "sj": {
+      "url": "https://www.sj.se/#/tidtabell/Berlin%2520Hbf/Stockholm%2520Central/enkel/avgang//avgang//VU--///0//"
+    },
+    "southernrailway": {
+      "url": "https://ticket.southernrailway.com/journeys-grid/WTN/LST/|T13:00//1/0/"
+    },
+    "transportnsw": {
+      "url": "https://transportnsw.info/regional-bookings/select-trip?from=SYD&to=DBO&dateTime=|T00:00:00&P_0_PT=A"
+    },
+    "thetrainline": {
+      "url": "https://www.thetrainline.com/book/results?origin=2144c4ddc11461cf9b03af198933e8df&destination=9db3c53335d19fbba8351a86de4fc776&outwardDate=|T17%3A15%3A00&outwardDateType=departAfter&journeySearchType=single&passengers%5B%5D=1989-08-01&selectedOutward=9CpsLkC1Q0g%3D%3AePinTm6hz3Y%3D"
+    },
+    "transwa": {
+      "url": "https://secure.transwa.wa.gov.au/bookingsexpress.aspx?departure=MDH&destination=BUY&departuredate=|&oneway=TRUE"
+    },
+    "lyria": {
+      "url": "https://www.tgv-lyria.com/redirect?orig=booking&url=https%3A%2F%2Fwww.oui.sncf%2Fvsc%2Ftrain-ticket%2F%3F%26VIA_CITY_CHECK%26DIRECT_TRAVEL_CHECK%3D1%26ORIGIN_CITY%3DParis%2520Gare%2520de%2520Lyon%26DESTINATION_CITY%3DBelfort%2520Montbeliard%2520TGV%26TRAVEL_TYPE%3DAS%26COMFORT_CLASS%3D2%26OUTWARD_DATE%3D|%26OUTWARD_TIME%3D6%26INWARD_DATE%3D%26INWARD_TIME%3D%26nbPassengersForTravel%3D1%26PASSENGER_1%3DADULT%26action%253AsearchTravelLaunchTrain%3DR%25C3%25A9servez"
+    },
+    "oui": {
+      "url": "https://en.oui.sncf/fr/"
+    },
+    "beurope": {
+      "url": "https://www.b-europe.com/EN"
+    },
+    "viarail": {
+      "url": "https://reservia.viarail.ca/"
+    },
+    "wanderu": {
+      "url": "https://www.wanderu.com/en-us/depart/London%2C%20UK/Liverpool%2C%20UK/|/?cur=USD&dpid=ChIJt2BwZIrfekgRAW4XP28E3EI&opid=ChIJdd4hrwug2EcRmSrV3Vo6llI"
+    },
+    "irctc": {
+      "url": "https://www.irctc.co.in/nget/train-search"
+    },
+    "goibibo": {
+      "url": "https://www.goibibo.com/trains/results?src=NDLS&dst=KYN&date=|&class=All&srcname=New%20Delhi%20Railway%20Station&dstname=Kalyan%20Junction"
+    },
+    "redspottedhanky": {
+      "url": "http://www.redspottedhanky.com/"
     }
 }
   

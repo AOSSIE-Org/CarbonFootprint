@@ -1,7 +1,9 @@
 const puppeteer = require("puppeteer");
 const CRX_PATH = "Build/Chrome";
 const flightsData = require("./flights.json")
-const {blockImages} = require('../helpers/requestInterception')
+const {blockImages} = require("../helpers/requestInterception")
+const {DATE, currMonth, today, currYear, nextMonth, 
+  yearForNextMonth, nextMonthName, currMonthName, sleep} = require("../helpers/dateHelper")
 let browser;
 
 beforeAll(async () => {
@@ -27,25 +29,6 @@ afterAll(() => {
   browser.close();
 });
 
-// Get current Month and Year
-var currDate = new Date()
-var nextMonth = currDate.getMonth() + 2;
-var year = currDate.getFullYear();
-var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-];
-
-if(nextMonth === 13) {
-    nextMonth = 1;
-    year += 1;
-}
-var nextMonthName = monthNames[nextMonth - 1]
-if(nextMonth <= 10) {
-    // pad Month with 0. (8 -> 08)
-    nextMonth = '0' + nextMonth
-}
-
-
 // ====================BLOCKING BOTS==============================
 test("United Flights", async () => { //working and tests passing
   const data = flightsData.united;
@@ -54,13 +37,13 @@ test("United Flights", async () => { //working and tests passing
   await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
   
   // ---simulate human interaction---
-  var onewaySelector = 'label[for="oneway"]'
-  var originSelector = 'input#bookFlightOriginInput'
-  var originLabelSelector = 'button[aria-label="Delhi, IN (DEL)"]'
-  var destinationSelector = 'input#bookFlightDestinationInput'
-  var destinationLabelSelector = 'button[aria-label="New York, NY, US (NYC - All Airports)"]'
-  var dateSelector = 'input#DepartDate'
-  var submitButtonSelector = 'form#bookFlightForm button[type="submit"]'
+  const onewaySelector = 'label[for="oneway"]'
+  const originSelector = 'input#bookFlightOriginInput'
+  const originLabelSelector = 'button[aria-label="Delhi, IN (DEL)"]'
+  const destinationSelector = 'input#bookFlightDestinationInput'
+  const destinationLabelSelector = 'button[aria-label="New York, NY, US (NYC - All Airports)"]'
+  const dateSelector = 'input#DepartDate'
+  const submitButtonSelector = 'form#bookFlightForm button[type="submit"]'
   
   await page.waitForSelector(onewaySelector)
   await page.click(onewaySelector)
@@ -100,12 +83,12 @@ test("Amadues", async () => { // tests passing
   await page.goto(data.url, {waitUntil: 'load', timeout: 0});
 
   // -------SELECTORS-------------
-  var onewaySelector = 'label[for="flightSearchForm.tripType.oneWay"]';
-  var originLabelSelector = 'input[id="reservationFlightSearchForm.originAirport"]';
-  var destinationLabelSelector = 'input[id="reservationFlightSearchForm.destinationAirport"]';
-  var dateLabelSelector = 'input[id="aa-leavingOn"]';
-  var submitButtonSelector = 'input[type="submit"]'
-  var continueButtonSelector = "a#CLARbtnSearch";
+  const onewaySelector = 'label[for="flightSearchForm.tripType.oneWay"]';
+  const originLabelSelector = 'input[id="reservationFlightSearchForm.originAirport"]';
+  const destinationLabelSelector = 'input[id="reservationFlightSearchForm.destinationAirport"]';
+  const dateLabelSelector = 'input[id="aa-leavingOn"]';
+  const submitButtonSelector = 'input[type="submit"]'
+  const continueButtonSelector = "a#CLARbtnSearch";
 
   // ----------HUMAN INTERACTION---------------
   await page.waitForSelector(onewaySelector)
@@ -122,7 +105,7 @@ test("Amadues", async () => { // tests passing
   for (let i = 0; i < dateValue.length; i++) {
     await page.keyboard.press('Backspace');
   }
-  await page.keyboard.type(`01/${nextMonth}/${year}`);
+  await page.keyboard.type(`01/${nextMonth}/${yearForNextMonth}`);
   await page.keyboard.press('Enter');
   await page.click(submitButtonSelector)
   
@@ -144,7 +127,7 @@ test("Sky Scanner", async () => {
   let page = await browser.newPage();
   await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36');
 
-  await page.goto(data.url.split('|').join(`${year%100}${nextMonth}01`) , {waitUntil: 'load', timeout: 0});
+  await page.goto(data.url.split('|').join(`${yearForNextMonth%100}${nextMonth}01`) , {waitUntil: 'load', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: "50000"});
   const emission = await page.$eval("#carbon", el => el.innerText)
@@ -157,7 +140,7 @@ test("Sky Scanner", async () => {
 test("priceline Fligts", async () => { //working and tests passing
   const data = flightsData.priceline;
   let page = await browser.newPage();
-  await page.goto(data.url.split('|').join(`${year}${nextMonth}01`) , {waitUntil: 'domcontentloaded', timeout: 0});
+  await page.goto(data.url.split('|').join(`${yearForNextMonth}${nextMonth}01`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
   const emission = await page.$eval("#carbon", el => el.innerText)
@@ -174,7 +157,7 @@ test("Makemytrip Fligts", async () => {
   //extension not working (no flight codes)
 const data = flightsData.makemytrip;
 let page = await browser.newPage();
-await page.goto(data.url.split('|').join(`01/${nextMonth}/${year}`), {waitUntil: 'load', timeout: 0});
+await page.goto(data.url.split('|').join(`01/${nextMonth}/${yearForNextMonth}`), {waitUntil: 'load', timeout: 0});
 
 await page.waitFor('#carbon', {timeout: 50000});
 const emission = await page.$eval("#carbon", el => el.innerText)
@@ -200,19 +183,19 @@ test("Delta", async () => {
   await page.goto(data.url , {waitUntil: 'load', timeout: 0});
   
   // ---simulate human interaction---
-  var originLabelSelector = 'a#fromAirportName'
-  var originSelector = 'li.airport-list'
+  const originLabelSelector = 'a#fromAirportName'
+  const originSelector = 'li.airport-list'
 
-  var destinationLabelSelector = 'a#toAirportName'
-  var destinationSelector = 'li.airport-list'
+  const destinationLabelSelector = 'a#toAirportName'
+  const destinationSelector = 'li.airport-list'
   
-  var onewayLabelSelector = 'span[aria-owns="selectTripType-desc"]'
-  var onewaySelector = 'li[data="1"]'
+  const onewayLabelSelector = 'span[aria-owns="selectTripType-desc"]'
+  const onewaySelector = 'li[data="1"]'
   
-  var dateLabelSelector = 'input.calendarInput'
-  var dateSelector = '.dl-datepicker-group.dl-datepicker-group-1 tbody tr + tr td a'
+  const dateLabelSelector = 'input.calendarInput'
+  const dateSelector = '.dl-datepicker-group.dl-datepicker-group-1 tbody tr + tr td a'
   
-  var submitButtonSelector = 'button[type="submit"]'
+  const submitButtonSelector = 'button[type="submit"]'
   
   await page.waitForSelector(originLabelSelector)
   await page.click(originLabelSelector)
@@ -259,19 +242,19 @@ test("Delta", async () => {
 //   await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
   
 //   // ---simulate human interaction---
-//   var confirmCookieSelector = 'button.cm-selectSpecific'
+//   const confirmCookieSelector = 'button.cm-selectSpecific'
 
-//   var originLabelSelector = 'input[placeholder="From"]'
-//   var originSelector = 'div.airport-text-code'
+//   const originLabelSelector = 'input[placeholder="From"]'
+//   const originSelector = 'div.airport-text-code'
   
-//   var destinationLabelSelector = 'input[placeholder="To"]'
-//   var destinationSelector = 'div.airport-text-code'
+//   const destinationLabelSelector = 'input[placeholder="To"]'
+//   const destinationSelector = 'div.airport-text-code'
 //   // Chhatrapati Shivaji Maharaj International
 
-//   var onewaySelector = 'input[name="isOneWay"]'
-//   var dateLabelSelector = 'input[placeholder="Departure date"]'
-//   var dateSelector = 'div + div.CalendarMonthGrid_month__horizontal.CalendarMonthGrid_month__horizontal_1 + div tr td[role="button"]'
-//   var submitButtonSelector = 'button[type="submit"]'
+//   const onewaySelector = 'input[name="isOneWay"]'
+//   const dateLabelSelector = 'input[placeholder="Departure date"]'
+//   const dateSelector = 'div + div.CalendarMonthGrid_month__horizontal.CalendarMonthGrid_month__horizontal_1 + div tr td[role="button"]'
+//   const submitButtonSelector = 'button[type="submit"]'
   
 //   console.log("waiting for button")
 //   await page.waitForSelector(confirmCookieSelector)

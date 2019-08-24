@@ -7,6 +7,21 @@
     },
     "nationalrail": {
       "url": "http://ojp.nationalrail.co.uk/service/timesandfares/London/Liverpool/|/2045/dep"
+    },
+    "bahn": {
+      "url": "https://reiseauskunft.bahn.de/bin/query.exe/dn?ld=43240&country=DEU&protocol=https:&seqnr=1&ident=8e.020276240.1564644009&rt=1&OK#focus"
+    },
+    "italotreno": {
+      "url": "https://biglietti.italotreno.it/Booking_Acquisto_Ricerca.aspx"
+    },
+    "amtrak": {
+      "url": "https://tickets.amtrak.com/itd/amtrak"
+    },
+    "raileurope": {
+      "url": "https://www.raileurope.com/"
+    },
+    "trainose": {
+      "url": "https://tickets.trainose.gr/dromologia/"
     }
   }
   

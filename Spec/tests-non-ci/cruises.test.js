@@ -35,7 +35,7 @@ afterAll(() => {
 test("cruisewatch Cruise", async () => {
   // Message port closed before it was recieved on puppeteer
   const data = cruisesData.cruisewatch;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url , {waitUntil: 'load', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
@@ -46,12 +46,39 @@ test("cruisewatch Cruise", async () => {
   page.close();
 }, 50000);
 
+test("travelocity Cruise", async () => {
+  // Message port closed before it was recieved on puppeteer
+  const data = cruisesData.travelocity;
+  const page = await browser.newPage();
+  await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
+
+  await page.waitFor('#carbon', {timeout: 50000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("travelocity Emission: ", emission) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 50000);
+
+test("tirun Cruise", async () => {
+  //Website Server Error
+  const data = cruisesData.tirun;
+  const page = await browser.newPage();
+  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+
+  await page.waitFor('#carbon', {timeout: 50000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("tirun Emission: ", emission) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 70000);
 
 // -------------------BLOCKING BOTS-------------------------
 test("kayak Cruise", async () => {
   // website is blocking bots
   const data = cruisesData.kayak;
-  let page = await browser.newPage();
+  const page = await browser.newPage();
   await page.goto(data.url.split("|").join(`${currYear}-${currMonth}`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
   await page.waitFor('#carbon', {timeout: 50000});
