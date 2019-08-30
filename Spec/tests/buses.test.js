@@ -32,7 +32,7 @@ afterAll(() => {
 test("Megabus", async () => {
     const data = busesData.megabus;
     const page = await browser.newPage();
-    await page.goto(data.url.split('|').join(`${currYear}-${currMonth}-${today}`) , {waitUntil: 'load', timeout: 0});
+    await page.goto(data.url.split('|').join(`${currYear}-${currMonth}-${today}`) , {waitUntil: 'domcontentloaded', timeout: 0});
 
     await page.waitFor('#carbon', {timeout: 50000});
     const emission = await page.$eval("#carbon", el => el.innerText)
