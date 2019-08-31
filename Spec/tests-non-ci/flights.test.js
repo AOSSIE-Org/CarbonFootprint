@@ -288,3 +288,49 @@ test("Delta", async () => {
 //   expect(emissionFloat).toBeGreaterThan(0);
 //   page.close();
 // }, 100000);
+
+
+
+
+
+
+
+//------------------TESTS FAILING ON CI (reason no known)------------
+test("Spice Jet", async () => {
+  const data = flightsData.spicejet;
+  const page = await browser.newPage();
+  await blockImages(page)
+  await page.goto(data.url , {waitUntil: 'domcontentloaded', timeout: 0});
+  
+  // ---simulate human interaction---
+  const originLabelSelector = 'input#ControlGroupSearchView_AvailabilitySearchInputSearchVieworiginStation1_CTXT'
+  const originSelector = 'a[value="DEL"]'  // Delhi
+  
+  const destinationLabelSelector = 'input#ControlGroupSearchView_AvailabilitySearchInputSearchViewdestinationStation1_CTXT'
+  const destinationSelector = '.destination div#glsControlGroupSearchView_AvailabilitySearchInputSearchViewdestinationStation1_CTNR a[value="BOM"]' // Bombay
+  
+  const dateLabelSelector = 'input.custom_date_pic'
+  const dateSelector = 'div.ui-datepicker-group.ui-datepicker-group-last tbody tr td a' 
+  
+  const submitButtonSelector = 'input.bookbtn'
+  
+  await page.waitForSelector(originLabelSelector, {timeout: 70000})
+  await page.click(originLabelSelector)
+  await page.click(originSelector)
+
+  await page.click(destinationLabelSelector)
+  await page.click(destinationSelector)
+
+  await page.click(dateLabelSelector)
+  await page.click(dateSelector)
+  
+  await page.click(submitButtonSelector)
+  
+  // ----perform test----
+  await page.waitFor('#carbon', {timeout: 50000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("Spice Jet Emission: ", emission) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 100000);

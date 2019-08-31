@@ -84,19 +84,7 @@ test("Tours4Fun Cruise", async () => {
   page.close();
 }, 50000);
 
-test("Celebritycruises Cruise", async () => {
-  const data = cruisesData.celebritycruises;
-  const page = await browser.newPage();
-  await blockImages(page)
-  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
 
-  await page.waitFor('#carbon', {timeout: 70000});
-  const emission = await page.$eval("#carbon", el => el.innerText)
-  const emissionFloat = parseFloat(emission)
-  console.log("Celebritycruises Emission: ", emission) 
-  expect(emissionFloat).toBeGreaterThan(0);
-  page.close();
-}, 100000);
 
 test("silversea Cruise", async () => {
   const data = cruisesData.silversea;

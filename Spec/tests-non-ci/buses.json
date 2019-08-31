@@ -1,14 +1,26 @@
 {
-    "nationalexpress": {
-        "url": "https://www.nationalexpress.com/en"
-    },
-    "boltbus": {
-        "url": "https://www.boltbus.com/bus-ticket-search/?query=|&consumer=null"
-    },    
-    "ourbus": {
-        "url": "https://www.ourbus.com/"
-    },
-    "traveline": {
-        "url": "https://www.traveline.info/"
-    }    
+  "nationalexpress": {
+    "url": "https://www.nationalexpress.com/en"
+  },
+  "boltbus": {
+    "url": "https://www.boltbus.com/bus-ticket-search/?query=|&consumer=null"
+  },
+  "ourbus": {
+    "url": "https://www.ourbus.com/"
+  },
+  "traveline": {
+    "url": "https://www.traveline.info/"
+  },
+  "megabus": {
+    "url": "https://us.megabus.com/journey-planner/journeys?days=1&departureDate=|&destinationId=123&originId=89&totalPassengers=1"
+  },
+  "flixbus": {
+    "url": "https://shop.flixbus.com/search?departureCity=27821&arrivalCity=27841&route=New+York%2C+NY-Washington%2C+D.C.&rideDate=|&adult=1&_locale=en_US"
+  },
+  "murrays": {
+    "url": "https://online.murrays.com.au/MurraysCoaches/Booking/Dates?RouteCode=CSE"
+  },
+  "washny": {
+    "url": "https://www.washny.com/reservations-1.php"
+  }
 }
