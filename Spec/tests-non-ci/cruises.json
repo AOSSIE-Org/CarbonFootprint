@@ -10,5 +10,8 @@
 	},
 	"travelocity": {
 		"url": "https://www.travelocity.com/Cruise-Search?destination=caribbean&_xpid=11905%7C1&adultCount=2"
+    },
+    "celebritycruises": {
+		"url": "https://www.celebritycruises.com/itinerary-search"
 	}
 }

@@ -88,3 +88,19 @@ test("kayak Cruise", async () => {
   expect(emissionFloat).toBeGreaterThan(0);
   page.close();
 }, 50000);
+
+
+// -------------------NOT WORKING ON CI (reason not known)------------
+test("Celebritycruises Cruise", async () => {
+  const data = cruisesData.celebritycruises;
+  const page = await browser.newPage();
+  await blockImages(page)
+  await page.goto(data.url , {waitUntil: 'load', timeout: 0});
+
+  await page.waitFor('#carbon', {timeout: 70000});
+  const emission = await page.$eval("#carbon", el => el.innerText)
+  const emissionFloat = parseFloat(emission)
+  console.log("Celebritycruises Emission: ", emission) 
+  expect(emissionFloat).toBeGreaterThan(0);
+  page.close();
+}, 100000);

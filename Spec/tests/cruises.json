@@ -2,9 +2,6 @@
 	"carnival": {
 		"url": "https://www.carnival.com/#?layout=grid&numAdults=2&pageNumber=1&pageSize=8&showBest=true&sort=fromprice&useSuggestions=true"
 	},
-	"celebritycruises": {
-		"url": "https://www.celebritycruises.com/itinerary-search"
-	},
 	"cruisedirect": {
 		"url": "https://www.cruisedirect.com/search-results"
 	},
