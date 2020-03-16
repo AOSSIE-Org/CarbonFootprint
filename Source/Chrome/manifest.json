@@ -2572,8 +2572,6 @@
     "storage",
     "alarms",
     "notifications",
-    "debugger",
-    "idle",
     "geolocation",
     "https://maps.googleapis.com/*",
     "*://www.globalpetrolprices.com/*"
