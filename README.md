@@ -25,9 +25,9 @@ Building and Using Beta Versions
 
 * run `npm install`
 
-* run `num run group` or `num run groupFirefox` or `num run groupChrome` or `num run groupSafari` or `num run groupWebext`
+* run `npm run group` or `npm run groupFirefox` or `npm run groupChrome` or `npm run groupSafari` or `npm run groupWebext`
 
-* run `num run group:debug` or `num run groupFirefox:debug` or `num run groupChrome:debug` or `num run groupSafari:debug` or `num run groupWebext:debug` to keep all debug statements and comments.
+* run `npm run group:debug` or `npm run groupFirefox:debug` or `npm run groupChrome:debug` or `npm run groupSafari:debug` or `npm run groupWebext:debug` to keep all debug statements and comments.
 
 * for chrome, load the unpacked extension from the Build/Chrome folder
 
